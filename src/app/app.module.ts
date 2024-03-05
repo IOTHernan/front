@@ -1,6 +1,9 @@
+// npm
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+// my
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -16,13 +19,19 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { MiDialogComponent } from './components/mi-dialog-component/mi-dialog-component';
 
+// fire
+import { environment } from './../environments/environment';
 import { MatDialogModule } from '@angular/material/dialog';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AngularFireModule } from '@angular/fire/compat';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+// material
 const materialModules = [
 	MatDialogModule
 ];
+
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -42,11 +51,15 @@ const materialModules = [
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
+		ReactiveFormsModule,
+		HttpClientModule,
+		FormsModule,
+		AngularFireModule.initializeApp(environment.firebaseConfig),
 		materialModules
 	],
 	providers: [
-    provideAnimationsAsync()
-  ],
+		provideAnimationsAsync()
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

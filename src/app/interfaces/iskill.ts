@@ -1,2 +1,4 @@
-export interface Iskill {
+export interface ISkill {
+    tecnologia: String;
+  imagen: String;
 }
