@@ -1,0 +1,91 @@
+.mat-card {
+    border-radius: 32px;
+    border: 3px solid blue;
+}
+.mat-card#first-card {
+    padding: 0;
+}
+
+div#profile-background {
+    display: flex;
+}
+
+div#profile-background img {
+    width: 100%;
+    border-radius: 32px 32px;
+}
+
+div#info-actions {
+    display: flex;
+}
+
+div#info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div#info-img {
+    width: 30%;
+}
+
+div#info-data {
+    display: flex;
+}
+
+div#info-company {
+    font-size: medium;
+}
+
+div#info-contact {
+    font-size: large;
+}
+
+.profile-image {
+    background-color: black;
+    border-radius: 50%;
+    width: 152px;
+    height: 152px;
+    margin-top: -110px;
+    z-index: 3;
+}
+
+.btn-edit {
+    width: 32px;
+}
+
+.btn-right {
+    width: 32px;
+}
+
+@media (max-width: 320px) {
+    div#info-actions button {
+        bottom: auto;
+    }
+    .profile-image {
+        border-radius: 50%;
+        width: 52px;
+        height: 52px;
+        margin-top: -110px;
+        z-index: 3;
+    }
+    .img-info {
+        width: 35%;
+        height: 35%;
+    }
+    }
+@media (max-width: 768px) {
+
+    .profile-image {
+        border-radius: 50%;
+        width: 52px;
+        height: 52px;
+        margin-top: -110px;
+        z-index: 3;
+    }
+    .img-info {
+        width: 35%;
+        height: 35%;
+    }
+    
+
+}

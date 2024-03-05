@@ -1,0 +1,34 @@
+.divgrid {
+	border: 2px solid blue;
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+	/* grid-template-rows: 1fr 1fr; */
+	/*gap: 10px;  Espacio entre las celdas, ajusta según sea necesario */
+
+}
+
+.gridSocial {
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25% 25%;
+}
+
+.columna {
+	border: 1px solid #ddd;
+	/* Borde opcional para visualizar las columnas */
+	/* padding: 10px; */
+	/* Espaciado interno del contenido, ajusta según sea necesario */
+}
+
+.buttonx {
+	font-size: x-large;
+}
+
+.buttonx::after {
+	border-color: blue;
+}
+
+.imgCover {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* La imagen se ajustará para cubrir todo el espacio del div */
+}

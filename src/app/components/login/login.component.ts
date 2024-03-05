@@ -5,48 +5,48 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+	selector: 'app-login',
+	templateUrl: './login.component.html',
+	styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
+	form: FormGroup;
 
 
-  constructor( private formBuilder: FormBuilder, private autenticacionService: AutenticacionService, private ruta:Router) {
-    this.form=this.formBuilder.group({
-      //email: ['', [Validators.required, Validators.email]],
-      nombreUsuario: ['', [Validators.required, Validators.minLength(2)]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+	constructor(private formBuilder: FormBuilder, private autenticacionService: AutenticacionService, private ruta: Router) {
+		this.form = this.formBuilder.group({
+			//email: ['', [Validators.required, Validators.email]],
+			nombreUsuario: ['', [Validators.required, Validators.minLength(2)]],
+			password: ['', [Validators.required, Validators.minLength(8)]]
 
-    })
-  }
+		})
+	}
 
-  ngOnInit() {
-      console.log('login:component');
-      
-  }
+	ngOnInit() {
+		console.log('[CHE:login:component]');
 
-  //get Email(){
-  //  return this.form.get('email');
-  //}
+	}
 
-  get nombreUsuario (){
-    return this.form.get('nombreUsuario')
-  }
+	//get Email(){
+	//  return this.form.get('email');
+	//}
 
-  get Password(){
-    return this.form.get('password');
-  }
+	get nombreUsuario() {
+		return this.form.get('nombreUsuario')
+	}
 
-  onLogin(event:Event ){
-    event.preventDefault;
-    this.autenticacionService.login(this.form.value).subscribe(data => {
-    console.log("Archivo Login Component , seteo del token: ", data.token);
-    sessionStorage.setItem('token', data.token);
-    this.autenticacionService.setToken(data.token);
-    this.ruta.navigate(['/portfolio']);
-    });
-  }
+	get Password() {
+		return this.form.get('password');
+	}
+
+	onLogin(event: Event) {
+		event.preventDefault;
+		this.autenticacionService.login(this.form.value).subscribe(data => {
+			console.log("Archivo Login Component , seteo del token: ", data.token);
+			sessionStorage.setItem('token', data.token);
+			this.autenticacionService.setToken(data.token);
+			this.ruta.navigate(['/portfolio']);
+		});
+	}
 
 }

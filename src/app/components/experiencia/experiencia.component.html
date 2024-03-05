@@ -1,1 +1,164 @@
-<p>experiencia works!</p>
+<div id="experienciaFirstCard">
+	<div class="cHeader">
+		<div class="cTitle column justify-content-start">
+			<h1>Experiencia</h1>
+		</div>
+		<!-- new record -->
+		<div *ngIf="modoNuevoRegistro===false">
+			<div class="cAdd"><!-- class="column justify-content-end" -->
+				<button class="btn-agregar" (click)="onCrear($event)">
+					<span><img src="../../../assets/media/logoAdd.png" alt="Agregar experiencia..."
+							class="logos mt-1 bg-blue rounded-circle">AGREGAR EXPERIENCIA</span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<!-- NEW FORM -->
+	<div *ngIf="modoNuevoRegistro===true" class="d-flex justify-content-center">
+		<form [formGroup]="form" class="mb-4">
+			<div class="text-center border mt-5 p-3 shadow rounded">
+				<div *ngIf="modoNuevoRegistro===true">
+					<div class="d-flex justify-content-end">
+						<div class="p-1">
+							<button class="btn p-0 m-1" (click)="onCancelNuevoRegistro()">
+								<span><img src="./../../../assets/media/logoCancel.png" alt="Editar"
+										class="logos"></span>
+							</button>
+							<button class="btn p-0 m-1" (click)="onSaveNewNuevoRegistro($event)">
+								<span><img src="./../../../assets/media/logoSave.png" alt="Editar" class="logos"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<h3 class="text-center m-3">
+					<img src="./../../../assets/media/logoEdu.png" class="logos" alt="">
+					<span>Nueva Experiencia</span>
+				</h3>
+				<div class="">
+					<div class="text-start">
+						<label for="ubicacion" class="form-label fw-bold">Ubicación:</label>
+					</div>
+					<input class="p-2 mb-2 border rounded border shadow" type="text" id="ubicacion" placeholder="Ubicación" formControlName="ubicacion" required autofocus>
+				</div>
+				<div class="">
+					<div class="text-start">
+						<label for="puesto" class="form-label">puesto:</label>
+					</div>
+					<input type="text" id="puesto" placeholder="puesto" formControlName="puesto" required>
+				</div>
+				<div class="">
+					<div class="text-start">
+						<label for="periodo" class="form-label">periodo:</label>
+					</div>
+					<input type="text" id="periodo" placeholder="periodo" formControlName="periodo" required>
+				</div>
+				<div class="">
+					<div class="text-start">
+						<label for="empresa" class="form-label">empresa:</label>
+					</div>
+					<input type="text" id="empresa" placeholder="empresa" formControlName="empresa" required>
+				</div>
+				<div class="">
+					<div class="text-start">
+						<label for="actividades" class="form-label">actividades:</label>
+					</div>
+					<input type="text" id="actividades" placeholder="actividades" formControlName="actividades" required>
+				</div>
+				<div class="">
+					<div class="text-start">
+						<label for="imagen" class="form-label">URL Imagen:</label>
+					</div>
+					<input type="text" id="imagen" placeholder="imagen" formControlName="imagen">
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- MODO EDIT -->
+	<div *ngIf="modoEdicion===true" class="d-flex">
+		<form [formGroup]="form">
+			<div class="text-center border mt-5 p-3 shadow rounded">
+				<div *ngIf="modoEdicion===true">
+					<div class="d-flex justify-content-end">
+						<div class="p-1">
+							<button class="btn p-0 m-1" (click)="onCancelNuevoRegistro()">
+								<span><img src="./../../../assets/media/logoCancel.png" alt="Editar"
+										class="logos"></span>
+							</button>
+							<button class="btn p-0 m-1" (click)="onSaveNewNuevoRegistro($event)">
+								<span><img src="./../../../assets/media/logoSave.png" alt="Editar" class="logos"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<h3 class="text-center m-3">
+					<img src="./../../../assets/media/logoEdu.png" class="logos" alt="">
+					<span>Nueva Experiencia</span>
+				</h3>
+				<div class="">
+					<div class="text-start">
+						<label for="experiencia" class="form-label">Experiencia:</label>
+					</div>
+					<input type="text" id="experiencia" placeholder="Experiencia" formControlName="experiencia" required autofocus>
+				</div>
+				<div class="">
+					<div class="text-start">
+						<label for="puesto" class="form-label">puesto:</label>
+					</div>
+					<input type="text" id="puesto" placeholder="puesto" formControlName="puesto" required>
+				</div>
+				<div class="">
+					<div class="text-start">
+						<label for="periodo" class="form-label">periodo:</label>
+					</div>
+					<input type="text" id="periodo" placeholder="periodo" formControlName="periodo" required>
+				</div>
+				<div class="">
+					<div class="text-start">
+						<label for="empresa" class="form-label">empresa:</label>
+					</div>
+					<input type="text" id="empresa" placeholder="empresa" formControlName="empresa" required>
+				</div>
+				<div class="">
+					<div class="text-start">
+						<label for="actividades" class="form-label">actividades:</label>
+					</div>
+					<input type="text" id="actividades" placeholder="actividades" formControlName="actividades" required>
+				</div>
+				<div class="">
+					<div class="text-start">
+						<label for="imagen" class="form-label">URL Imagen:</label>
+					</div>
+					<input type="text" id="imagen" placeholder="imagen" formControlName="imagen">
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- lista -->
+	<div *ngFor="let miP of miPortfolio ; let i = index " [attr.data-index]="i" click="selectItem(miP);">
+		<div class="cCard row box1">
+			<div class="d-flex justify-content-end border">
+				<div class="p-1">
+					<button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
+							Editar experiencia..."><span><img class="logos" src="../../../assets/media/logoPencil.png"></span>
+					</button>
+				</div>
+				<div class="p-1">
+					<button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
+							Eliminar experiencia..."><span><img class="logos" src="../../../assets/media/logoDelete.png"></span></button>
+				</div>
+			</div>
+			<div class="column" style="width: 25%; margin-bottom: 10px;">
+				<img [src]="miP.imagen" alt="" id="imgExperiencia">
+			</div>
+			<div class="column" style="width: 75%;">
+				<p><b>Ubicacion:</b> {{miP.ubicacion}}</p>
+				<p><b>Puesto:</b> {{miP.puesto}}</p>
+				<p><b>Periodo:</b>{{miP.periodo}}</p>
+				<p><b>Empresa:</b>{{miP.empresa}}</p>
+				<p><b>Actividades: </b>{{miP.actividades}}</p>
+			</div>
+		</div>
+	</div>
+</div>

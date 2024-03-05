@@ -23,6 +23,10 @@ export class PortfolioService {
 
   constructor(private http:HttpClient) { }
 
+  obtenerDatos():Observable<any> {
+    return this.http.get("./../../assets/data/data.json");
+  }
+
   // *********************************************************************
   // **************   |   METHOD'S GET ALL    | **************************
   // *********************************************************************
@@ -148,5 +152,7 @@ export class PortfolioService {
     return this.http.delete<ISkill>( this.url + 'skills/' + id ,  { headers: this.headers} );
   }
 
-
+  holaChe(): Observable<any> {
+    return this.http.get('localhost:8080/che/hola');
+  }
 }

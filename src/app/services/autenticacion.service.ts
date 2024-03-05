@@ -40,5 +40,8 @@ export class AutenticacionService {
 		sessionStorage.removeItem('token');
 		console.log('Auth Service Token Removido ln41', sessionStorage.getItem('token'));
 	}
+	cerrarSesion(): void {
+		window.sessionStorage.clear();
 
+	}
 }
