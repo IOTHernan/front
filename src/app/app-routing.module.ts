@@ -5,7 +5,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-	{ path: "", component: LoginComponent },
+	{ path: "", redirectTo: 'login', pathMatch: 'full' },
 	{ path: "login", component: LoginComponent },
 	{ path: "portfolio", component: PortfolioComponent },
 	{ path: "**", component: PageNotFoundComponent }

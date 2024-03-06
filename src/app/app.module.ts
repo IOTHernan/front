@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularFireModule } from '@angular/fire/compat';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
 
 // material
 const materialModules = [
@@ -46,7 +47,8 @@ const materialModules = [
 		PageNotFoundComponent,
 		PortfolioComponent,
 		BannerComponent,
-		MiDialogComponent
+		MiDialogComponent,
+  AudioPlayerComponent
 	],
 	imports: [
 		BrowserModule,
