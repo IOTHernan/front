@@ -19,7 +19,7 @@ export class AcercadeComponent implements OnInit {
 		this.portfolioService.obtenerDatosAcercaDe().subscribe(data => {
 			console.log(data);
 			
-			this.miPortfolio=data.aboutme;
+			this.miPortfolio=data;
 			console.log(this.miPortfolio);
 			
 		  });

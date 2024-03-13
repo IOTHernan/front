@@ -2,3 +2,698 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+	background-color: grey;
+}
+body,
+html {
+	height: 100%;
+	margin: 0;
+}
+
+/* * {
+	box-sizing: border-box;
+	--bg-color-card:gray;
+} */
+/* Estilos básicos para el tooltip */
+.circle-progress {
+	/* Estilo específico para dispositivos móviles */
+	/* Reduzco el radio para adaptarlo a pantallas pequeñas */
+	border-radius: 10vw;
+	/* Ejemplo: ajusta según tus necesidades */
+}
+
+/* cHeader */
+.cCard {
+	width: 90vw;
+	margin: 5px;
+}
+
+.cHeader {
+	display: flex;
+	width: 85vw;
+	margin: 15px;
+	position: relative;
+	left: 20px;
+	flex-direction: row;
+	/* border: 2px solid green; */
+}
+
+.cTitle {
+	display: flex;
+	height: auto;
+	margin: 5px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-weight: bolder;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	width: auto;
+}
+
+.cAdd {
+	display: flex;
+	width: auto;
+	flex-direction: row;
+	align-content: flex-end;
+	left: calc(62% - 0px);
+	position: relative;
+	justify-content: flex-end;
+	align-items: flex-end;
+	flex-wrap: nowrap;
+	align-content: flex-end;
+	margin: 10px;
+}
+/* End cHeader */
+.logoInti {
+	grid-column: 1;
+	/* / span 2; */
+	/* Ocupa dos columnas (de la 1 a la 2) */
+	/* 	grid-row: 1; */
+	/* Ocupa una sola fila (la primera) */
+	width: 100%;
+	/* Para asegurarte de que la imagen ocupe todo el ancho de la celda */
+	height: 100%;
+	/* Para asegurarte de que la imagen ocupe todo el alto de la celda */
+	object-fit: fill;
+	/* Ajusta la imagen para cubrir completamente la celda sin distorsiones */
+}
+
+.tooltip {
+	position: relative;
+	/* display: inline-block; */
+	cursor: pointer;
+}
+
+/* Estilo del contenido del tooltip */
+.tooltip::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	background-color: #333;
+	color: #ae4949;
+	padding: 8px;
+	border-radius: 4px;
+	font-size: 14px;
+	white-space: nowrap;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Mostrar el tooltip al pasar el ratón sobre el elemento */
+.tooltip:hover::after {
+	opacity: 1;
+	visibility: visible;
+}
+
+
+.cheCard {
+	margin-bottom: 3px;
+}
+
+.btn-agregar {
+	width: auto;
+	min-height: calc(100% - 56px);
+	/* Ajustar la altura del div principal para dejar espacio para el navbar y asegurar un mínimo de altura */
+	border-radius: 32px;
+	background-color: greenyellow;
+	margin: 5px;
+}
+
+#miDiv {
+	min-height: calc(100% - 56px);
+	/* Ajustar la altura del div principal para dejar espacio para el navbar y asegurar un mínimo de altura */
+	width: 100%;
+	background-color: #f0f0f0;
+	/* Puedes cambiar el color de fondo según tus preferencias */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid #ccc;
+	/* Añadir un borde al div principal */
+	flex-direction: column;
+}
+
+/* div .row {
+	margin-top: 1vw;
+	width: 90vw;
+} */
+#footer {
+	background-color: #000;
+	border-radius: 32px 32px;
+	color: yellowgreen;
+	padding: 20px 0;
+	text-align: center;
+}
+
+#educacionFirstCard,
+#proyectosFirstCard,
+#experienciaFirstCard,
+#skillsFirstCard,
+#softSkillsFirstCard {
+	width: 98vw;
+	margin-top: 10px;
+	padding: 0;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	min-height: calc(100% - 56px);
+	/* Ajustar la altura del div principal para dejar espacio para el navbar y asegurar un mínimo de altura */
+	/* width: 100%; */
+	background-color: #99d4ef;
+	/* Puedes cambiar el color de fondo según tus preferencias */
+	display: flex;
+	/* align-items: center;
+	justify-content: center; */
+	border: 2px solid blue;
+	/* Añadir un borde al div principal */
+	flex-direction: column;
+}
+
+.logos {
+	width: 2vw;
+	height: 2hw;
+}
+
+.logos::before {
+	background-color: darkmagenta;
+}
+
+.logos:hover {
+	background-color: cyan;
+}
+
+#imgSoftSkills {
+	border: 2px solid red;
+	width: 18vw;
+	height: 18vw;
+}
+
+#imgSkill {
+	border: 2px solid red;
+	width: 18vw;
+	height: 18vw;
+}
+
+#imgProyecto {
+	border: 2px solid red;
+	width: 18vw;
+	height: 18vw;
+}
+
+#imgExperiencia {
+	border: 2px solid red;
+	width: 18vw;
+	height: auto;
+}
+
+#imgEducacion {
+	border: 2px solid red;
+	width: 18vw;
+	height: 18vw;
+}
+
+.box1 {
+	border: 2px solid #000;
+}
+
+
+li {
+	list-style: none;
+}
+
+i {
+	padding: 5px;
+}
+
+#nav-title {
+	padding: 10px;
+	font-weight: 600;
+}
+
+.mat-card {
+	border-radius: 10px;
+	margin: 10px 10px;
+	padding: 0;
+	width: 100%;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+}
+
+.chelogo {
+	height: 32px;
+	width: 32px;
+	margin: 0;
+}
+
+.cheimg {
+	height: 280px;
+	width: 280px;
+	position: absolute;
+}
+
+.chebox {
+	height: auto;
+	width: auto;
+	border: 3px solid blue;
+	margin: 3px 3px 3px 3px;
+	padding: 3px 3px 3px 3px;
+	align-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+header {
+	display: flex;
+	width: 100%;
+	height: 70px;
+	border: 2px solid black;
+}
+
+.logo1 {
+	position: relative;
+	top: -1px;
+	left: -8px;
+	width: 85px;
+	height: max-content;
+	border: 1px solid black;
+	background-color: #000;
+	padding: 1px 1px;
+}
+
+input#exampleInputName1 {
+	width: 325px;
+}
+
+#btnSubmit {
+	margin-left: 225px;
+}
+
+.table,
+.td {
+	table-layout: auto;
+	width: 100%;
+}
+
+.btnpages {
+	width: 40px;
+	height: 40px;
+}
+
+.btnSearch {
+	width: 20px;
+	height: 20px;
+	background-color: chartreuse;
+}
+
+
+/* ------------------------------------------------- */
+.imgCard {
+	padding: 5px 5px 5px 5px;
+	width: 230px;
+	height: 140px;
+}
+
+.card {
+	width: 14rem;
+	height: 27rem;
+	margin: 5px 8px;
+	padding: 3px 3px;
+	border: 1px solid #000;
+}
+
+.card-body {
+	text-align: center;
+	justify-content: center;
+}
+
+.card-title {
+	text-align: center;
+	margin: 2px 2px;
+}
+
+.card-subtitle {
+	text-align: center;
+	margin: 2px 2px;
+}
+
+.card-img-top {
+	border: 1px solid black;
+	width: 13rem;
+	height: 10rem;
+	box-shadow: darkslategrey;
+	margin: 5px 7px;
+}
+
+.card-footer {
+	font-size: small;
+	/* width: 5rem; */
+	height: 45px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cards {
+	padding: 1%;
+	margin-bottom: 2%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.fsearch {
+	flex-direction: row;
+	width: auto;
+	justify-content: end;
+	margin-left: 200px;
+}
+
+.d-flex {
+	display: flex !important;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	align-items: center;
+    justify-content: space-evenly;
+}
+
+.event__card {
+	width: 43.75rem;
+	height: 17em;
+	background-color: var(--bg-color-card);
+}
+
+.formulario {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.formulario_1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	font-size: small;
+}
+
+.formulario_1 div {
+	margin: 10px;
+}
+
+/* ---------------------------------- */
+.navigation {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.centrado>button {
+	margin-top: 1%;
+}
+
+.detalle_evento {
+	border: 1px solid gray;
+	padding: 3%;
+	border-radius: 3%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 1%;
+	max-width: 40%;
+	min-width: 278px;
+	height: 75%;
+}
+
+.contenido_stats {
+	margin-bottom: 1%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.tarjeta {
+	border: 1px solid rgba(0, 0, 0, 0.175);
+	border-radius: 0.375rem;
+	min-height: 446px;
+	height: fit-content;
+	width: 278px;
+	display: flex;
+	flex-direction: column;
+}
+
+.card-footer {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.precio_tarjeta>button>a {
+	color: white;
+}
+
+.emptySearch {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.cheAdjust {
+	width: fit-content;
+	align-items: center;
+	justify-items: center;
+	justify-content: center;
+}
+
+@media only screen and (max-width: 319px) {
+	.logos {
+		width: 1vw;
+		height: auto;
+		/* justify-content: space-between; */
+        justify-content: stretch;
+		margin-left: 5px;
+	}
+
+	.circle-progress {
+		/* Estilo específico para dispositivos móviles */
+		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
+		border-radius: 1.5vw;
+		/* Ejemplo: ajusta según tus necesidades */
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+	.logos {
+		width: 1.5vw;
+		height: auto;
+		justify-content: space-between;
+		margin-left: 5px;
+	}
+
+	.circle-progress {
+		/* Estilo específico para dispositivos móviles */
+		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
+		border-radius: 4vw;
+		/* Ejemplo: ajusta según tus necesidades */
+	}
+
+	.fsearch {
+		flex-direction: row;
+		width: 12rem;
+		justify-content: end;
+		margin-left: 100px;
+	}
+
+	.logo1 {
+		position: relative;
+		top: -1px;
+		left: -8px;
+		width: 85px;
+		height: max-content;
+		border: 1px solid black;
+		background-color: #000;
+		padding: 1px 1px;
+	}
+
+
+	input#exampleInputName1 {
+		width: 100px;
+	}
+
+	#btnSubmit {
+		margin-left: 225px;
+	}
+
+	.table,
+	.td {
+		table-layout: auto;
+		width: 100%;
+	}
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+	.logos {
+		width: 1.8vw;
+		height: auto;
+		justify-content: space-between;
+		margin-left: 5px;
+	}
+
+	.circle-progress {
+		/* Estilo específico para dispositivos móviles */
+		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
+		border-radius: 9vw;
+		/* Ejemplo: ajusta según tus necesidades */
+	}
+
+	.logo1 {
+		position: relative;
+		top: -1px;
+		left: -8px;
+		width: 85px;
+		height: max-content;
+		border: 1px solid black;
+		background-color: #000;
+		padding: 1px 1px;
+	}
+
+	input#exampleInputName1 {
+		width: 520px;
+	}
+
+	#btnSubmit {
+		margin-left: 655px;
+	}
+
+	.table,
+	.td {
+		table-layout: auto;
+		width: 100%;
+	}
+
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+	.logos {
+		width: calc(min-width/10);
+		height: auto;
+		margin-left: 5px;
+	}
+
+	.circle-progress {
+		/* Estilo específico para dispositivos móviles */
+		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
+		border-radius: 12vw;
+		/* Ejemplo: ajusta según tus necesidades */
+	}
+
+	.logo1 {
+		position: relative;
+		top: -1px;
+		left: -8px;
+		width: 85px;
+		height: max-content;
+		border: 1px solid black;
+		background-color: #000;
+		padding: 1px 1px;
+	}
+
+	input#exampleInputName1 {
+		width: 300px;
+	}
+
+	#btnSubmit {
+		margin-left: 900px;
+	}
+
+	.table,
+	.td {
+		table-layout: auto;
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 2559px) {
+	.logos {
+		width: 3vw;
+		height: auto;
+		justify-content: space-between;
+		margin-left: 5px;
+		align-items: center;
+	}
+
+	.circle-progress {
+		/* Estilo específico para dispositivos móviles */
+		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
+		border-radius: 18vw;
+		/* Ejemplo: ajusta según tus necesidades */
+	}
+
+	.logo1 {
+		position: relative;
+		top: -1px;
+		left: -8px;
+		width: 85px;
+		height: max-content;
+		border: 1px solid black;
+		background-color: #000;
+		padding: 1px 1px;
+	}
+
+	input#exampleInputName1 {
+		width: 300px;
+	}
+
+	#btnSubmit {
+		margin-left: 225px;
+	}
+
+}
+
+@media only screen and (min-width: 2560px) {
+	.logos {
+		width: 8%;
+		height: auto;
+		justify-content: space-between;
+		margin-left: 5px;
+	}
+
+	.logo1 {
+		position: relative;
+		top: -1px;
+		left: -8px;
+		width: 85px;
+		height: max-content;
+		border: 1px solid black;
+		background-color: #000;
+		padding: 1px 1px;
+	}
+
+	input#exampleInputName1 {
+		width: 300px;
+	}
+
+	#btnSubmit {
+		margin-left: 225px;
+	}
+
+}
