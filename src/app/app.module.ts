@@ -18,12 +18,14 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { MiDialogComponent } from './components/mi-dialog-component/mi-dialog-component';
+// import { NgCircleProgressModule } from 'ng-circle-progress';
 
 // fire
 import { environment } from './../environments/environment';
 import { MatDialogModule } from '@angular/material/dialog';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
 
@@ -48,7 +50,7 @@ const materialModules = [
 		PortfolioComponent,
 		BannerComponent,
 		MiDialogComponent,
-  AudioPlayerComponent
+  		AudioPlayerComponent
 	],
 	imports: [
 		BrowserModule,
@@ -57,6 +59,7 @@ const materialModules = [
 		HttpClientModule,
 		FormsModule,
 		AngularFireModule.initializeApp(environment.firebaseConfig),
+//		AngularFireStorage,
 		materialModules
 	],
 	providers: [

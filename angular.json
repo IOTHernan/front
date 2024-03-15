@@ -40,7 +40,8 @@
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [
-              "sweetalert2"
+              "sweetalert2",
+              "@firebase/app"
             ]
           },
           "configurations": {

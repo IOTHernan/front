@@ -4,7 +4,7 @@ import { IPersonas } from './../../interfaces/ipersonas';
 import { AutenticacionService } from './../../services/autenticacion.service';
 import Swal from 'sweetalert2';
 import { NgZone } from '@angular/core';
-
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 // declare var gapi: any;
 
 @Component({
@@ -14,7 +14,7 @@ import { NgZone } from '@angular/core';
 })
 
 export class NavbarComponent implements OnInit {
-
+	imageUrl!: string;
 	@Input() isLogged!: boolean;
 	@Input() personas!: IPersonas;
 	// githubUrl!: string;
@@ -27,10 +27,22 @@ export class NavbarComponent implements OnInit {
 	pageNotFoundActive: Boolean = false;
 	rutaActiva: any;
 
-	constructor(private ngZone: NgZone, private router: Router, private autenticacionService: AutenticacionService) { }
+	constructor(private storage: AngularFireStorage,
+		private ngZone: NgZone, 
+		private router: Router, 
+		private autenticacionService: AutenticacionService) {
+			const storageRef = this.storage.ref('/b/front-ad0dc.appspot.com/o/chefacebook.jpg');
+		 // Obtener la URL de descarga de la imagen
+		 storageRef.getDownloadURL().subscribe(url => {
+			this.imageUrl = url;
+		  });
+		}
 
 	ngOnInit(): void {
+		console.log('[NAVBAR]');
+		
 		console.log('CHE: islogged:', this.isLogged);
+		console.log(this.imageUrl);
 		
 		// this.githubUrl = this.personas.githubUrl;
 		// this.linkedinUrl = this.personas.linkedinUrl;

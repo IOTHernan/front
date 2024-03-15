@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PortfolioComponent implements OnInit {
 
 	ngOnInit(): void {
-		console.log('Portfolio-l11');
+		console.log('[Portfolio-l11]');
 
 	}
 
