@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-// const TOKEN_KEY : string = "auth";
-const TOKEN_KEY : string = "token";
+const TOKEN_KEY : string = "auth";
+//const TOKEN_KEY : string = "token";
 @Injectable({
 	providedIn: 'root'
 })
@@ -52,7 +52,7 @@ export class AutenticacionService {
 		return sessionStorage.getItem(TOKEN_KEY);
 	  }
 	  iniciarSesion(): void {
-//		window.sessionStorage.setItem(TOKEN_KEY, "solecita");
-window.sessionStorage.setItem(TOKEN_KEY, "token");
+		window.sessionStorage.setItem(TOKEN_KEY, "solecita");
+//window.sessionStorage.setItem(TOKEN_KEY, "token");
 	  }
 }

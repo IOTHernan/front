@@ -1,11 +1,12 @@
 // npm
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // my
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -21,13 +22,18 @@ import { MiDialogComponent } from './components/mi-dialog-component/mi-dialog-co
 // import { NgCircleProgressModule } from 'ng-circle-progress';
 
 // fire
-import { environment } from './../environments/environment';
 import { MatDialogModule } from '@angular/material/dialog';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+// import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from './../environments/environment';
+// import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
+// import { RegisterComponent } from './components/register/register.component';
+// import { AppCheckModule } from '@angular/fire/app-check';
 
 // material
 const materialModules = [
@@ -50,20 +56,24 @@ const materialModules = [
 		PortfolioComponent,
 		BannerComponent,
 		MiDialogComponent,
-  		AudioPlayerComponent
+  		AudioPlayerComponent,
+    // RegisterComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
+		RouterModule.forRoot([]),
 		ReactiveFormsModule,
+		AngularFireModule.initializeApp(environment.firebaseConfig),
 		HttpClientModule,
 		FormsModule,
-		AngularFireModule.initializeApp(environment.firebaseConfig),
-//		AngularFireStorage,
-		materialModules
+		materialModules,
+		AngularFirestoreModule,
+		AngularFireStorageModule,
+		AngularFireAuthModule
 	],
 	providers: [
-		provideAnimationsAsync()
+		// provideAnimationsAsync()
 	],
 	bootstrap: [AppComponent]
 })

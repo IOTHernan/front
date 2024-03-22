@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AutenticacionService } from './../../services/autenticacion.service';
 import { Router, RouterLink } from '@angular/router';
 import { RespuestaDTO } from './../../../app/services/respuest-dto';
-
+import { UserService } from '../../services/user.service';
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.component.html',
@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private autenticacionService: AutenticacionService,
-		private ruta: Router) {
+		private ruta: Router,
+		private userService: UserService) {
 		this.loginForm = this.formBuilder.group({
 			//email: ['', [Validators.required, Validators.email]],
 			username: ['', [Validators.required, Validators.minLength(2)]],
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log('[ln27] ' + 'Login');
+		console.log('[ln30] ' + '[Login]');
 	}
 
 	//get Email(){

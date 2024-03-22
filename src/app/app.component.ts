@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
 	styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-	title = 'front';
 
 	ngOnInit(): void {
 		console.log('[app.components]');
-
 	}
+	title = 'front';
 }

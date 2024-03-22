@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { IPersonas } from './../../interfaces/ipersonas';
 import { AutenticacionService } from './../../services/autenticacion.service';
 import Swal from 'sweetalert2';
-import { NgZone } from '@angular/core';
+// import { NgZone } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 // declare var gapi: any;
 
@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
 	rutaActiva: any;
 
 	constructor(private storage: AngularFireStorage,
-		private ngZone: NgZone, 
+		// private ngZone: NgZone, 
 		private router: Router, 
 		private autenticacionService: AutenticacionService) {
 			const storageRef = this.storage.ref('/b/front-ad0dc.appspot.com/o/chefacebook.jpg');
