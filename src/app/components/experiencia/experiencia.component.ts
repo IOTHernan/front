@@ -25,7 +25,7 @@ export class ExperienciaComponent implements OnInit {
             periodo: new FormControl(['', [Validators.required, Validators.minLength(2)]]),
             empresa: new FormControl(['', [Validators.required, Validators.minLength(2)]]),
             actividades: new FormControl(['', [Validators.required, Validators.minLength(2)]]),
-			imagen: new FormControl(['', [Validators.required, Validators.minLength(2)]])
+			// imagen: new FormControl(['', [Validators.required, Validators.minLength(2)]])
         })
 	}
 
@@ -33,7 +33,7 @@ export class ExperienciaComponent implements OnInit {
 		console.log("EXPERIENCIA");
 		
 	  this.datosPortfolio.obtenerDatosExperiencias().subscribe(data => {
-		console.log(data);
+		console.log('Experiencias:',data);
 		
 		this.miPortfolio=data;
 		console.log(this.miPortfolio);
@@ -57,13 +57,13 @@ export class ExperienciaComponent implements OnInit {
         valueForms[2].setValue('');
         valueForms[3].setValue('');
         valueForms[4].setValue(''); 
-		valueForms[5].setValue(''); 
+		// valueForms[5].setValue(''); 
 		console.log("valueFormDetalles: ", valueForms[0].value);
         console.log("valueFormEstado: ", valueForms[1].value);
         console.log("valueFormInstitucion: ", valueForms[2].value);
         console.log("valueFormPeriodo: ", valueForms[3].value);
         console.log("valueFormTitulo: ", valueForms[4].value); 
-		console.log("valueFormImagen: ", valueForms[5].value); 
+		// console.log("valueFormImagen: ", valueForms[5].value); 
 		this.modoNuevoRegistro = true;
     } 
     onEdit(id: any, i: number, event: Event) {
@@ -78,7 +78,7 @@ export class ExperienciaComponent implements OnInit {
             institucion: this.miPortfolio[i].institucion,
             periodo: this.miPortfolio[i].periodo,
             titulo: this.miPortfolio[i].titulo,
-			imagen: this.miPortfolio[i].imagen
+			// imagen: this.miPortfolio[i].imagen
         })      
         console.log("this.form.value: ", this.form.value); 
 		this.modoEdicion = true;

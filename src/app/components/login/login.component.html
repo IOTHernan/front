@@ -2,14 +2,13 @@
 <div class="container-fluid imagen-fondo d-flex justify-content-center">
 	<div class="row justify-content-center col-10">
 		<!-- <form class="m-5 col-md-4 col-sm-10 bg-white p-3 rounded shadow" (ngSubmit)="onLogin($event)"> -->
-		<form name="loginForm" [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginForm"
-			class="shadow col-sm-6 p-4 m-auto"> <!-- [formGroup]="form" -->
+			<form name="loginForm" [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginForm" class="shadow col-sm-6 p-4 m-auto">	<!-- [formGroup]="form" -->
 			<h3 class="text-center text-info">MI PORTAFOLIO</h3>
 			<div class="mb-3 mt-3">
 				<label for="exampleInputnombreUsuario1" class="form-label">Nombre de usuario</label>
 				<input type="text" formControlName="nombreUsuario" [ngClass]="{'is-invalid': username?.errors && username?.touched,
-					'is-valid': !username?.errors && username?.touched}" class="form-control" id="exampleInputnombreUsuario1"
-					aria-describedby="nombreUsuarioHelp" placeholder="Nombre de usuario"
+					 'is-valid': !username?.errors && username?.touched}" class="form-control"
+					id="exampleInputnombreUsuario1" aria-describedby="nombreUsuarioHelp" placeholder="Nombre de usuario"
 					tooltip="Ingrese su nombre de usuario...">
 				<div *ngIf="username?.errors && username?.touched">
 					<p *ngIf="username?.hasError('required')" class="text-danger">
@@ -37,14 +36,12 @@
 				</div>
 
 			</div>
-			<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'"
-				role="alert">
+			<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
 				<p *ngIf="respta.msj==''">Enviando datos...</p>
 				<p *ngIf="respta.msj!=''">{{respta.msj}}</p>
 			</div>
-
-			<button type="submit" class="btn btn-skyblue btn-sm w-100 fw-bold border" routerLink="/portfolio">INICIAR
-				SESION</button>
+	
+			<button type="submit" class="btn btn-skyblue btn-sm w-100 fw-bold border" routerLink="/portfolio">INICIAR SESION</button>
 		</form>
 	</div>
 </div>

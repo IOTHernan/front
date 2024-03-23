@@ -42,7 +42,7 @@ export class PortfolioService {
 
 
   obtenerDatosExperiencias():Observable<IExperiencia> {
-    return this.http.get<IExperiencia>( this.apiUrl + 'experiencias');
+    return this.http.get<IExperiencia>( this.apiUrl + 'experiencia');
   }
 
   obtenerDatosProyectos():Observable<IProyecto> {

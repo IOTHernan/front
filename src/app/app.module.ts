@@ -20,7 +20,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { MiDialogComponent } from './components/mi-dialog-component/mi-dialog-component';
 // import { NgCircleProgressModule } from 'ng-circle-progress';
-
+import { UserService } from './services/user.service';
 // fire
 import { MatDialogModule } from '@angular/material/dialog';
 // import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
