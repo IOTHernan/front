@@ -1,37 +1,37 @@
 <app-navbar></app-navbar>
 <div class="container-fluid imagen-fondo d-flex justify-content-center">
-	<div class="row justify-content-center col-10">
+	<div class="row justify-content-center col-10" style="height: 30vw; border: 2px solid gray;">
 		<!-- <form class="m-5 col-md-4 col-sm-10 bg-white p-3 rounded shadow" (ngSubmit)="onLogin($event)"> -->
 			<form name="loginForm" [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginForm" class="shadow col-sm-6 p-4 m-auto">	<!-- [formGroup]="form" -->
-			<h3 class="text-center text-info">MI PORTAFOLIO</h3>
+			<h2 class="text-center text-info"><i>MY PORTFOLIO</i></h2>
 			<div class="mb-3 mt-3">
-				<label for="exampleInputnombreUsuario1" class="form-label">Nombre de usuario</label>
+				<label for="exampleInputnombreUsuario1" class="form-label">User Name</label>
 				<input type="text" formControlName="nombreUsuario" [ngClass]="{'is-invalid': username?.errors && username?.touched,
 					 'is-valid': !username?.errors && username?.touched}" class="form-control"
-					id="exampleInputnombreUsuario1" aria-describedby="nombreUsuarioHelp" placeholder="Nombre de usuario"
-					tooltip="Ingrese su nombre de usuario...">
+					id="exampleInputnombreUsuario1" aria-describedby="nombreUsuarioHelp" placeholder="Enter the name of user..."
+					tooltip="Enter the name of current user...">
 				<div *ngIf="username?.errors && username?.touched">
 					<p *ngIf="username?.hasError('required')" class="text-danger">
-						El nombre de usuario es requerido.
+						The name of user is required...
 					</p>
 					<p *ngIf="username?.hasError('nombreUsuario')" class="text-danger">
-						El formato del nombre de usuario debe ser válido.
+						The format of the name be valid.
 					</p>
 				</div>
 			</div>
 
 			<div class="mb-5">
-				<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-				<input type="password" formControlName="password" tooltip="Ingrese su clave..." [ngClass]="{'is-invalid': password?.errors && password?.touched,
+				<label for="exampleInputPassword1" class="form-label">Password</label>
+				<input type="password" formControlName="password" tooltip="Enter your password..." [ngClass]="{'is-invalid': password?.errors && password?.touched,
 					 'is-valid': !password?.errors && password?.touched}" class="form-control" id="exampleInputPassword1"
-					placeholder="Ingrese su clave.">
+					placeholder="Enter your password...">
 
 				<div *ngIf="password?.errors && password?.touched">
 					<p *ngIf="password?.hasError('required')" class="text-danger">
-						La contraseña es requerida.
 					</p>
+					The password is required.
 					<p *ngIf="password?.errors?.['minlength']" class="text-danger">
-						La contraseña debe ser de 8 o más caracteres.
+						The password must long 8 characters minimal.
 					</p>
 				</div>
 
@@ -41,7 +41,7 @@
 				<p *ngIf="respta.msj!=''">{{respta.msj}}</p>
 			</div>
 	
-			<button type="submit" class="btn btn-skyblue btn-sm w-100 fw-bold border" routerLink="/portfolio">INICIAR SESION</button>
+			<button type="submit" class="btn btn-skyblue btn-sm w-50 fw-bold border" routerLink="/portfolio">INIT SESSION</button>
 		</form>
 	</div>
 </div>

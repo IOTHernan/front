@@ -1,15 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
 body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	position: relative;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
 	background-color: grey;
 }
-body,
-html {
-	height: 100%;
-	margin: 0;
-}
+
+.content {
+	/* Estilos para el contenido principal */
+	min-height: calc(100vh - 50px); /* 50px es la altura del footer */
+	padding-bottom: 50px; /* Asegura que el contenido no quede detrás del footer */
+  }
 
 /* * {
 	box-sizing: border-box;
@@ -64,6 +69,7 @@ html {
 	align-content: flex-end;
 	margin: 10px;
 }
+
 /* End cHeader */
 .logoInti {
 	grid-column: 1;
@@ -139,6 +145,10 @@ html {
 	width: 90vw;
 } */
 #footer {
+	position: fixed;
+	margin-top: 15px;
+	bottom: 0;
+	width: 100%;
 	background-color: #000;
 	border-radius: 32px 32px;
 	color: yellowgreen;
@@ -171,8 +181,8 @@ html {
 }
 
 .logos {
-	width: 2vw;
-	height: 2hw;
+	width: 3vw;
+	/* height: 2hw; */
 }
 
 .logos::before {
@@ -381,7 +391,7 @@ input#exampleInputName1 {
 	flex-wrap: nowrap;
 	align-content: center;
 	align-items: center;
-    justify-content: space-evenly;
+	justify-content: space-evenly;
 }
 
 .event__card {
@@ -483,13 +493,18 @@ input#exampleInputName1 {
 	justify-content: center;
 }
 
+/* ▓▓▒░▓▓ */
 @media only screen and (max-width: 319px) {
+	.ttit {
+		font-size: 3vw;
+	}
+
 	.logos {
-		width: 1vw;
-		height: auto;
+		width: 3vw;
+		/* height: auto; */
 		/* justify-content: space-between; */
-        justify-content: stretch;
-		margin-left: 5px;
+		/* justify-content: stretch; */
+		/* margin-left: 5px; */
 	}
 
 	.circle-progress {
@@ -499,15 +514,20 @@ input#exampleInputName1 {
 		/* Ejemplo: ajusta según tus necesidades */
 	}
 }
+/* ▓▓▒░▓▓ */
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-	.logos {
+	.ttit {
+		font-size: 3vw;
+	}
+
+/* 	.logos {
 		width: 1.5vw;
 		height: auto;
 		justify-content: space-between;
 		margin-left: 5px;
 	}
-
+ */
 	.circle-progress {
 		/* Estilo específico para dispositivos móviles */
 		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
@@ -549,15 +569,24 @@ input#exampleInputName1 {
 	}
 
 }
+/* ▓▓▒░▓▓ */
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-	.logos {
+	.ttit {
+		font-size: 3vw;
+	}
+
+/* 	.logos {
 		width: 1.8vw;
 		height: auto;
 		justify-content: space-between;
 		margin-left: 5px;
 	}
+ */
 
+ .logos {
+	width: 3vw;
+ }
 	.circle-progress {
 		/* Estilo específico para dispositivos móviles */
 		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
@@ -591,13 +620,18 @@ input#exampleInputName1 {
 	}
 
 }
+/* ▓▓▒░▓▓ */
 
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-	.logos {
+	.ttit {
+		font-size: 3vw;
+	}
+
+	/* .logos {
 		width: calc(min-width/10);
 		height: auto;
 		margin-left: 5px;
-	}
+	} */
 
 	.circle-progress {
 		/* Estilo específico para dispositivos móviles */
@@ -633,13 +667,17 @@ input#exampleInputName1 {
 }
 
 @media only screen and (min-width: 1440px) and (max-width: 2559px) {
-	.logos {
+	.ttit {
+		font-size: 3vw;
+	}
+
+	/* .logos {
 		width: 3vw;
 		height: auto;
 		justify-content: space-between;
 		margin-left: 5px;
 		align-items: center;
-	}
+	} */
 
 	.circle-progress {
 		/* Estilo específico para dispositivos móviles */
@@ -670,12 +708,16 @@ input#exampleInputName1 {
 }
 
 @media only screen and (min-width: 2560px) {
-	.logos {
+	.ttit {
+		font-size: 3vw;
+	}
+
+	/* .logos {
 		width: 8%;
 		height: auto;
 		justify-content: space-between;
 		margin-left: 5px;
-	}
+	} */
 
 	.logo1 {
 		position: relative;

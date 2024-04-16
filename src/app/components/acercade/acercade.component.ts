@@ -10,21 +10,14 @@ export class AcercadeComponent implements OnInit {
 	miPortfolio: any;
 	@Input() isLogged!: boolean;
 
-	constructor(private portfolioService: PortfolioService) {
-    
-	}
+	constructor(private portfolioService: PortfolioService) {}
 
 	ngOnInit(): void {
 		console.log("Acerdade");
 		this.portfolioService.obtenerDatosAcercaDe().subscribe(data => {
 			console.log(data);
-			
-			this.miPortfolio=data;
+			this.miPortfolio = data;
 			console.log(this.miPortfolio);
-			
-		  });
-		  
-	
-
+		});
 	}
 }

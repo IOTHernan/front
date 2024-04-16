@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log('[ln27] ' + 'Login');
+		console.log('[ln29] ' + 'Login');
 	}
 
 	//get Email(){

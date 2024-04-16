@@ -3,7 +3,7 @@ import { IEducacion } from './../../interfaces/ieducacion';
 import { PortfolioService } from './../../services/portfolio.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-
+import { ApiService } from '../../services/api.service';
 @Component({
 	selector: 'app-educacion',
 	templateUrl: './educacion.component.html',
@@ -11,32 +11,39 @@ import Swal from 'sweetalert2';
 })
 
 export class EducacionComponent implements OnInit {
-
-
 	educacion: IEducacion[] = [];
 	tituloModal: string = "";
-
 	miPortfolio: any;
+	miPortfolio2: any;
 	modoEdicion: boolean = false;
 	modoNuevoRegistro: boolean = false;
 	i!: number;
 	editID!: number;
 	form: FormGroup;
 
-	constructor(public datosPortfolio: PortfolioService) {
+	constructor(public apiService: ApiService,
+		public datosPortfolio: PortfolioService) {
 		this.form = new FormGroup({
 			detalles: new FormControl(['', [Validators.required, Validators.minLength(2)]]),
 			estado: new FormControl(['', [Validators.required, Validators.minLength(2)]]),
 			institucion: new FormControl(['', [Validators.required, Validators.minLength(2)]]),
 			periodo: new FormControl(['', [Validators.required, Validators.minLength(2)]]),
 			titulo: new FormControl(['', [Validators.required, Validators.minLength(2)]])
-			//	imagen: new FormControl(['', [Validators.required, Validators.minLength(2)]])
-		})
+		}) /* //	imagen: new FormControl(['', [Validators.required, Validators.minLength(2)]]) */
 	}
 
 	ngOnInit(): void {
-		console.log("EDUCACION");
+		console.log("EDUCATION");
 		this.obtenerDatosEducacion();
+		// this.miPortfolio2 = this.getDatosEducacion();
+		console.log('get:', this.miPortfolio2);
+		this.datosPortfolio.obtenerDatos().subscribe(data => {
+			console.log(data);
+
+			this.miPortfolio = data.educacion;
+			console.log(this.miPortfolio);
+
+		});
 	}
 
 	obtenerDatosEducacion(): void {
@@ -66,13 +73,13 @@ export class EducacionComponent implements OnInit {
 		valueForms[2].setValue('');
 		valueForms[3].setValue('');
 		valueForms[4].setValue('');
-		valueForms[5].setValue('');
+		// valueForms[5].setValue('');
 		console.log("valueFormDetalles: ", valueForms[0].value);
 		console.log("valueFormEstado: ", valueForms[1].value);
 		console.log("valueFormInstitucion: ", valueForms[2].value);
 		console.log("valueFormPeriodo: ", valueForms[3].value);
 		console.log("valueFormTitulo: ", valueForms[4].value);
-		console.log("valueFormImagen: ", valueForms[5].value);
+		// console.log("valueFormImagen: ", valueForms[5].value);
 		this.modoNuevoRegistro = true;
 	}
 	onEdit(id: any, i: number, event: Event) {
@@ -168,13 +175,13 @@ export class EducacionComponent implements OnInit {
 		valueForms[2].setValue('');
 		valueForms[3].setValue('');
 		valueForms[4].setValue('');
-		valueForms[5].setValue('');
+		// valueForms[5].setValue('');
 		console.log("valueFormDetalles: ", valueForms[0].value);
 		console.log("valueFormEstado: ", valueForms[1].value);
 		console.log("valueFormInstitucion: ", valueForms[2].value);
 		console.log("valueFormPeriodo: ", valueForms[3].value);
 		console.log("valueFormTitulo: ", valueForms[4].value);
-		console.log("valueFormImagen: ", valueForms[5].value);
+		// console.log("valueFormImagen: ", valueForms[5].value);
 		this.modoEdicion = false;
 	}
 }
