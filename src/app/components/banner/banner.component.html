@@ -4,36 +4,39 @@
 	</div>
 	<div id="info" style="padding: 16px;">
 		<div id="info-img">
-			<img class="profile-image" src="./../../../assets/media/chedata1foto.png" alt=""><!-- [src]="miPortfolio.persona[0].image_perfil" -->
+			<img class="profile-image" src="./../../../assets/media/chedata1foto.png"
+				alt=""><!-- [src]="miPortfolio.persona[0].image_perfil" -->
 			<div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i></a></div>
 		</div>
 		<div id="info-data">
 			<div>
-				<h1>{{miPortfolio.persona[0].nombres}}</h1>
-				<div id="info-company"><p>{{miPortfolio.persona[0].ocupacion}}</p></div>
+				<h1>Nombres: {{miPortfolio2.nombres}} Apellido: {{miPortfolio2.apellido}}</h1>
+				<div id="info-company">
+					<p>Ocupación: {{miPortfolio.ocupacion}}</p>
+				</div>
 				<div id="info-contact">
-					<span>Buenos Aires (Argentina) </span>
+					Ubicación:<span>Buenos Aires (Argentina) </span>
 					<br>
 					<span><a href="#">Información de contacto</a></span>
 				</div>
 			</div>
 			<div>
-			<ul id="info-details">
-				<li>
-				<a href="#">
-					<div class="d-flex container bg-black">
-						<img class="img-info" [src]="miPortfolio.aboutme[0].institutionImage" alt="">
-					</div>
-						<p><b>I.N.T.I.</b></p>
-					</a></li>
-				<li><a href="#">
-					<div class="d-flex container bg-black">
-
-						<img src="../../../assets/media/chemindhub.png" alt="" width="3vw" height="3vw">
-					</div>
-						<h2>Argentina Programa - MINDHUB</h2>
-					</a></li>
-			</ul>
+				<ul id="info-details">
+					<li>
+						<a href="#">
+							<div class="d-flex container bg-black">
+								<img class="img-info" [src]="miPortfolio.institutionImage" alt="">
+							</div>
+							<p><b>I.N.T.I.</b></p>
+						</a>
+					</li>
+					<li><a href="#">
+							<div class="d-flex container bg-black">
+								<img src="../../../assets/media/chemindhub.png" alt="" width="3vw" height="3vw">
+							</div>
+							<h2>Argentina Programa - MINDHUB</h2>
+						</a></li>
+				</ul>
 			</div>
 		</div>
 		<div id="info-actions">

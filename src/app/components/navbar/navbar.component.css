@@ -4,7 +4,7 @@
 	grid-template-columns: 25% 25% 25% 25%;
 	/* grid-template-rows: 1fr 1fr; */
 	/*gap: 10px;  Espacio entre las celdas, ajusta según sea necesario */
-
+	border-radius: 5px 5px 5px 5px;
 }
 
 .gridSocial {

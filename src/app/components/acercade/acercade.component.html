@@ -1,16 +1,16 @@
-<section id="acercade">
-	<div id="acercade" class="card card-mx d-flex">
-		<div>
-			<h1>Acerca de</h1> 
+<div id="acercaDeFirstCard" class="card card-mx d-flex acercaDe">
+	<div class="card-titles">
+		<h2>Acerca de</h2>
+		<div class="btn-edit">
+			<a href="#" class="btn-right" data-bs-toggle="tooltip" title="Editar acercade...">
+				<!-- <img class="logos" src="../../../assets/media/logoPencil.png"> -->
+				<i class="fa fa-pen">✏ </i>
+			</a>
 		</div>
-		<div class="justify-content-end">
-			<button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
-							Editar educación..."><span><img class="logos"
-										src="../../../assets/media/logoPencil.png"></span>
-							</button>
+		<div>
+			{{miPortfolio.acercaDe}}
+			Nombres: {{miPortfolio2.nombres}}
+			<!--Matemático, físico e informático argentino ejemplo de la computación moderna en la Argentina.-->
 		</div>
 	</div>
-	<article>
-		{{miPortfolio.about}}
-	</article>
-</section>
+</div>

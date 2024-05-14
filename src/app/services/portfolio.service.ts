@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ISkill } from '../interfaces/iskill';
 import { IAcercaDe } from '../interfaces/iacercade';
+import { ISkill } from '../interfaces/iskill';
 import { IEducacion } from '../interfaces/ieducacion';
 import { IExperiencia } from '../interfaces/iexperiencia';
 import { IProyecto } from '../interfaces/iproyecto';
+import { IPersona } from '../interfaces/ipersona';
 
 
 @Injectable({
@@ -14,13 +15,13 @@ import { IProyecto } from '../interfaces/iproyecto';
 export class PortfolioService {
 
   private apiUrl = "http://localhost:8080/api/";
-  headers: HttpHeaders | { [header: string]: string | string[]; } | undefined;
+  //headers: HttpHeaders | { [header: string]: string | string[]; } | undefined;
 
   // Headers para POST, PUT Y DELETE.
-  /* headers = new HttpHeaders({
+   headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*' });
- */
+ 
 
   constructor(private http:HttpClient) { }
 
@@ -33,15 +34,17 @@ export class PortfolioService {
   // *********************************************************************
 
   obtenerDatosAcercaDe():Observable<any> {
-    return this.http.get<any>( this.apiUrl + 'acerca_de' );
+    return this.http.get<any>( this.apiUrl + 'acercade' );
   }
-
+  obtenerDatosPersona():Observable<IPersona> {
+    return this.http.get<any>( this.apiUrl + 'ver/personas' );
+  }
   obtenerDatosEducacion():Observable<IEducacion[]> {
     return this.http.get<IEducacion[]>( this.apiUrl + 'educacion');
   }
 
 
-  obtenerDatosExperiencias():Observable<IExperiencia> {
+  obtenerDatosExperiencia():Observable<IExperiencia> {
     return this.http.get<IExperiencia>( this.apiUrl + 'experiencia');
   }
 
@@ -58,7 +61,7 @@ export class PortfolioService {
   // *********************************************************************
 
   obtenerOneDatosAcercaDe(id: number):Observable<any> {
-    return this.http.get<any>( this.apiUrl + 'acerca_de/' + id );
+    return this.http.get<any>( this.apiUrl + 'acercade/' + id );
   }
 
   obtenerOneDatosEducacion(id: number):Observable<IEducacion> {
@@ -85,7 +88,7 @@ export class PortfolioService {
 
   postAcercaDe( AcercaDe: any ):Observable<any> {
     let AcercaDeJSON = JSON.stringify(AcercaDe);
-    return this.http.post<any>( this.apiUrl + 'acerca_de', AcercaDeJSON , { headers: this.headers} );
+    return this.http.post<any>( this.apiUrl + 'acercade', AcercaDeJSON , { headers: this.headers} );
   }
 
   postEducacion( Educacion: IEducacion ):Observable<IEducacion> {
@@ -109,7 +112,7 @@ export class PortfolioService {
   // *********************************************************************
 
   putAcercaDe( AcercaDe: any, id: Number ):Observable<any> {
-    return this.http.put<any>( this.apiUrl + 'acerca_de/' + id, AcercaDe , { headers: this.headers} );
+    return this.http.put<any>( this.apiUrl + 'acercade/' + id, AcercaDe , { headers: this.headers} );
   }
 
   putExperiencia( Experiencia: IExperiencia, i: Number  ):Observable<IExperiencia> {
@@ -134,7 +137,7 @@ export class PortfolioService {
   // *********************************************************************
 
   deleteAcercaDe( id: Number ):Observable<any> {
-    return this.http.delete<any>( this.apiUrl + 'acerca_de/' + id , { headers: this.headers} );
+    return this.http.delete<any>( this.apiUrl + 'acercade/' + id , { headers: this.headers} );
   }
 
   deleteEducacion( id: Number ):Observable<IEducacion> {

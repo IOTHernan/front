@@ -5,6 +5,13 @@ function textoAVoz() {
 	console.log('textoAVoz');
 }
 
+function textoAVoz404() {
+	const texto = 'Error 404: File not found!';
+	const voz = new SpeechSynthesisUtterance(texto);
+	window.speechSynthesis.speak(voz);
+	console.log('Error 404');
+}
+
 function delay(nro) {
 	console.log('delay' + nro);
 	for (i = 0; i < nro; i++) { }

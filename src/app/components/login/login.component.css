@@ -1,0 +1,11 @@
+.loginBorder {
+    background-color: aliceblue;
+    border: 2px solid rgb(160, 15, 15);
+    border-radius: 5px 5px 5px 5px;
+    top: 5px;
+    padding-top: 5px;
+}
+
+.cc {
+    text-align: center;
+}

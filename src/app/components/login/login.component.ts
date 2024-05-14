@@ -63,6 +63,9 @@ export class LoginComponent implements OnInit {
 		}
 	}
 
+	loginWithGoogle() {
+		
+	}
 
 	/* onLogin(event: Event) {
 		event.preventDefault;

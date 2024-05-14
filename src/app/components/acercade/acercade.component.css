@@ -7,3 +7,17 @@ div #acercade {
 	border: 1px solid greenyellow;
 	margin: 1px 1px;
 }
+
+.acercaDe {
+	margin: 5px 5px 5px 5px;
+	background-color: aliceblue;
+	width: 95%;
+	height: 50px;
+	padding: 5px 5px 5px 5px;
+	border-top: 5px;
+	border-left: 5px;
+	border-right: 5px;
+	border: 2px solid red;
+	border-radius: 5px 5px 5px 5px;
+	
+}

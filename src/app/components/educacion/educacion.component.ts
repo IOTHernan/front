@@ -34,19 +34,19 @@ export class EducacionComponent implements OnInit {
 
 	ngOnInit(): void {
 		console.log("EDUCATION");
-		this.obtenerDatosEducacion();
+		this.datosPortfolio.obtenerDatosEducacion();
 		// this.miPortfolio2 = this.getDatosEducacion();
 		console.log('get:', this.miPortfolio2);
-		this.datosPortfolio.obtenerDatos().subscribe(data => {
+		this.datosPortfolio.obtenerDatosEducacion().subscribe(data => {
 			console.log(data);
 
-			this.miPortfolio = data.educacion;
+			this.miPortfolio = data;
 			console.log(this.miPortfolio);
 
 		});
 	}
 
-	obtenerDatosEducacion(): void {
+	/* obtenerDatosEducacion(): void {
 		this.datosPortfolio.obtenerDatosEducacion()
 			.subscribe(data => {
 				console.log('[Educacion:data]');
@@ -56,7 +56,7 @@ export class EducacionComponent implements OnInit {
 
 			});
 
-	}
+	} */
 
 	selectItem(item: any) {
 		console.log(item);

@@ -8,16 +8,22 @@ import { PortfolioService } from './../../services/portfolio.service';
 })
 export class AcercadeComponent implements OnInit {
 	miPortfolio: any;
+	miPortfolio2: any;
 	@Input() isLogged!: boolean;
 
 	constructor(private portfolioService: PortfolioService) {}
 
 	ngOnInit(): void {
-		console.log("Acerdade");
+		console.log("[CHE-Acerdade]");
 		this.portfolioService.obtenerDatosAcercaDe().subscribe(data => {
 			console.log(data);
-			this.miPortfolio = data;
+			this.miPortfolio = data.acercade;
 			console.log(this.miPortfolio);
+		});
+		this.portfolioService.obtenerDatosPersona().subscribe(data => {
+			console.log(data);
+			this.miPortfolio2 = data;
+			console.log(this.miPortfolio2);
 		});
 	}
 }

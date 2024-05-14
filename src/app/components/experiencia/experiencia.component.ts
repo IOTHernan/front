@@ -30,9 +30,9 @@ export class ExperienciaComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		console.log("EXPERIENCIA");
+		console.log("CHE-EXPERIENCIA");
 		
-	  this.datosPortfolio.obtenerDatosExperiencias().subscribe(data => {
+	  this.datosPortfolio.obtenerDatosExperiencia().subscribe(data => {
 		console.log('Experiencias:',data);
 		
 		this.miPortfolio=data;
