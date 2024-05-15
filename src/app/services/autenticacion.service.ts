@@ -49,6 +49,8 @@ export class AutenticacionService {
 		console.log("Token removido, desde archivo autentication service", sessionStorage.getItem('token'));
 	}
 	iniciarSesion(): void {
+		console.log('[CHE-AutenticacionService]');
+		
 		window.sessionStorage.setItem(TOKEN_KEY, "solecita");
 	  }
 	

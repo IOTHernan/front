@@ -8,23 +8,30 @@ import { IPersona } from '../../interfaces/ipersona';
 	styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-	miPortfolio: any;
-	miPortfolio2: any;
-	constructor(private portfolioService: PortfolioService) { }
+	miAcercade: any;
+	miPersona: any;
+	miAcercade2: any;
+	miPersona2: any;
+constructor(private portfolioService: PortfolioService) { }
 
 	ngOnInit(): void {
 		console.log("[CHE-BANNER]");
+		this.miAcercade2=this.portfolioService.obtenerDatosAcercaDe();
+		console.log('[miAcercade2:] ',this.miAcercade2);
+		this.miPersona2=this.portfolioService.obtenerDatosPersona();
+		console.log('[P2:] ',this.miPersona2);
+		
 		this.portfolioService.obtenerDatosAcercaDe().subscribe(data => {
-			this.miPortfolio2 = data;
-			console.log(this.miPortfolio2);
+			this.miAcercade = data;
+			console.log(this.miAcercade);
 			
 		});
 
 		this.portfolioService.obtenerDatosPersona().subscribe(data => {
 		//	console.log('banner: ' , data);
-			this.miPortfolio = data;
+			this.miPersona = data;
 		//	console.log('Nombres: '+this.miPortfolio.Nombres);	
-			console.log(this.miPortfolio);
+			console.log(this.miPersona);
 		});
 	}
 }

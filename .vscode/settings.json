@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "postgresql://ep-lingering-snow-a5mt87d2.us-east-2.aws.neon.fl0.io:5432/portfolio?sslmode=require",
+            "username": "fl0user",
+            "password": "1HXU5PZBLDeo",
+            "group": "postgresql://ep-lingering-snow-a5mt87d2.us-east-2.aws.neon.fl0.io:5432/portfolio?sslmode=require",
+            "database": "portfolio"
+        }
+    ]
+}

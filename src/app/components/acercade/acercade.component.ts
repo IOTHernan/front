@@ -16,14 +16,14 @@ export class AcercadeComponent implements OnInit {
 	ngOnInit(): void {
 		console.log("[CHE-Acerdade]");
 		this.portfolioService.obtenerDatosAcercaDe().subscribe(data => {
-			console.log(data);
+			console.log('data:',data);
 			this.miPortfolio = data.acercade;
-			console.log(this.miPortfolio);
+			console.log('this.portfolio:',this.miPortfolio);
 		});
 		this.portfolioService.obtenerDatosPersona().subscribe(data => {
 			console.log(data);
 			this.miPortfolio2 = data;
-			console.log(this.miPortfolio2);
+			console.log('miPortfolio2:',this.miPortfolio2);
 		});
 	}
 }

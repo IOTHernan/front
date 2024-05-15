@@ -35,7 +35,7 @@ export class EducacionComponent implements OnInit {
 	ngOnInit(): void {
 		console.log("EDUCATION");
 		this.datosPortfolio.obtenerDatosEducacion();
-		// this.miPortfolio2 = this.getDatosEducacion();
+		this.miPortfolio2 = this.apiService.getDatosEducacion();
 		console.log('get:', this.miPortfolio2);
 		this.datosPortfolio.obtenerDatosEducacion().subscribe(data => {
 			console.log(data);
@@ -44,6 +44,13 @@ export class EducacionComponent implements OnInit {
 			console.log(this.miPortfolio);
 
 		});
+		/* this.miPortfolio2.apiService.getDatosEducacion().subscribe(data => {
+			console.log(data);
+
+			this.miPortfolio2 = data;
+			console.log(this.miPortfolio2);
+
+		}); */
 	}
 
 	/* obtenerDatosEducacion(): void {

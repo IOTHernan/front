@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
@@ -11,17 +11,31 @@ import { UserService } from '../../services/user.service';
 export class RegisterComponent implements OnInit {
   formReg: FormGroup;
 
-  constructor(private userService: UserService,
+  constructor(private formBuilder: FormBuilder, private userService: UserService,
     private router: Router
     ) {
-    this.formReg = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
+    this.formReg = this.formBuilder.group({
+      nombres: new FormControl(['', [Validators.required, Validators.maxLength(2)]]),
+      apellido: new FormControl(['', [Validators.required, Validators.maxLength(2)]]),
+      fecha_nacimiento: new FormControl(),
+      nacionalidad: new FormControl(),
+      mail: new FormControl(),
+      password: new FormControl(),
+      sobre_mi: new FormControl(),
+      ocupacion: new FormControl(),
+      bannerUrl: new FormControl(),
+      image_background_header: new FormControl(),
+      image_perfil: new FormControl(),
+      linkedinUrl: new FormControl(),
+      githubUrl: new FormControl(),
+      descripcion: new FormControl(),
+      imgUrl: new FormControl()
+
     })
   }
 
   ngOnInit(): void {
-      console.log("[Register]");
+      console.log("[CHE-Register]");
       
   }
 

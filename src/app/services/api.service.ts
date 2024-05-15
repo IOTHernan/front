@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+ 
 @Injectable({
 	providedIn: 'root'
 })
 export class ApiService {
 	private apiUrl = 'http://localhost:8080/api'; // URL de tu API
+	//headers: HttpHeaders | { [header: string]: string | string[]; } | undefined;
+
+	// Headers para POST, PUT Y DELETE.
+	headers = new HttpHeaders({
+		'Content-Type': 'application/json',
+		'Access-Control-Allow-Origin': '*'
+	});
 
 	constructor(private http: HttpClient) { }
 

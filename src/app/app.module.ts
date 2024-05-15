@@ -32,7 +32,7 @@ import { environment } from './../environments/environment';
 // import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
-// import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './components/register/register.component';
 // import { AppCheckModule } from '@angular/fire/app-check';
 
 // material
@@ -57,7 +57,7 @@ const materialModules = [
 		BannerComponent,
 		MiDialogComponent,
   		AudioPlayerComponent,
-    // RegisterComponent
+     	RegisterComponent
 	],
 	imports: [
 		BrowserModule,

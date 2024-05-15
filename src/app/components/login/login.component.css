@@ -9,3 +9,15 @@
 .cc {
     text-align: center;
 }
+
+.spcLabel {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.botones {
+    line-height: 0.5;
+    justify-content: center;
+    text-align: center; 
+    flex-direction:column;
+}

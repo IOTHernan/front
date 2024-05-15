@@ -32,3 +32,8 @@
 	height: 100%;
 	object-fit: cover; /* La imagen se ajustará para cubrir todo el espacio del div */
 }
+
+.iconos {
+	flex-direction: row;
+	padding: 1px 1px 1px 1px;
+}

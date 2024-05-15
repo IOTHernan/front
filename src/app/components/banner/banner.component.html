@@ -10,9 +10,9 @@
 		</div>
 		<div id="info-data">
 			<div>
-				<h1>Nombres: {{miPortfolio2.nombres}} Apellido: {{miPortfolio2.apellido}}</h1>
+				<h1>Nombres: [{{miPersona2.nombres}}] Apellido: {{miPersona2.apellido}}</h1>
 				<div id="info-company">
-					<p>Ocupación: {{miPortfolio.ocupacion}}</p>
+					<p>[Ocupación:] {{miAcercade.ocupacion}}</p>
 				</div>
 				<div id="info-contact">
 					Ubicación:<span>Buenos Aires (Argentina) </span>
@@ -25,7 +25,7 @@
 					<li>
 						<a href="#">
 							<div class="d-flex container bg-black">
-								<img class="img-info" [src]="miPortfolio.institutionImage" alt="">
+								<img class="img-info" [src]="miAcercade.institutionImage" alt="">
 							</div>
 							<p><b>I.N.T.I.</b></p>
 						</a>
