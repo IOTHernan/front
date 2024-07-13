@@ -21,10 +21,22 @@ export class ApiService {
 		return this.http.get<any>(`${this.apiUrl}/datos`);
 	}
 
-	getDatosEducacion(): Observable<any> {
+	/* getDatosEducacion(): Observable<any> {
 		console.log('[education]');
-		return this.http.get<any>(`${this.apiUrl}/educacion`);
-	}
+		return this.http.get<any>(this.apiUrl+'/educacion');
+	} */
 
+	getDatosEducacion() {
+		this.http.get<any>('http://localhost:8080/api/educacion')
+		  .subscribe(
+			(data) => {
+			  console.log('Datos de educación:', data);
+			  // Aquí puedes procesar los datos recibidos
+			},
+			(error) => {
+			  console.error('Error al obtener datos de educación:', error);
+			}
+		  );
+	  }
 	// Agrega métodos para otras operaciones CRUD, como postDatos(), updateDatos(), deleteDatos(), etc.
 }

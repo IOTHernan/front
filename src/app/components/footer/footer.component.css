@@ -1,0 +1,11 @@
+.row {
+    padding: 20px;
+}
+p {
+    color: aliceblue;
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

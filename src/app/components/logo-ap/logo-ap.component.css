@@ -1,0 +1,38 @@
+#logoAP{
+    width: 150px;
+}
+
+.social{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-right{
+    float: right;
+    margin-right: 10px;
+  }
+
+@media (max-width: 359px){
+    
+
+    .layout{
+        flex-direction: column;
+    }
+
+    .social{
+        display: flex;
+        justify-content: column;
+        align-items: center;
+        margin-bottom: 0.2em;
+        
+    }
+    
+}
+
+.layout{
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+    align-items: center;
+}

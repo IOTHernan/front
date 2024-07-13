@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from './../../services/portfolio.service';
-import { IPersona } from '../../interfaces/ipersona';
+import { persona } from './../../model/persona.model';
+import { PersonaService } from './../../services/persona.service';
+import { TokenService } from './../../services/token.service';
 
 @Component({
 	selector: 'app-banner',
@@ -8,30 +9,28 @@ import { IPersona } from '../../interfaces/ipersona';
 	styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-	miAcercade: any;
-	miPersona: any;
-	miAcercade2: any;
-	miPersona2: any;
-constructor(private portfolioService: PortfolioService) { }
+	persona: persona = new persona();
+
+	constructor(
+		public personaService: PersonaService,
+		private tokenService: TokenService
+	) { }
+
+	isLogged = false;
 
 	ngOnInit(): void {
-		console.log("[CHE-BANNER]");
-		this.miAcercade2=this.portfolioService.obtenerDatosAcercaDe();
-		console.log('[miAcercade2:] ',this.miAcercade2);
-		this.miPersona2=this.portfolioService.obtenerDatosPersona();
-		console.log('[P2:] ',this.miPersona2);
-		
-		this.portfolioService.obtenerDatosAcercaDe().subscribe(data => {
-			this.miAcercade = data;
-			console.log(this.miAcercade);
-			
-		});
+		this.cargarPersona();
+		if (this.tokenService.getToken()) {
+			this.isLogged = true;
+		} else {
+			this.isLogged = false;
+		}
+	}
 
-		this.portfolioService.obtenerDatosPersona().subscribe(data => {
-		//	console.log('banner: ' , data);
-			this.miPersona = data;
-		//	console.log('Nombres: '+this.miPortfolio.Nombres);	
-			console.log(this.miPersona);
+	cargarPersona() {
+		this.personaService.detail(1).subscribe((data) => {
+			this.persona = data;
 		});
 	}
+
 }

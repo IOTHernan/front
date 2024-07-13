@@ -1,0 +1,70 @@
+<div id="skillsFirstCard">
+	<div class="cHeader">
+		<div class="cTitle column justify-content-start">
+			<h1>Hard & Soft Skills</h1>
+		</div>
+		<div class="cAdd"><!-- class="column justify-content-end" -->
+			<button class="btn-agregar">
+				<span><img src='https://drive.google.com/uc?export=download&id=1fjYoxt7euY7eeMicSfKYoLxuppo6kGiO'
+						alt="Agregar skills..." class="logos mt-1 bg-blue rounded-circle">AGREGAR SKILLS</span>
+			</button><!-- "../../../assets/media/logoAdd.png" -->
+		</div>
+	</div>
+	<ul>
+		<li *ngFor="let skill of skill " onclick="selectItem(miP);">
+			<div class="cCard row box1">
+				<div class="d-flex justify-content-end border">
+					<div class="p-1">
+						<button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
+						Editar skills..."><span><img class="logos" src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoPencil.png?alt=media&token=88ca1c53-4a67-4f79-b464-be77772fb95ealt=media&token=83159e9a-70bd-42eb-8a4e-880915e4790f"></span>
+						</button>
+					</div>
+					<div class="p-1">
+						<button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
+						Eliminar skills..."><span><img class="logos" src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoDelete.png?alt=media&token=73a189bb-d546-4f78-8631-ef6f8d1cdb7e"></span></button>
+					</div>
+				</div>
+				<h3>{{ skill.nombre }}</h3>
+				<circle-progress [percent]="skill.porcentaje" [radius]="90" [showImage]="true" [imageSrc]="skill.img"
+					[showTitle]="false" [showSubtitle]="false" [imageHeight]="80" [imageWidth]="80"
+					[subtitleColor]="'#FFFFFF'" [outerStrokeWidth]="5" [outerStrokeColor]="'#FFFFFF'"
+					[innerStrokeColor]="'#FFFFFF'" [showInnerStroke]="false" [animation]="true"
+					[animationDuration]="300" [backgroundColor]="'#000000'">
+				</circle-progress>
+
+			</div>
+		</li>
+	</ul>
+</div>
+
+<!-- 		<button
+		  type="button"
+		  routerLink="/newskill"
+		  class="btn btn-dark"
+		  *ngIf="isLogged"
+		>
+		  Agregar Skill
+		</button>
+	  </div>
+  
+	  <div
+		class="text-center col-sm-12 col-md-4 col-lg-4 circle"
+		*ngFor="let skill of skill"
+	  >
+		
+  
+		<div class="d-flex justify-content-center">
+		  <td *ngIf="isLogged">
+			<button class="btn btn-light" routerLink="/editskill/{{ skill.id }}">
+			  <i class="bi bi-pencil-fill"></i>
+			</button>
+		  </td>
+		  <td *ngIf="isLogged">
+			<button class="btn btn-danger" (click)="delete(skill.id)">
+			  <i class="bi bi-trash-fill"></i>
+			</button>
+		  </td>
+		</div>
+	  </div>
+	</div>
+  </div> -->

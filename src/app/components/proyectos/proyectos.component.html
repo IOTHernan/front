@@ -5,42 +5,45 @@
         </div>
         <div class="cAdd"><!-- class="column justify-content-end" -->
             <button class="btn-agregar" onclick="addProyecto()">
-                <span><img src="../../../assets/media/logoAdd.png" alt="Agregar Proyecto..."
+                <span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/chemindhub2.png?alt=media&token=3e4f4203-e1a9-4bb8-a263-11ad9ee6fd04" alt="Agregar Proyecto..."
                         class="logos mt-1 bg-blue rounded-circle">AGREGAR PROYECTO</span>
             </button>
         </div>
     </div>
 
     <ul>
-        <li *ngFor="let miP of miPortfolio ; let i = index" [attr.data-index]="i" onclick="selectItem(miP);">
+        <li *ngFor="let miP of proyecto ; let i = index" [attr.data-index]="i" onclick="selectItem(miP);">
             <div class="cCard row box1">
                 <div>
                     <div class="p-1 border" style="margin: 3px;">
                         <button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
-						Editar proyecto..." onclick="editarProyecto()"><span><img class="logos"
-                                    src="../../../assets/media/logoPencil.png"></span>
-                        </button>
+						Editar proyecto..." ><span><img class="logos"
+                                    src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoPencil.png?alt=media&token=88ca1c53-4a67-4f79-b464-be77772fb95ealt=media&token=83159e9a-70bd-42eb-8a4e-880915e4790f"></span>
+                        </button><!-- onclick="editarProyecto()" -->
                     </div>
                     <div class="p-1 border">
                         <button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
-						Eliminar proyecto..." onclick="deleteProyecto()"><span><img class="logos"
-                                    src="../../../assets/media/logoDelete.png"></span></button>
+						Eliminar proyecto..." ><span><img class="logos"
+                                    src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoDelete.png?alt=media&token=73a189bb-d546-4f78-8631-ef6f8d1cdb7e"></span></button><!-- onclick="deleteProyecto()" -->
                     </div>
                 </div>
                 <div>
                     <div class="column" style="width: 25%; margin-bottom: 10px; margin-left: 10px;">
-                        <img [src]="miP.imagen" alt="" id="imgProyecto">
+                        <img [src]="miP.img" alt="" id="imgProyecto">
                     </div>
                     <div class="column" style="width: 65%; margin-left: 10px;">
-                        <p><b>Titulo:</b> {{miP.titulo}}</p>
-                        <p><b>Descripcion:</b>{{miP.descripcion}}</p>
+                        <p><b>Titulo:</b> {{miP.nombreP}}</p>
+                        <p><b>Descripcion:</b>{{miP.descripcionP}}</p>
+                        <p><b>Fecha:</b>{{ miP.fecha }}</p>
+                        <p><b>link:</b>{{miP.link}}</p>
+                        <p><b>repo:</b>{{miP.repo}}</p>
                     </div>
                 </div>
             </div>
         </li>
     </ul>
 </div>
-
+<!-- 
 <section id="addProyecto">
     <div *ngIf[modoNuevoRegistro]=True class="d-flex">
         <h1 class="centertext">Añadir Proyecto</h1>
@@ -55,4 +58,4 @@
         </form>
     </div>
 
-</section>
+</section> -->

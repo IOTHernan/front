@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="row">
+		<div class="layout">
+			<img id="logoAP"
+				src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/zxspectrum.jpeg?alt=media&token=8a86106c-04c5-4bab-818e-e03a977bd10c"
+				alt="logo-AP" />
+			<div class="social">
+				<app-social></app-social>
+				<button type="button" class="btn btn-outline-light" (click)="login()" *ngIf="!isLogged">
+					Login
+				</button>
+				<button type="button" class="btn btn-outline-light" (click)="onLogOut()" *ngIf="isLogged">
+					Logout
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

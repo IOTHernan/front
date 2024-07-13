@@ -1,7 +1,9 @@
 import { Component, Input, Output, OnInit } from '@angular/core';
-import { PortfolioService } from './../../services/portfolio.service';
+import { Experiencia } from '../../model/experiencia';
+import { ExperienciaService } from './../../services/experiencia.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -9,16 +11,20 @@ import Swal from 'sweetalert2';
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent implements OnInit {
+    experiencia: Experiencia[] = [];
 	miPortfolio: any;
 	modoEdicion: boolean = false;
     modoNuevoRegistro: boolean = false;
     i!: number;
     editID!: number;
     form: FormGroup;
-	@Input() isLogged!: boolean;
+	// @Input() isLogged!: boolean;
 	
 
-		constructor(private datosPortfolio: PortfolioService) {
+		constructor(
+            private sExperiencia: ExperienciaService,
+            private sToken: TokenService
+        ) {
 		this.form = new FormGroup({
             ubicacion: new FormControl(['', [Validators.required, Validators.minLength(2)]]),
             puesto: new FormControl(['', [Validators.required, Validators.minLength(2)]]),
@@ -28,24 +34,40 @@ export class ExperienciaComponent implements OnInit {
 			// imagen: new FormControl(['', [Validators.required, Validators.minLength(2)]])
         })
 	}
+    isLogged = false;
 
 	ngOnInit(): void {
 		console.log("CHE-EXPERIENCIA");
-		
-	  this.datosPortfolio.obtenerDatosExperiencia().subscribe(data => {
+		this.cargarExperiencia();
+        if (this.sToken.getToken()) {
+			this.isLogged = true;
+			console.log('isLogged');
+			
+		} else {
+			console.log('isLogged false');
+			
+			this.isLogged = false;
+		}
+	/*   this.datosPortfolio.obtenerDatosExperiencia().subscribe(data => {
 		console.log('Experiencias:',data);
 		
 		this.miPortfolio=data;
 		console.log(this.miPortfolio);
 		
 	  });
-	  
+	 */  
 	}
-	selectItem(item: any) {
+
+    cargarExperiencia(): void {
+        this.sExperiencia.lista().subscribe((data) => {
+            this.experiencia = data;
+        });
+    }
+ 	selectItem(item: any) {
 		console.log(item);
 
 	}
-
+/*
     onCrear(event: Event) {
         let objetoFormulario = this.form.controls;
         let keysForms = Object.keys(objetoFormulario);
@@ -168,5 +190,5 @@ export class ExperienciaComponent implements OnInit {
 		console.log("valueFormImagen: ", valueForms[5].value);
         this.modoEdicion = false;
     }
-
+ */
 }

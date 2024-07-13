@@ -6,8 +6,8 @@
 		<!-- new record -->
 		<div *ngIf="modoNuevoRegistro===false">
 			<div class="cAdd"><!-- class="column justify-content-end" -->
-				<button class="btn-agregar" (click)="onCrear($event)">
-					<span><img src="../../../assets/media/logoAdd.png" alt="Agregar experiencia..."
+				<button class="btn-agregar" ><!-- (click)="onCrear($event)" -->
+					<span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/chemindhub2.png?alt=media&token=3e4f4203-e1a9-4bb8-a263-11ad9ee6fd04" alt="Agregar experiencia..."
 							class="logos mt-1 bg-blue rounded-circle">AGREGAR EXPERIENCIA</span>
 				</button>
 			</div>
@@ -20,18 +20,18 @@
 				<div *ngIf="modoNuevoRegistro===true">
 					<div class="d-flex justify-content-end">
 						<div class="p-1">
-							<button class="btn p-0 m-1" (click)="onCancelNuevoRegistro()">
-								<span><img src="./../../../assets/media/logoCancel.png" alt="Editar"
+							<button class="btn p-0 m-1"><!--  (click)="onCancelNuevoRegistro()" -->
+								<span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoCancel.png?alt=media&token=83159e9a-70bd-42eb-8a4e-880915e4790f" alt="Editar"
 										class="logos"></span>
 							</button>
-							<button class="btn p-0 m-1" (click)="onSaveNewNuevoRegistro($event)">
-								<span><img src="./../../../assets/media/logoSave.png" alt="Editar" class="logos"></span>
+							<button class="btn p-0 m-1" ><!-- (click)="onSaveNewNuevoRegistro($event)" -->
+								<span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoSave.png?alt=media&token=e96414ef-b581-4377-b93f-3b9d82acd43f" alt="Editar" class="logos"></span>
 							</button>
 						</div>
 					</div>
 				</div>
 				<h3 class="text-center m-3">
-					<img src="./../../../assets/media/logoEdu.png" class="logos" alt="">
+					<img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoEdu.png?alt=media&token=87405494-9eba-41b2-8c96-d6246314043b" class="logos" alt="">
 					<span>Nueva Experiencia</span>
 				</h3>
 				<div class="">
@@ -81,18 +81,18 @@
 				<div *ngIf="modoEdicion===true">
 					<div class="d-flex justify-content-end">
 						<div class="p-1">
-							<button class="btn p-0 m-1" (click)="onCancelNuevoRegistro()">
-								<span><img src="./../../../assets/media/logoCancel.png" alt="Editar"
+							<button class="btn p-0 m-1" ><!-- (click)="onCancelNuevoRegistro()" -->
+								<span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoCancel.png?alt=media&token=83159e9a-70bd-42eb-8a4e-880915e4790f" alt="Editar"
 										class="logos"></span>
 							</button>
-							<button class="btn p-0 m-1" (click)="onSaveNewNuevoRegistro($event)">
-								<span><img src="./../../../assets/media/logoSave.png" alt="Editar" class="logos"></span>
+							<button class="btn p-0 m-1" ><!-- (click)="onSaveNewNuevoRegistro($event)" -->
+								<span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoSave.png?alt=media&token=e96414ef-b581-4377-b93f-3b9d82acd43f" alt="Editar" class="logos"></span>
 							</button>
 						</div>
 					</div>
 				</div>
 				<h3 class="text-center m-3">
-					<img src="./../../../assets/media/logoEdu.png" class="logos" alt="">
+					<img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoEdu.png?alt=media&token=87405494-9eba-41b2-8c96-d6246314043b" class="logos" alt="">
 					<span>Nueva Experiencia</span>
 				</h3>
 				<div class="">
@@ -136,28 +136,32 @@
 	</div>
 
 	<!-- lista -->
-	<div *ngFor="let miP of miPortfolio ; let i = index " [attr.data-index]="i" click="selectItem(miP);">
+	<div *ngFor="let miP of experiencia ; let i = index " [attr.data-index]="i" click="selectItem(miP);">
 		<div class="cCard row box1">
 			<div class="d-flex justify-content-end border">
 				<div class="p-1">
 					<button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
-							Editar experiencia..."><span><img class="logos" src="../../../assets/media/logoPencil.png"></span>
+							Editar experiencia..."><span><img class="logos" src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoPencil.png?alt=media&token=88ca1c53-4a67-4f79-b464-be77772fb95ealt=media&token=83159e9a-70bd-42eb-8a4e-880915e4790f"></span>
 					</button>
 				</div>
 				<div class="p-1">
 					<button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
-							Eliminar experiencia..."><span><img class="logos" src="../../../assets/media/logoDelete.png"></span></button>
+							Eliminar experiencia..."><span><img class="logos" src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoDelete.png?alt=media&token=73a189bb-d546-4f78-8631-ef6f8d1cdb7e"></span></button>
 				</div>
 			</div>
 			<div class="column" style="width: 25%; margin-bottom: 10px;">
-				<img [src]="miP.imagen" alt="" id="imgExperiencia">
+				<img [src]="miP.img" alt="" id="imgExperiencia">
 			</div>
 			<div class="column" style="width: 75%;">
-				<p><b>Ubicacion:</b> {{miP.ubicacion}}</p>
-				<p><b>Puesto:</b> {{miP.puesto}}</p>
-				<p><b>Periodo:</b>{{miP.periodo}}</p>
-				<p><b>Empresa:</b>{{miP.empresa}}</p>
-				<p><b>Actividades: </b>{{miP.actividades}}</p>
+				<!-- <p><b>Ubicacion:</b> {{miP.ubicacion}}</p> -->
+				<!-- <p><b>Puesto:</b> {{miP.puesto}}</p> -->
+				<!-- <p><b>Periodo:</b>{{miP.periodo}}</p> -->
+				<!-- <p><b>Empresa:</b>{{miP.empresa}}</p> -->
+				<!-- <p><b>Actividades: </b>{{miP.actividades}}</p> -->
+				 <h2>{{ miP.nombreE }}</h2>
+				 <h3>{{ miP.puesto }}</h3>
+				 <h5>{{ miP.periodo }}</h5>
+				 <p>{{ miP.descripcionE }}</p>
 			</div>
 		</div>
 	</div>

@@ -7,9 +7,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
+	{ path: "", component: PortfolioComponent },
 	{ path: "login", component: LoginComponent },
 	{ path: "portfolio", component: PortfolioComponent },
-	{ path: "", redirectTo: 'login', pathMatch: 'full' },
 	{ path: "**", component: PageNotFoundComponent },
 	{ path: "navbar", component: NavbarComponent},
 	{ path: "register", component: RegisterComponent}

@@ -1,18 +1,27 @@
+<!-- <div class="img-top">
+	<img src="{{ persona.imgBanner }}" class="card-img-top img-fluid animate" alt="banner-img" />
+</div> -->
+
+
+
+
+
 <div id="first-card">
 	<div id="profile-background" class="img">
-		<img src="./../../../assets/media/bg-ap.jpg" alt="" id="profile-image">
+		<!-- card-img-top<img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/bg-ap.jpg?alt=media&token=1f84341a-caa6-49ae-9bbf-b977ef94a926" alt="" id="profile-image"> -->
+		<img src="{{ persona.imgBanner }}" class=" img-fluid animate" alt="banner-img" />
 	</div>
 	<div id="info" style="padding: 16px;">
 		<div id="info-img">
-			<img class="profile-image" src="./../../../assets/media/chedata1foto.png"
-				alt=""><!-- [src]="miPortfolio.persona[0].image_perfil" -->
+			<img class="profile-image" src="{{ persona.img }}"
+				alt="">
 			<div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i></a></div>
 		</div>
 		<div id="info-data">
 			<div>
-				<h1>Nombres: [{{miPersona2.nombres}}] Apellido: {{miPersona2.apellido}}</h1>
+				<h1>Nombres: {{ persona.nombre}} Apellido: {{persona.apellido}}</h1>
 				<div id="info-company">
-					<p>[Ocupación:] {{miAcercade.ocupacion}}</p>
+					<p>Ocupación: {{persona.descripcion}}</p>
 				</div>
 				<div id="info-contact">
 					Ubicación:<span>Buenos Aires (Argentina) </span>
@@ -25,14 +34,14 @@
 					<li>
 						<a href="#">
 							<div class="d-flex container bg-black">
-								<img class="img-info" [src]="miAcercade.institutionImage" alt="">
+								<img class="img-info" [src]="persona.img" alt="">
 							</div>
 							<p><b>I.N.T.I.</b></p>
 						</a>
 					</li>
 					<li><a href="#">
 							<div class="d-flex container bg-black">
-								<img src="../../../assets/media/chemindhub.png" alt="" width="3vw" height="3vw">
+								<img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/chemindhub2.png?alt=media&token=3e4f4203-e1a9-4bb8-a263-11ad9ee6fd04" alt="" width="2vw" height="2vw">
 							</div>
 							<h2>Argentina Programa - MINDHUB</h2>
 						</a></li>

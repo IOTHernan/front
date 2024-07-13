@@ -1,181 +1,42 @@
-<div id="educacionFirstCard">
-	<div class="cHeader">
-		<div class="cTitle column justify-content-start">
-			<h1>Educación</h1>
+<div class="container" style="border: 2px solid red;">
+	<div class="row" id="education">
+		<div class="layout position-relative">
+			<h2>Educacion</h2>
+			<button type="button" class="btn btn-dark btn-right" routerLink="/nuevaeduc" *ngIf="isLogged">
+				Agregar Educacion
+			</button>
 		</div>
-		<!-- new record -->
-		<div *ngIf="modoNuevoRegistro===false">
-			<div class="cAdd"><!-- class="column justify-content-end" -->
-				<button class="btn-agregar" (click)="onCrear($event)">
-					<span><img src="../../../assets/media/logoAdd.png" alt="Agregar Educación..."
-							class="logos mt-1 bg-blue rounded-circle">AGREGAR EDUCACIÓN</span>
-				</button>
-			</div>
-		</div>
-	</div>
-	<!-- NEW FORM -->
-	<div *ngIf="modoNuevoRegistro===true" class="d-flex justify-content-center">
-		<form [formGroup]="form" class="mb-4">
-			<div class="text-center border mt-5 p-3 shadow rounded">
-				<div *ngIf="modoNuevoRegistro===true">
-					<div class="d-flex justify-content-end">
-						<div class="p-1">
-							<button class="btn p-0 m-1" (click)="onCancelNuevoRegistro()">
-								<span><img src="./../../../assets/media/logoCancel.png" alt="Editar"
-										class="logos"></span>
+		<div>
+			<p>Educacion</p>
+			<ul *ngFor="let Educacion of educacion">
+				<li class="card mat-card">
+					<div class="row">
+						<div class="col-md-3 text-center">
+							<img class="img-fluid logo" src="{{ Educacion.img }}" alt="education_ {{ Educacion.id }}" />
+						</div>
+						<div class="col-12 col-md-9">
+							<h2>{{ Educacion.titulo }}</h2>
+							<h4>{{ Educacion.nombreE }}</h4>
+							<h5>{{ Educacion.periodo }}</h5>
+							<p id="preline">
+								{{ Educacion.descripcionE }}
+							</p>
+						</div>
+						<div *ngIf="isLogged">
+							<button class="btn btn-outline-secondary btn-right"
+								routerLink="/editeduc/{{ Educacion.id }}">
+								<i class="bi bi-pencil"></i>
+								Editar
 							</button>
-							<button class="btn p-0 m-1" (click)="onSaveNewNuevoRegistro($event)">
-								<span><img src="./../../../assets/media/logoSave.png" alt="Editar" class="logos"></span>
+
+							<button class="btn btn-danger btn-right" (click)="delete(Educacion.id)">
+								<i class="bi bi-trash3"></i>
+								Borrar
 							</button>
 						</div>
 					</div>
-				</div>
-				<h3 class="text-center m-3">
-					<img src="./../../../assets/media/logoEdu.png" class="logos" alt="">
-					<span>Nueva Educación</span>
-				</h3>
-				<div class="">
-					<div class="text-start">
-						<label for="escuela" class="form-label fw-bold">Escuela:</label>
-					</div>
-					<input class="p-2 mb-2 border rounded border shadow" type="text" id="escuela" placeholder="🏫 Escuela" formControlName="escuela" required autofocus>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="titulo" class="form-label">Titulo:</label>
-					</div>
-					<input type="text" id="titulo" placeholder="Titulo" formControlName="titulo" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="detalles" class="form-label">Detalles:</label>
-					</div>
-					<input type="text" id="detalles" placeholder="Detalles" formControlName="detalles" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="puntaje" class="form-label">Puntaje:</label>
-					</div>
-					<input type="text" id="puntaje" placeholder="puntaje" formControlName="puntaje" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="inicio" class="form-label">Inicio:</label>
-					</div>
-					<input type="text" id="inicio" placeholder="inicio" formControlName="inicio" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="fin" class="form-label">Fin:</label>
-					</div>
-					<input type="text" id="fin" placeholder="fin" formControlName="fin" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="imagen" class="form-label">URL Imagen:</label>
-					</div>
-					<input type="text" id="imagen" placeholder="imagen" formControlName="imagen">
-				</div>
-			</div>
-		</form>
-	</div>
-
-	<!-- MODO EDIT -->
-	<div *ngIf="modoEdicion===true" class="d-flex">
-		<form [formGroup]="form">
-			<div class="text-center border mt-5 p-3 shadow rounded">
-				<div *ngIf="modoEdicion===true">
-					<div class="d-flex justify-content-end">
-						<div class="p-1">
-							<button class="btn p-0 m-1" (click)="onCancelNuevoRegistro()">
-								<span><img src="./../../../assets/media/logoCancel.png" alt="Editar"
-										class="logos"></span>
-							</button>
-							<button class="btn p-0 m-1" (click)="onSaveNewNuevoRegistro($event)">
-								<span><img src="./../../../assets/media/logoSave.png" alt="Editar" class="logos"></span>
-							</button>
-						</div>
-					</div>
-				</div>
-				<h3 class="text-center m-3">
-					<img src="./../../../assets/media/logoEdu.png" class="logos" alt="">
-					<span>New education</span>
-				</h3>
-				<div class="">
-					<div class="text-start">
-						<label for="escuela" class="form-label">Escuela:</label>
-					</div>
-					<input type="text" id="escuela" placeholder="🏫 Escuela" formControlName="escuela" required autofocus>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="titulo" class="form-label">Titulo:</label>
-					</div>
-					<input type="text" id="titulo" placeholder="Titulo" formControlName="titulo" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="detalles" class="form-label">Detalles:</label>
-					</div>
-					<input type="text" id="detalles" placeholder="Detalles" formControlName="detalles" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="puntaje" class="form-label">Puntaje:</label>
-					</div>
-					<input type="text" id="puntaje" placeholder="puntaje" formControlName="puntaje" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="inicio" class="form-label">Inicio:</label>
-					</div>
-					<input type="text" id="inicio" placeholder="inicio" formControlName="inicio" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="fin" class="form-label">Fin:</label>
-					</div>
-					<input type="text" id="fin" placeholder="fin" formControlName="fin" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="imagen" class="form-label">URL Imagen:</label>
-					</div>
-					<input type="text" id="imagen" placeholder="imagen" formControlName="imagen">
-				</div>
-			</div>
-		</form>
-	</div>
-
-	<!-- <ul> -->
-	<div *ngFor="let miP of miPortfolio ; let i = index " [attr.data-index]="i" onclick="selectItem(miP);">
-		<div class="cCard row box1">
-			<div class="d-flex justify-content-end border">
-				<div class="p-1">
-					<button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
-							Editar educación..."><span><img class="logos" src="../../../assets/media/logoPencil.png"></span>
-					</button>
-				</div>
-				<div class="p-1">
-					<button class="btn p-0 m-1" click="onDelete(i, $event)" data-bs-toggle="tooltip"
-						title="Eliminar educación..."><span><img class="logos"
-								src="../../../assets/media/logoDelete.png"></span></button>
-				</div>
-			</div>
-
-			<div class="column" style="width: 25%; margin-bottom: 10px;">
-				<!-- <img [src]="miP.imagen" alt="" class="imgEducacion border"> -->
-				<img [src]="miP.imagen" alt="" id="imgEducacion">
-			</div>
-			<div class="column" style="width: 75%;">
-				<p><b>🏫 Escuela:</b> {{miP.escuela}}</p>
-				<p><b>Titulo:</b> {{miP.titulo}}</p>
-				<p><b>Detalles:</b>{{miP.detalles}}</p>
-				<p><b>Puntaje:</b>{{miP.puntaje}}</p>
-				<p><b>📅 Inicio: </b>{{miP.inicio}}</p>
-				<p><b>📅 Fin: </b>{{miP.fin}}</p>
-			</div>
+				</li>
+			</ul>
 		</div>
 	</div>
-	<!-- </ul> -->
 </div>
