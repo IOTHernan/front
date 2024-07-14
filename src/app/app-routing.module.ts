@@ -7,7 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-	{ path: "", component: PortfolioComponent },
+	{ path: "", component: LoginComponent },
 	{ path: "login", component: LoginComponent },
 	{ path: "portfolio", component: PortfolioComponent },
 	{ path: "**", component: PageNotFoundComponent },
