@@ -10,6 +10,7 @@ import { TokenService } from './../../services/token.service';
 })
 export class BannerComponent implements OnInit {
 	persona: persona = new persona();
+    // persona: persona = null;
 
 	constructor(
 		public personaService: PersonaService,

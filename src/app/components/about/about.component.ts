@@ -4,11 +4,11 @@ import { TokenService } from './../../services/token.service';
 import { PersonaService } from './../../services/persona.service';
 
 @Component({
-	selector: 'app-acercade',
-	templateUrl: './acercade.component.html',
-	styleUrls: ['./acercade.component.css'],
+	selector: 'app-about',
+	templateUrl: './about.component.html',
+	styleUrls: ['./about.component.css'],
 })
-export class AcercadeComponent implements OnInit {
+export class aboutComponent implements OnInit {
 	persona: persona = new persona();
 
 	constructor(

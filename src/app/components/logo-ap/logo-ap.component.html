@@ -1,16 +1,17 @@
 <div class="container">
 	<div class="row">
 		<div class="layout">
-			<img id="logoAP"
-				src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/zxspectrum.jpeg?alt=media&token=8a86106c-04c5-4bab-818e-e03a977bd10c"
-				alt="logo-AP" />
+		<a href="https://www.argentinaprograma.com" tooltip="Argentina Programa">
+            <img id="logoAP"
+				src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoArgProg.png?alt=media&token=abb59739-47fa-4585-9fbd-ad7d7c36a9ed"
+				alt="logo-AP" /></a>
 			<div class="social">
 				<app-social></app-social>
 				<button type="button" class="btn btn-outline-light" (click)="login()" *ngIf="!isLogged">
-					Login
+					Iniciar sesión
 				</button>
 				<button type="button" class="btn btn-outline-light" (click)="onLogOut()" *ngIf="isLogged">
-					Logout
+					Cerrar sesión
 				</button>
 			</div>
 		</div>

@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './components/login/login.component';
-import { AcercadeComponent } from './components/acercade/acercade.component';
+import { aboutComponent } from './components/about/about.component';
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
@@ -42,6 +42,8 @@ import { NewEducacionComponent } from './components/educacion/new-educacion/new-
 import { HeaderComponent } from './components/header/header.component';
 import { LogoAPComponent } from './components/logo-ap/logo-ap.component';
 import { SocialComponent } from './components/social/social.component';
+import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
+import { EditExperienciaComponent } from './components/experiencia/edit-experiencia/edit-experiencia.component';
 // material
 const materialModules = [
 	MatDialogModule
@@ -54,7 +56,7 @@ const materialModules = [
 		NavbarComponent,
 		LoginComponent,
 		FooterComponent,
-		AcercadeComponent,
+		aboutComponent,
 		EducacionComponent,
 		ExperienciaComponent,
 		ProyectosComponent,
@@ -69,7 +71,9 @@ const materialModules = [
       NewEducacionComponent,
       HeaderComponent,
       LogoAPComponent,
-      SocialComponent
+      SocialComponent,
+      EditAboutComponent,
+      EditExperienciaComponent
 	],
 	imports: [
 		BrowserModule,
