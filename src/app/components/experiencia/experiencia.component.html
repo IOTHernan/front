@@ -1,167 +1,29 @@
-<div id="experienciaFirstCard">
-	<div class="cHeader">
-		<div class="cTitle column justify-content-start">
-			<h1>Experiencia</h1>
+<div class="contenedor" style="margin-top: 12vw;">
+	<div class="encabezado">
+		<h2>Experiencia Laboral</h2>
+		<button type="button" class="icono-añadir" routerLink="/new-experiencia" title="Agregar Experiencia"><!--  *ngIf="isLogged" -->
+			Agregar Experiencia
+		</button>
+	</div>
+	<div *ngFor="let Experiencia of experiencia; let i = index" [attr.data-index]="i" click="selectItem(Experiencia);">
+		<div class="acciones"> <!-- <div> *ngIf="isLogged" -->
+			<button class="icono-editar" routerLink="/edit-experiencia/{{ Experiencia.id }}" title="Editar">
+				<i class="bi bi-pencil"></i>
+			</button>
+			<button class="icono-borrar" (click)="delete(id)" title="Borrar">
+				<i class="bi bi-trash3"></i>
+			</button>
 		</div>
-		<!-- new record -->
-		<div *ngIf="modoNuevoRegistro===false">
-			<div class="cAdd"><!-- class="column justify-content-end" -->
-				<button class="btn-agregar" ><!-- (click)="onCrear($event)" -->
-					<span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/che_add.png?alt=media&token=06b5a337-37bb-4a4d-8dac-a6797877edb3" alt="Agregar experiencia..."
-							class="logos mt-1 bg-blue rounded-circle">AGREGAR EXPERIENCIA</span>
-				</button>
+		<div class="contenido">
+			<div class="imagen">
+				<img class="img-fluid logo" src="{{Experiencia.img}}" alt="img-exp-{{ Experiencia.id }}"
+					style="margin: 2%;" />
 			</div>
-		</div>
-	</div>
-	<!-- NEW FORM -->
-	<div *ngIf="modoNuevoRegistro===true" class="d-flex justify-content-center">
-		<form [formGroup]="form" class="mb-4">
-			<div class="text-center border mt-5 p-3 shadow rounded">
-				<div *ngIf="modoNuevoRegistro===true">
-					<div class="d-flex justify-content-end">
-						<div class="p-1">
-							<button class="btn p-0 m-1"><!--  (click)="onCancelNuevoRegistro()" -->
-								<span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoPencil.png?alt=media&token=88ca1c53-4a67-4f79-b464-be77772fb95e" alt="Editar"
-										class="logos"></span>
-							</button>
-							<button class="btn p-0 m-1" ><!-- (click)="onSaveNewNuevoRegistro($event)" -->
-								<span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoSave.png?alt=media&token=e96414ef-b581-4377-b93f-3b9d82acd43f" alt="Editar" class="logos"></span>
-							</button>
-						</div>
-					</div>
-				</div>
-				<h3 class="text-center m-3">
-					<img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoPencil.png?alt=media&token=88ca1c53-4a67-4f79-b464-be77772fb95e" class="logos" alt="">
-					<span>Nueva Experiencia</span>
-				</h3>
-				<div class="">
-					<div class="text-start">
-						<label for="ubicacion" class="form-label fw-bold">Ubicación:</label>
-					</div>
-					<input class="p-2 mb-2 border rounded border shadow" type="text" id="ubicacion" placeholder="Ubicación" formControlName="ubicacion" required autofocus>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="puesto" class="form-label">puesto:</label>
-					</div>
-					<input type="text" id="puesto" placeholder="puesto" formControlName="puesto" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="periodo" class="form-label">periodo:</label>
-					</div>
-					<input type="text" id="periodo" placeholder="periodo" formControlName="periodo" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="empresa" class="form-label">empresa:</label>
-					</div>
-					<input type="text" id="empresa" placeholder="empresa" formControlName="empresa" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="actividades" class="form-label">actividades:</label>
-					</div>
-					<input type="text" id="actividades" placeholder="actividades" formControlName="actividades" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="imagen" class="form-label">URL Imagen:</label>
-					</div>
-					<input type="text" id="imagen" placeholder="imagen" formControlName="imagen">
-				</div>
-			</div>
-		</form>
-	</div>
-
-	<!-- MODO EDIT -->
-	<div *ngIf="modoEdicion===true" class="d-flex">
-		<form [formGroup]="form">
-			<div class="text-center border mt-5 p-3 shadow rounded">
-				<div *ngIf="modoEdicion===true">
-					<div class="d-flex justify-content-end">
-						<div class="p-1">
-							<button class="btn p-0 m-1" ><!-- (click)="onCancelNuevoRegistro()" -->
-								<span><img src="gs://front-ad0dc.appspot.com/logoDelete.png" alt="Editar"
-										class="logos"></span><!-- "https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoCancel.png?alt=media&token=83159e9a-70bd-42eb-8a4e-880915e4790f" -->
-							</button>
-							<button class="btn p-0 m-1" ><!-- (click)="onSaveNewNuevoRegistro($event)" -->
-								<span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoAdd.png?alt=media&token=10454e68-cb56-41fc-8fd1-202338ef8c98" alt="Editar" class="logos"></span><!-- https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoSave.png?alt=media&token=e96414ef-b581-4377-b93f-3b9d82acd43f -->
-							</button>
-						</div>
-					</div>
-				</div>
-				<h3 class="text-center m-3">
-					<img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoEdu.png?alt=media&token=87405494-9eba-41b2-8c96-d6246314043b" class="logos" alt="">
-					<span>Nueva Experiencia</span>
-				</h3>
-				<div class="">
-					<div class="text-start">
-						<label for="experiencia" class="form-label">Experiencia:</label>
-					</div>
-					<input type="text" id="experiencia" placeholder="Experiencia" formControlName="experiencia" required autofocus>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="puesto" class="form-label">puesto:</label>
-					</div>
-					<input type="text" id="puesto" placeholder="puesto" formControlName="puesto" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="periodo" class="form-label">periodo:</label>
-					</div>
-					<input type="text" id="periodo" placeholder="periodo" formControlName="periodo" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="empresa" class="form-label">empresa:</label>
-					</div>
-					<input type="text" id="empresa" placeholder="empresa" formControlName="empresa" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="actividades" class="form-label">actividades:</label>
-					</div>
-					<input type="text" id="actividades" placeholder="actividades" formControlName="actividades" required>
-				</div>
-				<div class="">
-					<div class="text-start">
-						<label for="imagen" class="form-label">URL Imagen:</label>
-					</div>
-					<input type="text" id="imagen" placeholder="imagen" formControlName="imagen">
-				</div>
-			</div>
-		</form>
-	</div>
-
-	<!-- lista -->
-	<div *ngFor="let miP of experiencia ; let i = index " [attr.data-index]="i" click="selectItem(miP);">
-		<div class="cCard row box1">
-			<div class="d-flex justify-content-end border">
-				<div class="p-1">
-					<button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
-							Editar experiencia..."><span><img class="logos" src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoPencil.png?alt=media&token=88ca1c53-4a67-4f79-b464-be77772fb95e"></span>
-					</button>
-				</div>
-				<div class="p-1">
-					<button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
-							Eliminar experiencia..."><span><img class="logos" src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoDelete.png?alt=media&token=73a189bb-d546-4f78-8631-ef6f8d1cdb7e"></span></button>
-				</div>
-			</div>
-			<div class="column" style="width: 25%; margin-bottom: 10px;">
-				<img [src]="miP.img" alt="" id="imgExperiencia">
-			</div>
-			<div class="column" style="width: 75%;">
-				<!-- <p><b>Ubicacion:</b> {{miP.ubicacion}}</p> -->
-				<!-- <p><b>Puesto:</b> {{miP.puesto}}</p> -->
-				<!-- <p><b>Periodo:</b>{{miP.periodo}}</p> -->
-				<!-- <p><b>Empresa:</b>{{miP.empresa}}</p> -->
-				<!-- <p><b>Actividades: </b>{{miP.actividades}}</p> -->
-				 <h2>{{ miP.nombreE }}</h2>
-				 <h3>{{ miP.puesto }}</h3>
-				 <h5>{{ miP.periodo }}</h5>
-				 <p>{{ miP.descripcionE }}</p>
+			<div class="informacion">
+				<h2> Empresa: {{ Experiencia.nombreE }}</h2>
+				<h3> Puesto: {{ Experiencia.puesto }}</h3>
+				<h5> Periodo: {{ Experiencia.periodo }}</h5>
+				<p> Actividades: {{ Experiencia.descripcionE }}</p>
 			</div>
 		</div>
 	</div>

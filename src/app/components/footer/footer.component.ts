@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+// import { MatDialog } from '@angular/material/dialog';
 import { MiDialogComponent } from '../mi-dialog-component/mi-dialog-component';
 
 /**
@@ -14,14 +14,14 @@ import { MiDialogComponent } from '../mi-dialog-component/mi-dialog-component';
 
 export class FooterComponent implements OnInit {
 
-	constructor(private dialog: MatDialog) { }
+	// constructor(private dialog: MatDialog) { }
 
 	ngOnInit(): void {
 		console.log('DEBUG: FOOTER');
 		
 	}
 
-	abrirDialog(): void {
+/* 	abrirDialog(): void {
 		const dialogRef = this.dialog.open(MiDialogComponent, {
 			width: '400px',
 			// Opciones de configuración adicionales
@@ -32,4 +32,4 @@ export class FooterComponent implements OnInit {
 			// Lógica a ejecutar después de cerrar el dialog
 		});
 	}
-}
+ */}

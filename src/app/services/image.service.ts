@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { Storage, ref, uploadBytes, list, getDownloadURL } from '@angular/fire/storage';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class ImageService {
-  storage = getStorage();
 
-  uploadImage(file: File, name: string): Promise<void> {
-    const storageRef = ref(this.storage, `imagen/${name}`);
-    return new Promise<void>((resolve, reject) => {
-      uploadBytes(storageRef, file)
-        .then(() => {
-          resolve(); // La carga se completó correctamente
-        })
-        .catch((error) => {
-          reject(error); // Hubo un error en la carga
-        });
-    });
-  }
+	url: string = ""
 
-  getImageUrl(name: string): Promise<string> {
-    const storageRef = ref(this.storage, `imagen/${name}`);
-    return getDownloadURL(storageRef);
-  }
+	constructor(public storage: Storage) { }
+
+	public uploadImage($event: any, name: string) {
+		const file = $event.target.files[0]
+		// const imgRef = ref(this.storage, `imagen/` + name)
+		const imgRef = ref(this.storage, `/` + name)
+		uploadBytes(imgRef, file)
+			.then(response => { this.getImages() })
+			.catch(error => console.log(error))
+	}
+
+	getImages() {
+		const imgsRef = ref(this.storage, `imagen`)
+		list(imgsRef)
+			.then(async response => {
+				for (let item of response.items) {
+					this.url = await getDownloadURL(item)
+
+				}
+				console.log("imgS finish")
+			})
+			.catch(error => console.log(error))
+	}
 }

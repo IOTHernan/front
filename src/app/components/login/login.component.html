@@ -1,62 +1,41 @@
-<app-header></app-header>
-<!-- <app-navbar></app-navbar> -->
-<div class="container-fluid imagen-fondo d-flex justify-content-center border loginBorder" style="padding: 5px 5px;">
-	<div class="row justify-content-center col-10"
-		style="width: 40vw; height: 30vw; border: 2px solid gray;padding-bottom: 10px;">
-		<!-- <form class="m-5 col-md-4 col-sm-10 bg-white p-3 rounded shadow" (ngSubmit)="onLogin($event)"> -->
-		<form name="loginForm" [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginForm"
-			class="shadow col-sm-6 p-4 m-auto"> <!-- [formGroup]="form" -->
-			<h2 class="text-center text-info shadow border cc" style="color: blueviolet;"><i>MY PORTFOLIO</i></h2>
-			<div class="mb-3 mt-3">
-				<label for="username" class="form-label spcLabel">User Name: </label>
-				<input type="text" formControlName="username" [ngClass]="{'is-invalid': username?.errors && username?.touched,
-					 'is-valid': !username?.errors && username?.touched}" class="form-control" id="username"
-					aria-describedby="nombreUsuarioHelp" placeholder="Enter the name of user..."
-					tooltip="Enter the name of current user...">
-				<div *ngIf="username?.errors && username?.touched">
-					<p *ngIf="username?.hasError('required')" class="text-danger">
-						The name of user is required...
-					</p>
-					<p *ngIf="username?.hasError('nombreUsuario')" class="text-danger">
-						The format of the name be valid.
-					</p>
-				</div>
-			</div>
+<section class="vh-100">
 
-			<div class="mb-5">
-				<label for="exampleInputPassword1" class="form-label spcLabel"> Password: </label>
-				<input type="password" formControlName="password" tooltip="Enter your password..." [ngClass]="{'is-invalid': password?.errors && password?.touched,
-					 'is-valid': !password?.errors && password?.touched}" class="form-control" id="exampleInputPassword1"
-					placeholder="Enter your password...">
+    <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+    <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+      <h3>Autenticación de usuario</h3>
+      <label class="form-label" for="nombreUsuario"> Username </label>
+      <input
+        type="email"
+        id="nombreUsuario"
+        name="nombreUsuario"
+        class="form-control form-control-lg"
+        placeholder="Enter a valid Username"
+        [(ngModel)]="nombreUsuario"
+        required title="Ingrese el nombre de usuario"
+      />
 
-				<div *ngIf="password?.errors && password?.touched">
-					<p *ngIf="password?.hasError('required')" class="text-danger">
-					</p>
-					The password is required.
-					<p *ngIf="password?.errors?.['minlength']" class="text-danger">
-						The password must long 8 characters minimal.
-					</p>
-				</div>
+      <label class="form-label" for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control form-control-lg"
+        placeholder="Enter password"
+        [(ngModel)]="password"
+        required
+        title="Ingrese la contraseña"
+      />
 
-			</div>
-			<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'"
-				role="alert">
-				<p *ngIf="respta.msj==''">Enviando datos...</p>
-				<p *ngIf="respta.msj!=''">{{respta.msj}}</p>
-			</div>
-			<br>
-			<br>
-			<div class="d-flex botones my-1">
-				<button type="button" class="btn btn-blue" onclick="loginWithGoogle();">Login with Google
-					Acount</button>
-				<br>
-				<button type="submit" class="btn btn-skyblue btn-sm w-50 fw-bold border" routerLink="/portfolio">INIT
-					SESSION</button>
-				<br>
-				<button type="button" class="btn border" routerLink="/register">New user</button>
-			</div>
+      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
 
-		</form>
-	</div>
-</div>
-<app-footer></app-footer>
+    </form>
+    <div *ngIf="isLogged">
+        <p>Usuario autenticado: {{nombreUsuario}}</p>
+        <button (click)="updatePassword()">Modificar contraseña</button>
+        <button (click)="deleteAccount()">Eliminar cuenta</button>
+    </div>
+
+  </section>

@@ -1,42 +1,32 @@
-<div class="container" style="border: 2px solid red;">
-	<div class="row" id="education">
-		<div class="layout position-relative">
-			<h2>Educacion</h2>
-			<button type="button" class="btn btn-dark btn-right" routerLink="/nuevaeduc" *ngIf="isLogged">
-				Agregar Educacion
-			</button>
-		</div>
-		<div>
-			<p>Educacion</p>
-			<ul *ngFor="let Educacion of educacion">
-				<li class="card mat-card">
-					<div class="row">
-						<div class="col-md-3 text-center">
-							<img class="img-fluid logo" src="{{ Educacion.img }}" alt="education_ {{ Educacion.id }}" />
-						</div>
-						<div class="col-12 col-md-9">
-							<h2>Titulo: {{ Educacion.titulo }}</h2>
-							<h4>Nombre: {{ Educacion.nombreE }}</h4>
-							<h5>Periodo: {{ Educacion.periodo }}</h5>
-							<p id="preline">Descripción:
-								{{ Educacion.descripcionE }}
-							</p>
-						</div>
-						<div *ngIf="isLogged">
-							<button class="btn btn-outline-secondary btn-right"
-								routerLink="/editeduc/{{ Educacion.id }}">
-								<i class="bi bi-pencil"></i>
-								Editar
-							</button>
-
-							<button class="btn btn-danger btn-right" (click)="delete(Educacion.id)">
-								<i class="bi bi-trash3"></i>
-								Borrar
-							</button>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
+<div class="contenedor">
+    <div class="encabezado">
+        <h1>Educacion</h1>
+        <button type="button" class="icono-añadir" routerLink="/new-educacion"
+            title="Agregar Educacion"><!-- *ngIf="isLogged" -->
+            Agregar Educacion
+        </button>
+    </div>
+    <div *ngFor="let Educacion of educacion; let i = index " [attr.data-index]="i" click="selectItem(Educacion);">
+        <div class="acciones"><!--  *ngIf="isLogged" -->
+            <button class="icono-editar" routerLink="/edit-educacion/{{ Educacion.id }}" title="Editar">
+                <i class="bi bi-pencil"></i>
+                <!-- Editar -->
+            </button>
+            <button class="icono-borrar" (click)="delete(Educacion.id)" title="Borrar">
+                <i class="bi bi-trash3"></i>
+                <!-- Borrar -->
+            </button>
+        </div>
+        <div class="contenido">
+            <div class="imagen"><!--  class="img-fluid logo" -->
+                <img src="{{ Educacion.img }}" alt="education_ {{ Educacion.id }}" style="margin: 2%;" />
+            </div>
+            <div class="informacion">
+                <h2>Titulo: {{ Educacion.titulo }}</h2>
+                <h4>🏫 Establecimiento: {{ Educacion.nombreE }}</h4>
+                <h5>Periodo: {{ Educacion.periodo }}</h5>
+                <p id="preline">Descripción: {{ Educacion.descripcionE }}</p>
+            </div>
+        </div>
+    </div>
 </div>

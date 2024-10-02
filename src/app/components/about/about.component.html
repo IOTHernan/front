@@ -1,58 +1,39 @@
 <div class="container">
-	<div class="row">
-		<div class="card-body position-relative">
-			<button type="button" class="btn btn-circle btn-right btn-primary" routerLink="/editacercade/1"
-				*ngIf="isLogged">
-				<i class="bi bi-pencil"></i>
-			</button>
-			<div class="img-profile position-absolute top-0 start-50 translate-middle">
-				<img [src]="persona.img" class="animate" alt="img-profile" />
-			</div>
-			<div class="row mt-5">
-				<div class="col text-center">
-					<h2>
-						<strong>{{ persona.nombre }} {{ persona.apellido }}</strong>
-					</h2>
-					<h6>{{ persona.titulo }}</h6>
-				</div>
-				<div class="d-flex acercade">
-					<div class="col text-center">
-						<p>{{ persona.descripcion }}</p>
-						<div class="d-flex justify-content-between">
-							<div class="col text-center">
-								<div class="social-links">
-									<div class="social-btn flex-center">
-										<a href="mailto:hernancanestraro@gmail.com">
-											<img id="gmail" src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/gmail-d.png?alt=media&token=53b82a3a-b3ea-4052-8b4d-ff90623dea2d" alt="gmail" width="24"
-												height="24" viewBox="0 0 24 24" />
-										</a>
-										<span>"hernancanestraro&#64;gmail.com"</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+        <div class="card-body position-relative">
+            <button type="button" class="btn btn-circle btn-right btn-primary" routerLink="/edit-about/1"
+                *ngIf="isLogged">
+                <i class="bi bi-pencil"></i>
+            </button>
+            <div class="img-profile position-absolute top-0 start-50 translate-middle">
+                <img src="{{persona.img}}" class="animate" alt="img-profile" />
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <h2>
+                        <strong>{{ persona.nombre }} {{ persona.apellido }}</strong>
+                    </h2>
+                    <h6>{{ persona.titulo }}</h6>
+                </div>
+                <div class="d-flex">
+                    <div class="col text-center">
+                        <p>{{ persona.descripcion }}</p>
+                        <div class="d-flex justify-content-between">
+                            <div class="col text-center">
+                                <div class="social-links">
+                                    <div class="social-btn flex-center">
+                                        <a href="mailto:joaquinvillalba8@gmail.com">
+                                            <img id="gmail" src="../../../assets/gmail-d.png" alt="gmail" width="24"
+                                                height="24" viewBox="0 0 24 24" />
+                                        </a>
+                                        <span>hernancanestraro&#64;gmail.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-<!-- <div id="acercaDeFirstCard" class="card card-mx d-flex acercaDe">
-	<div class="card-titles">
-		<h2>Acerca de</h2>
-		<div class="btn-edit">
-			<a href="#" class="btn-right" data-bs-toggle="tooltip" title="Editar acercade...">
-				<img class="logos" src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoPencil.png?alt=media&token=88ca1c53-4a67-4f79-b464-be77772fb95ealt=media&token=83159e9a-70bd-42eb-8a4e-880915e4790f"">
-				<i class="fa fa-pen">✏ </i>
-			</a>
-		</div>
-		<div>
-			{{miPortfolio.acercaDe}}
-			Nombres: {{miPortfolio2.nombres}}
-			Matemático, físico e informático argentino ejemplo de la computación moderna en la Argentina.
-		</div>
-	</div>
-</div> -->

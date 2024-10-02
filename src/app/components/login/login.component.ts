@@ -1,8 +1,10 @@
+import { LoginUsuario } from './../../model/login-usuario';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AutenticacionService } from './../../../app/services/autenticacion.service';
-import { Router, RouterLink } from '@angular/router';
-import { RespuestaDTO } from './../../../app/services/respuest-dto';
+import { Router } from '@angular/router';
+import { AuthService } from './../../../app/services/auth.service';
+import { TokenService } from './../../../app/services/token.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
 	selector: 'app-login',
@@ -10,70 +12,97 @@ import { RespuestaDTO } from './../../../app/services/respuest-dto';
 	styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-	loginForm: FormGroup;
-	respta: RespuestaDTO = { salioBien: false, msj: "" };
-	mostrarMsj: boolean = false;
+	isLogged = false;
+	isLogginFail = false;
+	loginUsuario!: LoginUsuario;
+	nombreUsuario!: string;
+	password!: string;
+	roles: string[] = [];
+	errorMsj!: string;
+	// ----
+	registerUser = { email: '', password: '' };
+	loginUser = { email: '', password: '' };
+	currentUser: any;
 
 	constructor(
-		private formBuilder: FormBuilder,
-		private autenticacionService: AutenticacionService,
-		private ruta: Router) {
-		this.loginForm = this.formBuilder.group({
-			//email: ['', [Validators.required, Validators.email]],
-			username: ['', [Validators.required, Validators.minLength(2)]],
-			password: ['', [Validators.required, Validators.minLength(8)]]
-		})
-	}
+		private tokenService: TokenService, private authService: AuthService, private router: Router,
+		private afAuth: AngularFireAuth, private db: AngularFirestore
+	) { }
 
-	ngOnInit() {
-		console.log('[ln29] ' + 'Login');
-	}
-
-	//get Email(){
-	//  return this.form.get('email');
-	//}
-
-	get username() {
-		return this.loginForm.get('username')
-	}
-
-	get password() {
-		return this.loginForm.get('password');
-	}
-
-	ingresar() {
-		if (this.loginForm.valid) {
-			if (this.loginForm.value.username === 'sole' && this.loginForm.value.password === '12345678') {
-				this.mostrarMsj = true;
-				this.autenticacionService.iniciarSesion();
-				//respta
-				this.respta.salioBien = true;
-				this.respta.msj = "¡Buena! Ya iniciaste sesión!";
-				//navegar a inicio
-				this.ruta.navigate(["/portfolio"]);
-
-			} else if (this.loginForm.value.username === '' || this.loginForm.value.password === '') {
-				this.mostrarMsj = true;
-				this.respta.msj = "Se necesita usuario y contraseña para ingresar";
-
+	ngOnInit(): void {
+		console.log('Login component');
+		if (this.tokenService.getToken()) {
+			console.log('token true');
+			this.isLogged = true
+			this.isLogginFail = false;
+			this.roles = this.tokenService.getAuthorities()
+		}
+		this.afAuth.authState.subscribe(user => {
+			if (user) {
+				console.log(user)
+				this.currentUser = user;
 			} else {
-				this.mostrarMsj = true;
-				this.respta.msj = "Mmm... Usuario o contraseña inválidos";
+				this.currentUser = null;
 			}
+		});
+	}
+
+	// Registrar un nuevo usuario.
+	async register() {
+		try {
+			const user = await this.afAuth.createUserWithEmailAndPassword(this.registerUser.email, this.registerUser.password);
+			console.log('Usuario registrado con éxito', user);
+			// Enviar correo electrónico de verificación
+			//   await user.sendEmailVerification();
+			console.log('Correo electrónico de verificación enviado');
+		} catch (error) {
+			console.error('Error al registrar el usuario:', error);
 		}
 	}
 
-	loginWithGoogle() {
-		
+	// Modificar contraseña
+	async updatePassword() {
+		try {
+			const newPassword = 'nueva_contraseña';
+			await this.currentUser.updatePassword(this.password);
+			console.log('Contraseña actualizada con éxito');
+		} catch (error) {
+			console.error('Error al actualizar la contraseña:', error);
+		}
 	}
 
-	/* onLogin(event: Event) {
-		event.preventDefault;
-		this.autenticacionService.login(this.loginForm.value).subscribe(data => {
-			console.log("Archivo Login Component , seteo del token: ", data.token);
-			sessionStorage.setItem('token', data.token);
-			this.autenticacionService.setToken(data.token);
-			this.ruta.navigate(['/portfolio']);
-		});
-	} */
+	async deleteAccount() {
+		try {
+			await this.currentUser.delete();
+			console.log('Cuenta eliminada con éxito');
+		} catch (error) {
+			console.error('Error al eliminar la cuenta:', error);
+		}
+	}
+
+
+	onLogin(): void {
+		/* this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password)
+		this.authService.login(this.loginUsuario).subscribe(data => {
+			this.isLogged = true
+			this.isLogginFail = false
+			this.tokenService.setToken(data.token)
+			this.tokenService.setUsername(data.nombreUsuario)
+			this.tokenService.setAuthorities(data.authorities)
+			this.roles = data.authorities
+			this.router.navigate([''])
+		}, err => {
+			this.isLogged = false
+			this.isLogginFail = true
+			this.errorMsj = err.error.mensaje
+			console.log(this.errorMsj)
+		}) */
+		if (this.nombreUsuario === 'usuario1' && this.password === 'usuario1') {
+			console.log('logged true');
+			this.isLogged = true;
+			this.isLogginFail = false;
+			this.router.navigate(['/home']);
+		}
+	}
+
 }

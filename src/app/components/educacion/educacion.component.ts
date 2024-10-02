@@ -16,28 +16,29 @@ export class EducacionComponent implements OnInit {
 		private sToken: TokenService
 	) { }
 
-	isLogged = false;
+	isLogged = true;
 
 	ngOnInit(): void {
 		console.log('CargaEducacion');
-		
 		this.cargarEducacion();
-		/*if (this.sToken.getToken()) {
+		if (this.sToken.getToken()) {
+			console.log("token true");
 			this.isLogged = true;
-			console.log('isLogged');
-			
 		} else {
-			console.log('isLogged false');
-			
+			console.log("token false");
+			alert('no logueado');
 			this.isLogged = false;
-		}*/
+		}
 	}
 
+  selectItem(item: any) {
+		console.log(item);
+
+	}
 	cargarEducacion(): void {
 		this.sEducacion.lista().subscribe((data) => {
 			this.educacion = data;
 			console.log(this.educacion);
-			
 		});
 	}
 

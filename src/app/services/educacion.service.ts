@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EducacionService {
-  URL = environment.URL + 'educacion/';
+  URL = environment.URL + 'api/educacion/';
 
   constructor(private httpClient: HttpClient ) { }
 
   public lista(): Observable<Educacion[]>{
-    return this.httpClient.get<Educacion[]>(this.URL + 'lista')
+    return this.httpClient.get<Educacion[]>(this.URL + 'lista')/*  + 'getAllEducacion'*/
   }
 
   public detail(id: number): Observable<Educacion>{
@@ -29,6 +29,6 @@ export class EducacionService {
   }
 
   public delete(id: number): Observable<any>{
-    return this.httpClient.delete<any>(this.URL + `delete/${id}`)
+    return this.httpClient.delete<any>(this.URL + `deleteEducacion/${id}`)
   }
 }

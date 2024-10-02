@@ -8,16 +8,16 @@ import { Hys } from '../model/hys';
   providedIn: 'root',
 })
 export class HysService {
-  URL = environment.URL + 'skill/';
+  URL = environment.URL + 'skills';
 
   constructor(private httpClient: HttpClient) {}
 
   public lista(): Observable<Hys[]> {
-    return this.httpClient.get<Hys[]>(this.URL + 'lista');
+    return this.httpClient.get<Hys[]>(this.URL  + '/lista');/* */
   }
 
   public detail(id: number): Observable<Hys> {
-    return this.httpClient.get<Hys>(this.URL + `detail/${id}`);
+    return this.httpClient.get<Hys>(this.URL + `/${id}`);/* detail */
   }
 
   public save(skill: Hys): Observable<any> {
@@ -29,6 +29,6 @@ export class HysService {
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpClient.delete(this.URL + `delete/${id}`);
+    return this.httpClient.delete(this.URL + `deleteSkills/${id}`);
   }
 }

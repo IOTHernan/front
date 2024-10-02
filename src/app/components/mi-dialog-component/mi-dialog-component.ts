@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'app-mi-dialog',
@@ -8,14 +7,14 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class MiDialogComponent implements OnInit {
 
-	constructor(public dialogRef: MatDialogRef<MiDialogComponent>) { }
+	// constructor(public dialogRef: MatDialogRef<MiDialogComponent>) { }
 
 	ngOnInit(): void {
 		console.log('DEBUG: MIDIALOG');
 	}
 
-	cerrarDialog(): void {
+	/* cerrarDialog(): void {
 		this.dialogRef.close();
-	}
+	} */
 
 }

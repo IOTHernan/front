@@ -1,61 +1,39 @@
-<div id="proyectosFirstCard">
-    <div class="cHeader">
-        <div class="cTitle column justify-content-start">
-            <h1>Proyectos</h1>
-        </div>
-        <div class="cAdd"><!-- class="column justify-content-end" -->
-            <button class="btn-agregar" onclick="addProyecto()">
-                <span><img src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/che_add.png?alt=media&token=06b5a337-37bb-4a4d-8dac-a6797877edb3" alt="Agregar Proyecto..."
-                        class="logos mt-1 bg-blue rounded-circle">AGREGAR PROYECTO</span>
-            </button>
-        </div>
-    </div>
+<div class="contenedor">
+	<div class="encabezado">
+			<h2>Proyecto</h2>
+			<button type="button" class="icono-añadir" routerLink="/new-project" title="Agregar Proyecto">
+				Agregar Proyecto
+			</button><!-- *ngIf="isLogged" -->
+	</div>
+		<div *ngFor="let Proyecto of proyecto" class="col-md-4 col-sm-6">
+			<div class="box">
+				<img [src]="Proyecto.img" alt="img-proj-{{ Proyecto.id }}" />
+				<div class="box-content">
+					<h4>{{ Proyecto.fecha }}</h4>
+					<h3 class="title">{{ Proyecto.nombreP }}</h3>
+					<span class="post">{{ Proyecto.descripcionP }}</span>
+				</div>
+				<ul class="icon">
+					<li *ngIf="Proyecto.link">
+						<a href="{{ Proyecto.link }}"><i class="fa fa-link"></i></a>
+					</li>
+					<li *ngIf="Proyecto.repo">
+						<a href="{{ Proyecto.repo }}"><i class="fa fa-github"></i></a>
+					</li>
+				</ul>
+			</div>
+			<div *ngIf="isLogged">
+				<div class="d-grid gap-2 col-6 mx-auto">
+					<button class="btn btn-outline-dark" routerLink="/edit-project/{{ Proyecto.id }}">
+						<i class="bi bi-pencil"></i>
+						Editar
+					</button>
 
-    <ul>
-        <li *ngFor="let miP of proyecto ; let i = index" [attr.data-index]="i" onclick="selectItem(miP);">
-            <div class="card mat-card row"><!-- "cCard row box1" -->
-                <div class="row border">
-                    <div class="p-1 border" style="margin: 3px;">
-                        <button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
-						Editar proyecto..." ><span><img class="logos"
-                                    src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoPencil.png?alt=media&token=88ca1c53-4a67-4f79-b464-be77772fb95e"></span>
-                        </button><!-- onclick="editarProyecto()" -->
-                    </div>
-                    <div class="p-1 border">
-                        <button class="btn p-0 m-1" data-bs-toggle="tooltip" title="
-						Eliminar proyecto..." ><span><img class="logos"
-                                    src="https://firebasestorage.googleapis.com/v0/b/front-ad0dc.appspot.com/o/logoDelete.png?alt=media&token=73a189bb-d546-4f78-8631-ef6f8d1cdb7e"></span></button><!-- onclick="deleteProyecto()" -->
-                    </div>
-                </div>
-                <div>
-                    <div class="column" style="width: 25%; margin-bottom: 10px; margin-left: 10px;">
-                        <img [src]="miP.img" alt="" id="imgProyecto">
-                    </div>
-                    <div class="column" style="width: 65%; margin-left: 10px;">
-                        <p><b>Titulo: </b> {{miP.nombreP}}</p>
-                        <p><b>Descripcion: </b>{{miP.descripcionP}}</p>
-                        <p><b>Fecha: </b>{{ miP.fecha }}</p>
-                        <p><b>link: </b>{{miP.link}}</p>
-                        <p><b>repo: </b>{{miP.repo}}</p>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<!-- 
-<section id="addProyecto">
-    <div *ngIf[modoNuevoRegistro]=True class="d-flex">
-        <h1 class="centertext">Añadir Proyecto</h1>
-        <form action="">
-            <label for="titulo">Titulo: </label>
-            <input type="text" name="titulo" id="titulo" placeholder="Titulo">
-            <label for="descripcion">Descripción: </label>
-            <input type="text" name="descripcion" id="descripcion">
-            <label for="imagen">URL de imagén: </label>
-            <input type="text" name="imagen" id="imagen" autocomplete="src\assets\media\empty.jpg">
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
-</section> -->
+					<button class="btn btn-danger" (click)="delete(Proyecto.id)">
+						<i class="bi bi-trash3"></i>
+						Borrar
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>

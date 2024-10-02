@@ -1,18 +1,25 @@
+import { JwtDto } from './../model/jwt-dto';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { signInWithPopup } from 'firebase/auth';
+import { NuevoUsuario } from './../model/nuevo-usuario';
+import { LoginUsuario } from './../model/login-usuario';
+import { environment } from './../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth) {}
+  authURL = environment.URL + 'auth/';
 
-  register(email: string, password: string) {
-    return this.afAuth.createUserWithEmailAndPassword(email, password);
+  constructor(private httpClient: HttpClient) {}
+
+  public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
+    return this.httpClient.post<any>(this.authURL + 'nuevo', nuevoUsuario);
   }
 
-  login(email: string, password: string) {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+  public login(loginUsuario: LoginUsuario): Observable<any> {
+    
+    return this.httpClient.post<JwtDto>(this.authURL + 'login', loginUsuario);
   }
 }

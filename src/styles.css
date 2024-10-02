@@ -1,80 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-
-/* @import "~bootstrap-icons/font/bootstrap-icons.css"; */
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	position: relative;
-	font-family: Roboto, "Helvetica Neue", sans-serif;
-	background-color: grey;
-	background: linear-gradient(-180deg,
-			rgba(255, 255, 255, 0.5) 0%,
-			rgba(0, 0, 0, 0.5) 100%);
-}
-
-/* Estilos básicos para el tooltip */
-.circle-progress {
-	/* Estilo específico para dispositivos móviles */
-	/* Reduzco el radio para adaptarlo a pantallas pequeñas */
-	border-radius: 10vw;
-	/* Ejemplo: ajusta según tus necesidades */
-}
-
-/* cHeader */
-.cCard {
-	width: 90vw;
-	margin: 5px;
-}
-
-.cHeader {
-	display: flex;
-	width: 85vw;
-	margin: 15px;
-	position: relative;
-	left: 20px;
-	flex-direction: row;
-	/* border: 2px solid green; */
-}
-
-.cTitle {
-	display: flex;
-	height: auto;
-	margin: 5px;
-	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-	font-weight: bolder;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	width: auto;
-}
-
-.cAdd {
-	display: flex;
-	width: auto;
-	flex-direction: row;
-	align-content: flex-end;
-	left: calc(62% - 0px);
-	position: relative;
-	justify-content: flex-end;
-	align-items: flex-end;
-	flex-wrap: nowrap;
-	align-content: flex-end;
-	margin: 10px;
-}
-
-/* End cHeader */
-
-
+@import "./../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 .tooltip {
 	position: relative;
-	/* display: inline-block; */
 	cursor: pointer;
 }
 
-/* Estilo del contenido del tooltip */
 .tooltip::after {
 	content: attr(data-tooltip);
 	position: absolute;
@@ -89,401 +19,55 @@ body {
 	transition: opacity 0.3s, visibility 0.3s;
 }
 
-/* Mostrar el tooltip al pasar el ratón sobre el elemento */
 .tooltip:hover::after {
 	opacity: 1;
 	visibility: visible;
 }
-
-
-.cheCard {
-	margin-bottom: 3px;
-}
-
-.btn-agregar {
-	width: auto;
-	min-height: calc(100% - 56px);
-	/* Ajustar la altura del div principal para dejar espacio para el navbar y asegurar un mínimo de altura */
-	border-radius: 32px;
-	background-color: greenyellow;
+.cCard {
+	width: 90vw;
 	margin: 5px;
 }
-
-#miDiv {
-	min-height: calc(100% - 56px);
-	/* Ajustar la altura del div principal para dejar espacio para el navbar y asegurar un mínimo de altura */
-	width: 100%;
-	background-color: #f0f0f0;
-	/* Puedes cambiar el color de fondo según tus preferencias */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid #ccc;
-	/* Añadir un borde al div principal */
-	flex-direction: column;
-}
-
-app-root {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-.container {
-	/* display: flex; */
-	/* flex-direction: column; */
-	min-height: 100vh;
-}
-
-#acercaDeFirstCard,
-#educacionFirstCard,
-#proyectosFirstCard,
-#experienciaFirstCard,
-#skillsFirstCard,
-#softSkillsFirstCard {
-	width: 98vw;
-	margin-top: 10px;
-	padding: 0;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 5px;
-	min-height: calc(100% - 56px);
-	/* Ajustar la altura del div principal para dejar espacio para el navbar y asegurar un mínimo de altura */
-	/* width: 100%; */
-	background-color: #99d4ef;
-	/* Puedes cambiar el color de fondo según tus preferencias */
-	display: flex;
-	/* align-items: center;
-	justify-content: center; */
-	border: 2px solid blue;
-	/* Añadir un borde al div principal */
-	flex-direction: column;
-}
-
-.logos {
-	width: 3vw;
-	/* height: 2hw; */
-}
-
-.logos::before {
-	background-color: darkmagenta;
-}
-
-.logos:hover {
-	background-color: cyan;
-}
-
-#imgSoftSkills {
-	border: 2px solid red;
-	width: 18vw;
-	height: 18vw;
-}
-
-#imgSkill {
-	border: 2px solid red;
-	width: 18vw;
-	height: 18vw;
-}
-
-#imgProyecto {
-	border: 2px solid red;
-	width: 18vw;
-	height: 18vw;
-}
-
-#imgExperiencia {
-	border: 2px solid red;
-	width: 18vw;
-	height: 18vw;
-}
-
-#imgEducacion {
-	border: 2px solid red;
-	width: 18vw;
-	height: 18vw;
-}
-
-.box1 {
-	border: 2px solid #000;
-}
-
 
 li {
 	list-style: none;
 }
-
-i {
-	padding: 5px;
-}
-
-#nav-title {
-	padding: 10px;
-	font-weight: 600;
-}
-
-/* .mat-card {
-	border-radius: 10px;
-	margin: 10px 10px;
-	padding: 0;
-	width: 100%;
-} */
-
+/*
 @font-face {
 	font-family: 'Poppins';
 	src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 }
 
-.chelogo {
-	height: 32px;
-	width: 32px;
-	margin: 0;
-}
-
-.cheimg {
-	height: 280px;
-	width: 280px;
-	position: absolute;
-}
-
-.chebox {
-	height: auto;
-	width: auto;
-	border: 3px solid blue;
-	margin: 3px 3px 3px 3px;
-	padding: 3px 3px 3px 3px;
-	align-content: center;
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-/* header {
-	display: flex;
-	width: 100%;
-	height: 70px;
-	border: 2px solid black;
-} */
-
-
-.table,
-.td {
-	table-layout: auto;
-	width: 100%;
-}
-
-.loader {
-	width: 55px;
-	aspect-ratio: 1;
-	--g1: conic-gradient(from 90deg at 3px 3px, #0000 90deg, #fff 0);
-	--g2: conic-gradient(from -90deg at 22px 22px, #0000 90deg, #fff 0);
-	background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
-	background-size: 25px 25px;
-	background-repeat: no-repeat;
-	animation: l7 1.5s infinite;
-}
-
 @keyframes l7 {
-	0% {
-		background-position: 0 0, 0 100%, 100% 100%
-	}
-	25% {
-		background-position: 100% 0, 0 100%, 100% 100%
-	}
-	50% {
-		background-position: 100% 0, 0 0, 100% 100%
-	}
-	75% {
-		background-position: 100% 0, 0 0, 0 100%
-	}
-	100% {
-		background-position: 100% 100%, 0 0, 0 100%
-	}
+	0% { background-position: 0 0, 0 100%, 100% 100% }
+	25% { background-position: 100% 0, 0 100%, 100% 100% }
+	50% { background-position: 100% 0, 0 0, 100% 100% }
+	75% { background-position: 100% 0, 0 0, 0 100% }
+	100% { background-position: 100% 100%, 0 0, 0 100% }
 }
 
-/* ------------------------------------------------- */
-.imgCard {
-	padding: 5px 5px 5px 5px;
-	width: 230px;
-	height: 140px;
-}
-
-.card-body {
-	text-align: center;
-	justify-content: center;
-}
-
-.card-title {
-	text-align: center;
-	margin: 2px 2px;
-}
-
-.card-subtitle {
-	text-align: center;
-	margin: 2px 2px;
-}
-
-.card-footer {
-	font-size: small;
-	/* width: 5rem; */
-	height: 45px;
-	justify-content: space-between;
-	align-items: center;
-}
-
-/* .d-flex {
-	display: flex !important;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-content: center;
-	align-items: center;
-	justify-content: space-evenly;
-} */
-
-/* ---------------------------------- */
-.navigation {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	flex-wrap: wrap;
-}
-
-.centrado>button {
-	margin-top: 1%;
-}
-
-
-.card-footer {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-}
-
-
-/* ▓▓▒░▓▓ */
 @media only screen and (max-width: 319px) {
-	.ttit {
-		font-size: 3vw;
-	}
-
-	.logos {
-		width: 3vw;
-		/* height: auto; */
-		/* justify-content: space-between; */
-		/* justify-content: stretch; */
-		/* margin-left: 5px; */
-	}
-
-	.circle-progress {
-		/* Estilo específico para dispositivos móviles */
-		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
-		border-radius: 1.5vw;
-		/* Ejemplo: ajusta según tus necesidades */
-	}
+	.ttit { font-size: 3vw; }
 }
-
+ */
 /* ▓▓▒░▓▓ */
-
+/*
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-	.ttit {
-		font-size: 3vw;
-	}
-
-	.circle-progress {
-		/* Estilo específico para dispositivos móviles */
-		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
-		border-radius: 4vw;
-		/* Ejemplo: ajusta según tus necesidades */
-	}
-
-
-	
-
-
-	.table,
-	.td {
-		table-layout: auto;
-		width: 100%;
-	}
-
+	.ttit { font-size: 3vw; }
 }
-
-/* ▓▓▒░▓▓ */
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-	.ttit {
-		font-size: 3vw;
-	}
-
-	.logos {
-		width: 3vw;
-	}
-
-	.circle-progress {
-		/* Estilo específico para dispositivos móviles */
-		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
-		border-radius: 9vw;
-		/* Ejemplo: ajusta según tus necesidades */
-	}
-
-	.table,
-	.td {
-		table-layout: auto;
-		width: 100%;
-	}
-
+	.ttit { font-size: 3vw; }
 }
 
-/* ▓▓▒░▓▓ */
 
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-	.ttit {
-		font-size: 3vw;
+	.ttit { font-size: 3vw; }
 	}
-
-	.circle-progress {
-		/* Estilo específico para dispositivos móviles */
-		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
-		border-radius: 12vw;
-		/* Ejemplo: ajusta según tus necesidades */
-	}
-
-	
-
-	.table,
-	.td {
-		table-layout: auto;
-		width: 100%;
-	}
-
-}
 
 @media only screen and (min-width: 1440px) and (max-width: 2559px) {
-	.ttit {
-		font-size: 3vw;
-	}
-
-	.circle-progress {
-		/* Estilo específico para dispositivos móviles */
-		/* Reduzco el radio para adaptarlo a pantallas pequeñas */
-		border-radius: 18vw;
-		/* Ejemplo: ajusta según tus necesidades */
-	}
-
-
-
-	
-
+	.ttit { font-size: 3vw; }
 }
 
 @media only screen and (min-width: 2560px) {
-	.ttit {
-		font-size: 3vw;
-	}
-
-
-	
-}
+	.ttit { font-size: 3vw; }
+} */
