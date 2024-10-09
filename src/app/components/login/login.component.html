@@ -1,41 +1,39 @@
 <section class="vh-100">
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+    <h3>Autenticación de usuario</h3>
+    <label class="form-label" for="nombreUsuario"> Username </label>
+    <input
+      type="email"
+      id="nombreUsuario"
+      name="nombreUsuario"
+      class="form-control form-control-lg"
+      placeholder="Enter a valid Username"
+      [(ngModel)]="nombreUsuario"
+      required
+      title="Ingrese el nombre de usuario"
+    />
 
-    <div class="background">
-      <div class="shape"></div>
-      <div class="shape"></div>
-    </div>
-    <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
-      <h3>Autenticación de usuario</h3>
-      <label class="form-label" for="nombreUsuario"> Username </label>
-      <input
-        type="email"
-        id="nombreUsuario"
-        name="nombreUsuario"
-        class="form-control form-control-lg"
-        placeholder="Enter a valid Username"
-        [(ngModel)]="nombreUsuario"
-        required title="Ingrese el nombre de usuario"
-      />
+    <label class="form-label" for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="form-control form-control-lg"
+      placeholder="Enter password"
+      [(ngModel)]="password"
+      required
+      title="Ingrese la contraseña"
+    />
 
-      <label class="form-label" for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        class="form-control form-control-lg"
-        placeholder="Enter password"
-        [(ngModel)]="password"
-        required
-        title="Ingrese la contraseña"
-      />
-
-      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-
-    </form>
-    <div *ngIf="isLogged">
-        <p>Usuario autenticado: {{nombreUsuario}}</p>
-        <button (click)="updatePassword()">Modificar contraseña</button>
-        <button (click)="deleteAccount()">Eliminar cuenta</button>
-    </div>
-
-  </section>
+    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+  </form>
+  <div *ngIf="isLogged">
+    <p>Usuario autenticado: {{ nombreUsuario }}</p>
+    <button (click)="updatePassword()">Modificar contraseña</button>
+    <button (click)="deleteAccount()">Eliminar cuenta</button>
+  </div>
+</section>
