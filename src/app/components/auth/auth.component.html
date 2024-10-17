@@ -1,32 +1,37 @@
-<div class="container">
-	<h2>Autenticación de usuario</h2>
+<mat-toolbar color="primary">
+  Sign up flow with Firebase
 
-	<form (ngSubmit)="register()">
-		<label for="email">Correo electrónico:</label>
-		<input type="email" id="email" name="email" [(ngModel)]="registerUser.email" required>
+  <ng-container *ngIf="authService.currentUser$ | async as user">
+    <button mat-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      logout
+    </button>
+  </ng-container>
 
-		<label for="password">Contraseña:</label>
-		<input type="password" id="password" name="password" [(ngModel)]="registerUser.password" required>
+  <button mat-button routerLink="login">
+    <mat-icon>login</mat-icon>
+    Login
+  </button>
+</mat-toolbar>
 
-		<button type="submit">Registrarse</button>
+<div class="content">
 
-	</form>
-
-	<form (ngSubmit)="login()">
-		<label for="email">Correo electrónico:</label>
-		<input type="email" id="email" name="email" [(ngModel)]="loginUser.email" required>
-
-		<label for="password">Contraseña:</label>
-		<input type="password" id="password" name="password" [(ngModel)]="loginUser.password" required>
-
-		<button type="submit">Iniciar sesión</button>
-	</form>
-
-	<div *ngif="currentUser">
-		<p>Usuario autenticado: {{ currentUser.email }}</p>
-
-		<button (click)="updatePassword()">Modificar contraseña</button>
-
-		<button (click)="deleteAccount()">Eliminar cuenta</button>
-	</div>
 </div>
+
+<router-outlet></router-outlet>
+
+
+
+<!--
+<mat-card>
+  <h2>Autenticación</h2>
+  <mat-form-field>
+    <input matInput type="email" [(ngModel)]="email" placeholder="Email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="password" [(ngModel)]="password" placeholder="Contraseña">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="register()">Registrar</button>
+  <button mat-raised-button color="accent" (click)="login()">Iniciar Sesión</button>
+  <button mat-raised-button color="warn" (click)="logout()">Cerrar Sesión</button>
+</mat-card> -->

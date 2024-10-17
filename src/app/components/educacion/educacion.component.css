@@ -4,10 +4,12 @@
   border: 2px solid #ccc;
   border-radius: 10px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
-              -4px -4px 8px rgba(255, 255, 255, 0.6);
+    -4px -4px 8px rgba(255, 255, 255, 0.6);
   background-color: #f9f9f9;
+  margin: 2px 2px 2px 2px;
 }
 
+h1,
 h2 {
   margin: 0 5px 0 5px;
 }
@@ -18,16 +20,17 @@ h2 {
   align-items: center;
   margin-bottom: 20px;
   /* border-bottom: 2px solid #34e265ad; */
-    border: 2px solid #34e265ad;
-    border-radius: 5px;
-    background-color: darkgray;
-flex-direction: row;
-
+  border: 2px solid #34e265ad;
+  border-radius: 5px;
+  background-color: darkgray;
+  flex-direction: row;
   padding-bottom: 10px;
 }
 
 .icono-anadir {
-  padding: 5px 10px;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  margin: 2px 2px 2px 2px;
   cursor: pointer;
   background-color: #28a745;
   color: white;
@@ -35,7 +38,7 @@ flex-direction: row;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.2s, transform 0.2s;
-  margin-right: 2vw;
+  margin-right: 3vw;
 }
 
 .icono-anadir:hover {
@@ -53,7 +56,8 @@ flex-direction: row;
   padding: 2px;
 }
 
-.icono-editar, .icono-borrar {
+.icono-editar,
+.icono-borrar {
   padding: 5px 10px;
   cursor: pointer;
   background-color: #007bff;
@@ -68,7 +72,8 @@ flex-direction: row;
   background-color: #dc3545;
 }
 
-.icono-editar:hover, .icono-borrar:hover {
+.icono-editar:hover,
+.icono-borrar:hover {
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
@@ -105,77 +110,91 @@ flex-direction: row;
 
 /* --------------------------------------------- */
 .row {
-    padding: 20px;
-  }
-  .border {
-    border: 1px solid #5298de; /* Borde de la tarjeta */
-    border-radius: 5px; /* Bordes redondeados */
-  }
+  padding: 20px;
+}
+
+.border {
+  border: 1px solid #5298de;
+  /* Borde de la tarjeta */
+  border-radius: 5px;
+  /* Bordes redondeados */
+}
+
 .xlist {
   width: 95%;
 }
-  .shadow {
-    box-shadow: 0 0.5rem 1rem rgba(242, 58, 58, 0.579); /* Sombra */
-  }
+
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba(242, 58, 58, 0.579);
+  /* Sombra */
+}
+
+.logo {
+  width: 95%;
+  max-width: 100%;
+  height: -webkit-fill-available;
+  margin-top: 20px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+@media (max-width: 768px) {
   .logo {
-    width: 95%;
-    max-width: 100%;
-    height: -webkit-fill-available;
-    margin-top: 20px;
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(5px 5px 5px #222);
+    margin-top: -20px;
+    margin-bottom: 20px;
   }
-  @media (max-width: 768px) {
-    .logo {
-      margin-top: -20px;
-      margin-bottom: 20px;
-    }
-  }
+}
 
-  .mat-card {
-    display: flex;
-    width: 80vw;
-      border-radius: 32px;
-    margin: 10px 20px;
-    padding: 20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  }
+.mat-card {
+  display: flex;
+  width: 80vw;
+  border-radius: 32px;
+  margin: 10px 20px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
-  .card {
-    border-radius: 10px;
-  }
+.card {
+  border-radius: 10px;
+}
 
+.btn-right {
+  float: right;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
   .btn-right {
-    float: right;
-    margin-left: 10px;
+    margin-top: 5px;
   }
-  @media (max-width: 768px) {
-    .btn-right {
-      margin-top: 5px;
-    }
-  }
-  .layout {
-   /*   padding-top: 5px; */
-    /* padding-bottom: 5px; */
-padding: 5px 5px 5px 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 5px 5px 5px;
-  }
+}
 
-  ul {
-    padding: 0;
-  }
+.layout {
+  /*   padding-top: 5px; */
+  /* padding-bottom: 5px; */
+  padding: 5px 5px 5px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 5px 5px 5px;
+}
 
-  p#preline {
-    white-space: pre-line;
-  }
-  .border {
-    border: 1px solid #5298de; /* Borde de la tarjeta */
-    border-radius: 5px; /* Bordes redondeados */
-  }
+ul {
+  padding: 0;
+}
 
-  .shadow {
-    box-shadow: 0 0.5rem 1rem rgba(242, 58, 58, 0.579); /* Sombra */
-  }
+p#preline {
+  white-space: pre-line;
+}
+
+.border {
+  border: 1px solid #5298de;
+  /* Borde de la tarjeta */
+  border-radius: 5px;
+  /* Bordes redondeados */
+}
+
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba(242, 58, 58, 0.579);
+  /* Sombra */
+}

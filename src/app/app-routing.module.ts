@@ -11,24 +11,32 @@ import { NewEducacionComponent } from './components/educacion/new-educacion/new-
 import { EditEducacionComponent } from './components/educacion/edit-educacion/edit-educacion.component';
 import { NewHysComponent } from './components/hys/new-hys/new-hys.component';
 import { EditHysComponent } from './components/hys/edit-hys/edit-hys.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
-	{ path: "", component: HomeComponent },
-	{ path: "login", component: LoginComponent },
+    // { path: "", component: HomeComponent },
+    { path: "", pathMatch: 'full', component: LandingComponent },
+    { path: "login", component: LoginComponent },
+    { path: "sign-up", component: SignUpComponent },
     { path: "new-experiencia", component: NewExperienciaComponent },
-    { path: "edit-experiencia/:id", component: EditExperienciaComponent},
+    { path: "edit-experiencia/:id", component: EditExperienciaComponent },
     { path: "new-educacion", component: NewEducacionComponent },
-    { path: "edit-educacion/:id", component: EditEducacionComponent},
-    { path: "edit-about/:id", component: EditAboutComponent},
-    { path: "new-hys", component: NewHysComponent},
-    { path: "edit-hys/:id", component: EditHysComponent},
-	{ path: "home", component: HomeComponent },
-	{ path: "**", component: PageNotFoundComponent },
-	{ path: "header", component: HeaderComponent},
+    { path: "edit-educacion/:id", component: EditEducacionComponent },
+    { path: "edit-about/:id", component: EditAboutComponent },
+    { path: "new-hys", component: NewHysComponent },
+    { path: "edit-hys/:id", component: EditHysComponent },
+    { path: "home", component: HomeComponent },
+    { path: "**", component: PageNotFoundComponent },
+    { path: "header", component: HeaderComponent },
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
-	exports: [RouterModule]
+    imports: [
+        CommonModule,
+        RouterModule.forRoot(routes)
+    ],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -17,6 +17,7 @@
     <div class="contenido">
       <!-- Elementos relacionados con cada skill -->
       <h3>{{ skill.nombre }}</h3>
+      <h3>{{ skill.porcentaje }}</h3>
       <circle-progress [percent]="skill.porcentaje" [radius]="90" [showImage]="true" [imageSrc]="skill.img"
         [showTitle]="false" [showSubtitle]="false" [imageHeight]="80" [imageWidth]="80" [subtitleColor]="'#FFFFFF'"
         [outerStrokeWidth]="5" [outerStrokeColor]="'#FFFFFF'" [innerStrokeColor]="'#FFFFFF'" [showInnerStroke]="false"

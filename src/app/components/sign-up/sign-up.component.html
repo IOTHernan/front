@@ -1,0 +1,15 @@
+<div class="form-container mat-elevation-z5">
+  <h1>Sing Up</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()" *ngIf="!isLogged" ]>
+    <mat-form-field>
+      <input matInput placeholder="Email address" formControlName="email">
+      <mat-error *ngIf="email?.errors?.['required']">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="email?.errors?.['email']">
+        Please enter a correct format
+      </mat-error>
+
+    </mat-form-field>
+  </form>
+</div>

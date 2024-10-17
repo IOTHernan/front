@@ -1,36 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
 .tooltip {
-	position: relative;
-	cursor: pointer;
+  position: relative;
+  cursor: pointer;
 }
 
 .tooltip::after {
-	content: attr(data-tooltip);
-	position: absolute;
-	background-color: #333;
-	color: #ae4949;
-	padding: 8px;
-	border-radius: 4px;
-	font-size: 14px;
-	white-space: nowrap;
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.3s, visibility 0.3s;
+  content: attr(data-tooltip);
+  position: absolute;
+  background-color: #333;
+  color: #ae4949;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
 }
 
 .tooltip:hover::after {
-	opacity: 1;
-	visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
+
+.form-container {
+  display: block;
+  max-width: 300px;
+  margin: auto;
+
+  background: #ecefff;
+  padding: 48px;
+  border-radius: 16px;
+}
+
+.form-container mat-form-container {
+  width: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.margin-top {
+  margin-top: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .cCard {
-	width: 90vw;
-	margin: 5px;
+  width: 90vw;
+  margin: 5px;
 }
 
 li {
-	list-style: none;
+  list-style: none;
 }
+
 /*
 @font-face {
 	font-family: 'Poppins';
@@ -71,3 +101,13 @@ li {
 @media only screen and (min-width: 2560px) {
 	.ttit { font-size: 3vw; }
 } */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

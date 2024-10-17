@@ -1,4 +1,35 @@
-<section class="vh-100">
+<div class="form-container mat-elevation-z5">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <mat-form-field>
+            <input matInput placeholder="Email address" formControlName="email">
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email is required
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
+                Please enter a correct format
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Password" formControlName="password" type="password">
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                Password is required
+            </mat-error>
+            <!-- <mat-error *ngIf="password?.errors?.['minlength']">
+                Password must have at least 6 characters
+            </mat-error> -->
+        </mat-form-field>
+        <div class="center margin-top">
+            <button mat-raised-button color="primary" type="submit">
+                Login
+            </button>
+        </div>
+        <span class="center margin-top">New to our platform? <a class="sign-up-link" routerLink="/sing-up">Sing
+                Up!</a></span>
+    </form>
+</div>
+
+<!-- <section class="vh-100">
   <div class="background">
     <div class="shape"></div>
     <div class="shape"></div>
@@ -37,3 +68,4 @@
     <button (click)="deleteAccount()">Eliminar cuenta</button>
   </div>
 </section>
+ -->

@@ -1,17 +1,15 @@
-h2 {
-  margin: 0 5px 0 5px;
-}
-
 .contenedor {
   width: 100%;
-  /* padding: 20px 20px 20px 20px; */
-  margin: 20px;
-  margin-right: 40px;
+  padding: 20px;
   border: 2px solid #ccc;
   border-radius: 10px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
-              -4px -4px 8px rgba(255, 255, 255, 0.6);
-  background-color: #83a5ef;
+    -4px -4px 8px rgba(255, 255, 255, 0.6);
+  background-color: #f9f9f9;
+}
+
+h2 {
+  margin: 0 5px 0 5px;
 }
 
 .encabezado {
@@ -20,16 +18,16 @@ h2 {
   align-items: center;
   margin-bottom: 20px;
   /* border-bottom: 2px solid #34e265ad; */
-    border: 2px solid #34e265ad;
-    border-radius: 5px;
-    background-color: darkgray;
-flex-direction: row;
-
+  border: 2px solid #34e265ad;
+  border-radius: 5px;
+  background-color: darkgray;
+  flex-direction: row;
+  margin-top: 80px;
   padding-bottom: 10px;
 }
 
 .icono-anadir {
-  margin: 0 5px 0 5px;
+  padding: 5px 10px;
   cursor: pointer;
   background-color: #28a745;
   color: white;
@@ -55,7 +53,8 @@ flex-direction: row;
   padding: 2px;
 }
 
-.icono-editar, .icono-borrar {
+.icono-editar,
+.icono-borrar {
   padding: 5px 10px;
   cursor: pointer;
   background-color: #007bff;
@@ -70,7 +69,8 @@ flex-direction: row;
   background-color: #dc3545;
 }
 
-.icono-editar:hover, .icono-borrar:hover {
+.icono-editar:hover,
+.icono-borrar:hover {
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
@@ -79,8 +79,6 @@ flex-direction: row;
   display: flex;
   border: 2px solid #ccc;
   padding-top: 5px;
-  margin-right: 2px;
-  margin-left: 2px;
 }
 
 .imagen {
@@ -109,93 +107,91 @@ flex-direction: row;
 
 /* --------------------------------------------- */
 .row {
-	padding: 20px;
+  padding: 20px;
 }
-
-.c {
-	display: flex;
-	justify-content: stretch;
-}
-
-.logo {
-	width: 95%;
-	max-width: 100%;
-	height: -webkit-fill-available;
-	margin-top: 20px;
-	-webkit-filter: drop-shadow(5px 5px 5px #222);
-	filter: drop-shadow(5px 5px 5px #222);
-}
-
-.minilogo {
-	width: 20px;
-	height: 20px;
-}
-
-@media (max-width: 768px) {
-	.logo {
-		margin-top: -20px;
-		margin-bottom: 20px;
-	}
-}
-
-.mat-card {
-	display: flex;
-	width: 80vw;
-	border-radius: 32px;
-	margin: 10px 20px;
-	padding: 20px;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.card {
-	border-radius: 10px;
-}
-
-.btn-right {
-	float: right;
-	margin-left: 10px;
-}
-
-@media (max-width: 768px) {
-	.btn-right {
-		margin-top: 5px;
-	}
-}
-
-.layout {
-	padding: 5px 5px 5px 5px;
-
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-ul {
-	padding: 0;
-}
-
-p#preline {
-	white-space: pre-line;
-}
-
-
 
 .border {
-	border: 1px solid #5298de;
-	/* Borde de la tarjeta */
-	border-radius: 5px;
-	/* Bordes redondeados */
+  border: 1px solid #5298de;
+  /* Borde de la tarjeta */
+  border-radius: 5px;
+  /* Bordes redondeados */
+}
+
+.xlist {
+  width: 95%;
 }
 
 .shadow {
-	box-shadow: 0 0.5rem 1rem rgba(242, 58, 58, 0.579);
-	/* Sombra */
+  box-shadow: 0 0.5rem 1rem rgba(242, 58, 58, 0.579);
+  /* Sombra */
 }
 
-/* Botones a la derecha */
+.logo {
+  width: 95%;
+  max-width: 100%;
+  height: -webkit-fill-available;
+  margin-top: 20px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+@media (max-width: 768px) {
+  .logo {
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+}
+
+.mat-card {
+  display: flex;
+  width: 80vw;
+  border-radius: 32px;
+  margin: 10px 20px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
 .btn-right {
-	float: right;
-	/* Alinear botones a la derecha */
-	margin-left: 5px;
-	/* Espacio entre botones */
+  float: right;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .btn-right {
+    margin-top: 5px;
+  }
+}
+
+.layout {
+  /*   padding-top: 5px; */
+  /* padding-bottom: 5px; */
+  padding: 5px 5px 5px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 5px 5px 5px;
+}
+
+ul {
+  padding: 0;
+}
+
+p#preline {
+  white-space: pre-line;
+}
+
+.border {
+  border: 1px solid #5298de;
+  /* Borde de la tarjeta */
+  border-radius: 5px;
+  /* Bordes redondeados */
+}
+
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba(242, 58, 58, 0.579);
+  /* Sombra */
 }

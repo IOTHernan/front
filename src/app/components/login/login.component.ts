@@ -1,10 +1,14 @@
 import { LoginUsuario } from './../../model/login-usuario';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './../../../app/services/auth.service';
+//import { AuthService } from './../../../app/services/auth.service';
 import { TokenService } from './../../../app/services/token.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthenticationService } from './../../services/authentication.service';
+import { ToastService } from './../../services/toast.service';
+
 
 @Component({
 	selector: 'app-login',
@@ -24,10 +28,15 @@ export class LoginComponent implements OnInit {
 	loginUser = { email: '', password: '' };
 	currentUser: any;
 
-	constructor(
-		private tokenService: TokenService, private authService: AuthService, private router: Router,
-		private afAuth: AngularFireAuth, private db: AngularFirestore
-	) { }
+	loginForm = new FormGroup({
+		email: new FormControl('', [Validators.required, Validators.email]),
+		password: new FormControl('', Validators.required),
+	});
+
+	constructor(private authService: AuthenticationService,
+		private tokenService: TokenService, private router: Router,
+		private afAuth: AngularFireAuth, private db: AngularFirestore, private toast: ToastService
+	) { } /* private authService: AuthService, */
 
 	ngOnInit(): void {
 		console.log('Login component');
@@ -46,6 +55,16 @@ export class LoginComponent implements OnInit {
 			}
 		});
 	}
+
+	get email() {
+		return this.loginForm.get('email');
+	}
+
+	get passwordField() {
+		return this.loginForm.get('password');
+	}
+
+
 
 	// Registrar un nuevo usuario.
 	async register() {
@@ -84,25 +103,50 @@ export class LoginComponent implements OnInit {
 	onLogin(): void {
 		/* this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password)
 		this.authService.login(this.loginUsuario).subscribe(data => {
-			this.isLogged = true
-			this.isLogginFail = false
-			this.tokenService.setToken(data.token)
-			this.tokenService.setUsername(data.nombreUsuario)
-			this.tokenService.setAuthorities(data.authorities)
-			this.roles = data.authorities
-			this.router.navigate([''])
+		  this.isLogged = true
+		  this.isLogginFail = false
+		  this.tokenService.setToken(data.token)
+		  this.tokenService.setUsername(data.nombreUsuario)
+		  this.tokenService.setAuthorities(data.authorities)
+		  this.roles = data.authorities
+		  this.router.navigate([''])
 		}, err => {
-			this.isLogged = false
-			this.isLogginFail = true
-			this.errorMsj = err.error.mensaje
-			console.log(this.errorMsj)
+		  this.isLogged = false
+		  this.isLogginFail = true
+		  this.errorMsj = err.error.mensaje
+		  console.log(this.errorMsj)
 		}) */
-		if (this.nombreUsuario === 'usuario1' && this.password === 'usuario1') {
+		if (this.nombreUsuario === 'admin@admin.com' && this.password === 'usuario1') {
 			console.log('logged true');
 			this.isLogged = true;
 			this.isLogginFail = false;
 			this.router.navigate(['/home']);
 		}
 	}
+
+	submit(): void {
+		if (!this.loginForm.valid) {
+			return;
+		}
+
+		const { email, password } = this.loginForm.value;
+		this.authService.login(email, password).pipe(
+			this.toast.observe({
+				success: 'Loggued in successfully',
+				loading: 'Logging in...',
+				error: 'There was an error'
+			})
+		).subscribe(() => {
+			this.router.navigate(['/home'])
+		});
+	}
+
+	/*   if (this.nombreUsuario === 'usuario1' && this.password === 'usuario1') {
+		console.log('logged true');
+		this.isLogged = true;
+		this.isLogginFail = false;
+		this.router.navigate(['/home']);
+	  }
+	} */
 
 }

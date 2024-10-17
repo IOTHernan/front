@@ -1,35 +1,74 @@
-/* nav {
-
-} */
-
-nav button, nav a {
-  margin-right: 10px;
+.contenedor {
+  padding: 5px;
+  /* Espaciado alrededor del contenedor */
 }
 
-.popup {
-  display: none;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.divgrid {
+  /* display: flex; */
+  /* Usar flexbox */
+  /* flex-direction: column; */
+  /* Cambia a columnas */
+  align-items: center;
+  /* Centra el contenido en el eje horizontal */
+  display: grid;
+  grid-template-columns: 20% 20% 35% 25%;
+
 }
 
-.popup.show {
-  display: block;
+.columna {
+  text-align: center;
+  /* Centra el texto e imágenes en cada columna */
+  width: 100%;
+  /* Asegura que la primera columna ocupe el 100% */
 }
 
-.popup .close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
+.logoInti {
+  width: 100px;
+  /* width: calc(100% - 40px); */
+  /* Ajusta el tamaño del logo principal con un margen */
+  /* max-width: 300px; */
+  /* Máximo ancho para evitar que sea demasiado grande */
+  /* height: auto; */
+  /* Mantiene la relación de aspecto */
+  height: -webkit-fill-available;
+
+  /* object-fit: contain; */
+  .logoInti {
+    position: relative;
+    /* Cambiar a relative */
+    left: 0 !important;
+    /* Asegúrate de que esté en su posición original */
+    z-index: 1;
+    /* Asegura que esté por encima de otros elementos */
+  }
+
 }
 
-.popup img {
-  max-width: 100%;
-  height: 100%;
-  border-radius: 50%;
+h1 {
+  font-size: 2em;
+  /* Tamaño de fuente para el título */
+  margin: 10px 0;
+  /* Espaciado arriba y abajo del título */
+}
+
+.logos {
+  width: calc(20px + 2vw);
+  /* Escala con el ancho de la ventana */
+  height: auto;
+  /* Mantiene la relación de aspecto */
+  margin: 5px;
+  /* Espaciado entre los logos */
+}
+
+/* Opcional: ajustar los logos en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .logos {
+    width: calc(40px + 1.5vw);
+    /* Tamaño de los logos en pantallas más pequeñas */
+  }
+
+  h1 {
+    font-size: 1.5em;
+    /* Reduce el tamaño de la fuente del título */
+  }
 }

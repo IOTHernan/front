@@ -1,7 +1,101 @@
-<nav>
-  <button (click)="openProfilePopup()">Perfil</button>
-</nav>
-<div id="profile-popup" class="popup">
-  <span class="close" (click)="closeProfilePopup()">&times;</span>
-  <img src="{{ profilePictureUrl }}" alt="Imagen de perfil de Google">
+<!-- <style>
+    .contenedor {
+        padding: 20px;
+    }
+
+    .divgrid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .columna {
+        text-align: center;
+        width: 100%;
+    }
+
+    .logoInti {
+        width: 100%;
+        max-height: 250px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: 10px 0;
+    }
+
+    .logos {
+        width: calc(50px + 2vw);
+        height: auto;
+        margin: 5px;
+    }
+
+    .columna .d-flex {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        font-size: 1.2em;
+        padding: 15px 30px;
+    }
+
+    @media (max-width: 768px) {
+        .logos {
+            width: calc(40px + 1.5vw);
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        .btn {
+            padding: 12px 24px;
+        }
+    }
+</style> -->
+<div class="contenedor">
+    <div class="divgrid">
+        <div class="columna d-flex justify-content-center align-items-center w-100">
+            <a href="https://argentinaprograma.inti.gov.ar" target="_blank">
+                <img class="logoInti" src="./../../../assets/media/logoArgProg.png" alt="INTI..." />
+            </a>
+        </div>
+
+        <div class="columna d-flex justify-content-center align-items-center">
+            <h4>Proyecto Integrador</h4>
+        </div>
+
+        <div class="columna d-flex justify-content-center align-items-center">
+            <div class="d-flex">
+                <a href="https://github.com/HCanestraro" target="_blank">
+                    <img class="logos" src="./../../../assets/media/chegithub.png" alt="GitHub..." />
+                </a>
+                <a href="https://instagram.com/@canestraro-che" target="_blank">
+                    <img class="logos" src="./../../../assets/media/cheinstagram.png" alt="Instagram..." />
+                </a>
+                <a href="https://www.twitter.com/@canestraro-che" target="_blank">
+                    <img class="logos" src="./../../../assets/media/chetwitter.png" alt="Twitter..." />
+                </a>
+                <a href="https://ar.linkedin.com/in/hernan-canestraro-44448435" target="_blank"
+                    title="Go to Linkedin page...">
+                    <img class="logos" src="./../../../assets/media/chelinkedin.png" alt="Linkedin..." />
+                </a>
+                <a href="https://sites.google.com/view/HCanestraro" target="_blank" title="Go to Google Sites...">
+                    <img class="logos" src="./../../../assets/media/chegooglesites.jpeg" alt="Google Sites..." />
+                </a>
+                <a href="https://www.youtube.com/@HCanestraro" target="_blank" title="Go to Youtube...">
+                    <img class="logos" src="./../../../assets/media/cheyoutube.png" alt="Youtube..." />
+                </a>
+            </div>
+
+        </div>
+
+        <div class="columna d-flex justify-content-center align-items-center">
+            <button class="btn btn-info">MODO EDICIÓN</button>
+        </div>
+    </div>
 </div>

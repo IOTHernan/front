@@ -1,5 +1,5 @@
-.row {
-    /* padding: 20px; */
+/* .row {
+    padding: 20px;
 }
 
 .logo {
@@ -20,8 +20,6 @@
 .mat-card {
     width: 80vw;
     border-radius: 32px;
-    /* margin: 10px 20px; */
-    /* padding: 20px; */
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -33,50 +31,48 @@
     float: right;
     margin-left: 10px;
 }
-
+ */
 @media (max-width: 768px) {
-    .btn-right {
-        margin-top: 5px;
-    }
+  .btn-right {
+    margin-top: 5px;
+  }
 }
 
 .layout {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .border {
-  border: 1px solid #5298de; /* Borde de la tarjeta */
-  border-radius: 5px; /* Bordes redondeados */
+  border: 1px solid #5298de;
+  border-radius: 5px;
 }
 
 .shadow {
-  box-shadow: 0 0.5rem 1rem rgba(242, 58, 58, 0.579); /* Sombra */
+  box-shadow: 0 0.5rem 1rem rgba(242, 58, 58, 0.579);
 }
+
 ul {
-    padding: 0;
+  padding: 0;
 }
 
 p#preline {
-    white-space: pre-line;
+  white-space: pre-line;
 }
 
 #footer {
-  width: 100%;
-    background-color: #000;
-    border-radius: 32px 32px;
-    color: yellowgreen;
-    /* padding: 20px 0; */
-    text-align: center;
+  margin: 5px 5px 5px 5px;
+  width: 98%;
+  background-color: #000;
+  border-radius: 32px 32px;
+  color: yellowgreen;
+  text-align: center;
 }
 
-/* .row  {
-    padding: 20px
-}
- */
-div  {
+/* div  {
     text-align: center
 }
 
@@ -186,3 +182,4 @@ body  {
     justify-content: center;
     align-items: center
 }
+ */

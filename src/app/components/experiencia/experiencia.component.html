@@ -1,30 +1,50 @@
-<div class="contenedor" style="margin-top: 12vw;">
-	<div class="encabezado">
-		<h2>Experiencia Laboral</h2>
-		<button type="button" class="icono-añadir" routerLink="/new-experiencia" title="Agregar Experiencia"><!--  *ngIf="isLogged" -->
-			Agregar Experiencia
-		</button>
-	</div>
-	<div *ngFor="let Experiencia of experiencia; let i = index" [attr.data-index]="i" click="selectItem(Experiencia);">
-		<div class="acciones"> <!-- <div> *ngIf="isLogged" -->
-			<button class="icono-editar" routerLink="/edit-experiencia/{{ Experiencia.id }}" title="Editar">
-				<i class="bi bi-pencil"></i>
-			</button>
-			<button class="icono-borrar" (click)="delete(id)" title="Borrar">
-				<i class="bi bi-trash3"></i>
-			</button>
-		</div>
-		<div class="contenido">
-			<div class="imagen">
-				<img class="img-fluid logo" src="{{Experiencia.img}}" alt="img-exp-{{ Experiencia.id }}"
-					style="margin: 2%;" />
-			</div>
-			<div class="informacion">
-				<h2> Empresa: {{ Experiencia.nombreE }}</h2>
-				<h3> Puesto: {{ Experiencia.puesto }}</h3>
-				<h5> Periodo: {{ Experiencia.periodo }}</h5>
-				<p> Actividades: {{ Experiencia.descripcionE }}</p>
-			</div>
-		</div>
-	</div>
+<div class="contenedor">
+  <!--  style="margin-top: 12vw;" -->
+  <div class="encabezado">
+    <h2>Experiencia Laboral</h2>
+    <button
+      type="button"
+      class="icono-añadir"
+      routerLink="/new-experiencia"
+      title="Agregar Experiencia"
+    >
+      <!--  *ngIf="isLogged" -->
+      Agregar Experiencia
+    </button>
+  </div>
+  <div
+    *ngFor="let Experiencia of experiencia; let i = index"
+    [attr.data-index]="i"
+    click="selectItem(Experiencia);"
+  >
+    <div class="acciones">
+      <!-- <div> *ngIf="isLogged" -->
+      <button
+        class="icono-editar"
+        routerLink="/edit-experiencia/{{ Experiencia.id }}"
+        title="Editar"
+      >
+        <i class="bi bi-pencil"></i>
+      </button>
+      <button class="icono-borrar" (click)="delete(id)" title="Borrar">
+        <i class="bi bi-trash3"></i>
+      </button>
+    </div>
+    <div class="contenido">
+      <div class="imagen">
+        <img
+          class="img-fluid logo"
+          src="{{ Experiencia.img }}"
+          alt="img-exp-{{ Experiencia.id }}"
+          style="margin: 2%"
+        />
+      </div>
+      <div class="informacion">
+        <h2>Empresa: {{ Experiencia.nombreE }}</h2>
+        <h3>Puesto: {{ Experiencia.puesto }}</h3>
+        <h5>Periodo: {{ Experiencia.periodo }}</h5>
+        <p>Actividades: {{ Experiencia.descripcionE }}</p>
+      </div>
+    </div>
+  </div>
 </div>
