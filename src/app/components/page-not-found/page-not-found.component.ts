@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageNotFoundComponent {
 
-  /* ngOnInit {
+  ngOnInit() {
     console.log("Page not found component");
 
-  } */
+  }
 }

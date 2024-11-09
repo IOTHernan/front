@@ -1,71 +1,25 @@
 <div class="form-container mat-elevation-z5">
-    <h1>Login</h1>
-    <form [formGroup]="loginForm" (ngSubmit)="submit()">
-        <mat-form-field>
-            <input matInput placeholder="Email address" formControlName="email">
-            <mat-error *ngIf="email?.errors?.['required']">
-                Email is required
-            </mat-error>
-            <mat-error *ngIf="email?.errors?.['email']">
-                Please enter a correct format
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Password" formControlName="password" type="password">
-            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-                Password is required
-            </mat-error>
-            <!-- <mat-error *ngIf="password?.errors?.['minlength']">
-                Password must have at least 6 characters
-            </mat-error> -->
-        </mat-form-field>
-        <div class="center margin-top">
-            <button mat-raised-button color="primary" type="submit">
-                Login
-            </button>
-        </div>
-        <span class="center margin-top">New to our platform? <a class="sign-up-link" routerLink="/sing-up">Sing
-                Up!</a></span>
-    </form>
-</div>
-
-<!-- <section class="vh-100">
-  <div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
-  <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
-    <h3>Autenticación de usuario</h3>
-    <label class="form-label" for="nombreUsuario"> Username </label>
-    <input
-      type="email"
-      id="nombreUsuario"
-      name="nombreUsuario"
-      class="form-control form-control-lg"
-      placeholder="Enter a valid Username"
-      [(ngModel)]="nombreUsuario"
-      required
-      title="Ingrese el nombre de usuario"
-    />
-
-    <label class="form-label" for="password">Password</label>
-    <input
-      type="password"
-      id="password"
-      name="password"
-      class="form-control form-control-lg"
-      placeholder="Enter password"
-      [(ngModel)]="password"
-      required
-      title="Ingrese la contraseña"
-    />
-
-    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input matInput placeholder="Email address" formControlName="email" />
+      <mat-error *ngIf="email?.errors?.['required']">
+        Email address is required
+      </mat-error>
+      <mat-error *ngIf="email?.errors?.['email']">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password" />
+      <mat-error *ngIf="password?.errors?.['required']">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+    <div class="center margin-top">
+      <button type="submit" mat-raised-button color="primary">Login</button>
+    </div>
+    <span class="center margin-top">New to our platform? <a class="sign-up-link" routerLink="/sign-up">Sign
+        up!</a></span>
   </form>
-  <div *ngIf="isLogged">
-    <p>Usuario autenticado: {{ nombreUsuario }}</p>
-    <button (click)="updatePassword()">Modificar contraseña</button>
-    <button (click)="deleteAccount()">Eliminar cuenta</button>
-  </div>
-</section>
- -->
+</div>

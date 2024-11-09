@@ -1,0 +1,28 @@
+This TypeScript code defines the routes for an Angular application, determining which components are displayed for different URLs. Let's break it down:
+
+1. Imports:
+
+NgModule, RouterModule, Routes are imported from Angular's router module to define the application's routing structure.
+Components like HomeComponent, LandingComponent, LoginComponent, SignUpComponent, and ProfileComponent are imported to be associated with specific routes.
+Firebase authentication guards (canActivate, redirectLoggedInTo, redirectUnauthorizedTo) are imported to protect routes based on user authentication status.
+2. Route Guards:
+
+redirectUnauthorizedToLogin: This guard redirects users to the login page if they try to access a protected route while not logged in.
+redirectLoggedInToHome: This guard redirects logged-in users to the home page if they try to access the login or sign-up pages.
+3. Routes Definition:
+
+An array routes of type Routes is defined to hold the application's routes.
+Each route is an object with path, component, and optional guard properties.
+4. Individual Routes:
+
+path: '': This defines the default route, redirecting to LandingComponent when no path is specified.
+path: 'login': This route displays the LoginComponent and uses the redirectLoggedInToHome guard.
+path: 'sign-up': This route displays the SignUpComponent and also uses the redirectLoggedInToHome guard.
+path: 'home': This route displays the HomeComponent and uses the redirectUnauthorizedToLogin guard, ensuring only logged-in users can access it.
+path: 'profile': This route displays the ProfileComponent and also uses the redirectUnauthorizedToLogin guard.
+5. NgModule:
+
+The AppRoutingModule is decorated with @NgModule to define it as an Angular module.
+It imports RouterModule.forRoot(routes) to register the defined routes with the application's root router.
+It exports RouterModule to make the routing functionality available to other modules in the application.
+In summary: This code sets up the navigation structure of the Angular application, associating URLs with specific components and using Firebase authentication guards to control access to certain routes based on the user's login status.

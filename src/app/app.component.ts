@@ -1,14 +1,12 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css'],
-	encapsulation: ViewEncapsulation.None,
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-	ngOnInit(): void {
-		console.log('[app.components]');
-	}
-	title = '#Argentina Programa - FrontEnd';
+export class AppComponent {
+  ngOnInit() {
+    console.log('app.component');
+  }
 }

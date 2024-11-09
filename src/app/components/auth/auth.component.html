@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   Sign up flow with Firebase
 
-  <ng-container *ngIf="authService.currentUser$ | async as user">
+  <ng-container *ngIf="auth2Service.currentUser$ | async as user">
     <button mat-button (click)="logout()">
       <mat-icon>logout</mat-icon>
       logout

@@ -1,0 +1,61 @@
+<mat-toolbar color="primary" class="navbar" mat-elevation-z5>
+    <div>
+     <a href="https://argentinaprograma.inti.gov.ar" target="_blank" rel="noopener" mat-button title="Argentina Programa...">
+       <img src="./../../../assets/media/logoArgProg.png" alt="AP" class="logoAP">
+     </a>
+   </div>
+   Proyecto AP
+   <div>
+     <a mat-button href="https://github.com/HCanestraro" target="_blank" rel="noopener" title="Github...">
+         <img src="./../../../assets/media/chegithub.png" alt="Github" class="icon">
+     </a>
+     <a mat-button title="Facebook...">
+       <img src="./../../../assets/media/chefacebook.jpg" alt="Facebook" class="icon">
+     </a>
+     <a mat-button href="https://ar.linkedin.com/in/hernan-canestraro-44448435" target="_blank" rel="noopener" title="Linkedin...">
+       <img src="./../../../assets/media/chelinkedin.png" alt="Linkedin" class="icon">
+     </a>
+     <a mat-button href="https://instagram.com/@canestraro-che" target="_blank" rel="noopener" title="Instagram...">
+       <img src="./../../../assets/media/cheinstagram.png" alt="Instagram..." class="icon">
+     </a>
+     <a mat-button href="https://www.twitter.com/@canestraro-che" target="_blank" rel="noopener" title="X - Twitter...">
+       <img src="./../../../assets/media/chetwitter.png" alt="X - Twitter" class="icon">
+     </a>
+     <a mat-button href="https://www.youtube.com/@HCanestraro" target="_blank" rel="noopener" title="YouTube...">
+       <img src="./../../../assets/media/cheyoutube.png" alt="YouTube" class="icon">
+     </a>
+     <a mat-button href="https://sites.google.com/view/HCanestraro" target="_blank" title="Go to Google Sites..." rel="noopener" title="Sites Google...">
+       <img src="./../../../assets/media/chegooglesites.jpeg" alt="Sites Google" class="icon">
+     </a>
+   </div>
+     <ng-container *ngIf="user$ | async as user; else loginButton">
+       <button mat-button [matMenuTriggerFor]="userMenu">
+        <img width="30" height="30" class="profile-image-toolbar" src='./../assets/media/chedata1foto.png' alt="foto" /><!-- [src]="user.photoURL ?? -->
+        {{ user.displayName }}
+           {{ user.displayName }}
+         <mat-icon>expand_more</mat-icon>
+       </button>
+     </ng-container>
+     <ng-template #loginButton>
+       <button mat-button routerLink="login">
+         <mat-icon>login</mat-icon>
+         Login
+       </button>
+     </ng-template>
+   </mat-toolbar>
+
+<div class="content">
+	<router-outlet></router-outlet>
+</div>
+
+<mat-menu #userMenu="matMenu">
+	<button mat-menu-item routerLink="/profile">
+		<mat-icon>account_circle</mat-icon>
+		Profile
+	</button>
+	<button mat-menu-item (click)="logout()">
+		<mat-icon>logout</mat-icon>
+		Logout
+	</button>
+</mat-menu>
+<app-footer></app-footer>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { UsersService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -11,9 +11,9 @@ import { UserService } from '../../services/user.service';
 export class RegisterComponent implements OnInit {
   formReg: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService,
+  constructor(private formBuilder: FormBuilder, private usersService: UsersService,
     private router: Router
-    ) {
+  ) {
     this.formReg = this.formBuilder.group({
       nombres: new FormControl(['', [Validators.required, Validators.maxLength(2)]]),
       apellido: new FormControl(['', [Validators.required, Validators.maxLength(2)]]),
@@ -35,19 +35,19 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      console.log("[CHE-Register]");
-      
+    console.log("[CHE-Register]");
+
   }
 
   onSubmit() {
     console.log(this.formReg.value);
-    this.userService.register(this.formReg.value)
+    /* this.usersService.register(this.formReg.value)
     .then(response => {
       console.log(response);
-      this.router.navigate(['/login']);  
+      this.router.navigate(['/login']);
     })
     .catch(error => console.error(error));
-    
-    
+
+     */
   }
 }

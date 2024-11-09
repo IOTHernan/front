@@ -1,10 +1,3 @@
-import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
-import { MatInput, MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-
 // npm
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,19 +20,18 @@ import { HysComponent } from './components/hys/hys.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 // import { MiDialogComponent } from './components/mi-dialog-component/mi-dialog-component';
 import { FooterComponent } from './components/footer/footer.component';
-import { UserService } from './services/user.service';
+import { UsersService } from './services/users.service';
 // fire
 // import { MatDialogModule } from '@angular/material/dialog';
-// import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from './../environments/environment';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-// import { provideStorage, getStorage} from '@angular/fire/storage';
 import { RegisterComponent } from './components/register/register.component';
-// import { AppCheckModule } from '@angular/fire/app-check';
+import { AppCheckModule } from '@angular/fire/app-check';
 
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
 import { EditEducacionComponent } from './components/educacion/edit-educacion/edit-educacion.component';
@@ -57,20 +49,29 @@ import { EditHysComponent } from './components/hys/edit-hys/edit-hys.component';
 import { NewHysComponent } from './components/hys/new-hys/new-hys.component';
 
 
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+// import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { interceptorProvider } from './services/interceptor-service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { MyFormComponent } from './components/my-form/my-form.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { LandingComponent } from './components/landing/landing.component';
-
+import { ProfileComponent } from './components/profile/profile.component';
+import { AuthService } from './services/auth.service';
 // material
-/* const materialModules = [
-    MatButtonModule
+/* const materialModules = [  MatDialogModule, MatToolbarModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatMenuModule
 ];
  */
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MasterComponent } from './components/master/master.component';
+
 
 @NgModule({
   declarations: [
@@ -86,7 +87,7 @@ import { LandingComponent } from './components/landing/landing.component';
     BannerComponent,
     // MiDialogComponent,
     AudioPlayerComponent,
-    RegisterComponent,
+    // RegisterComponent,
     EditEducacionComponent,
     NewEducacionComponent,
     HeaderComponent,
@@ -104,34 +105,46 @@ import { LandingComponent } from './components/landing/landing.component';
     AuthComponent,
     MyFormComponent,
     SignUpComponent,
-    LandingComponent
+    ProfileComponent,
+    MasterComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot([]),
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     HttpClientModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    NgCircleProgressModule.forRoot({}),
-    RouterModule.forRoot([]),
+    // materialModules,
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
+    NgCircleProgressModule.forRoot({}),
     MatButtonModule,
-    MatToolbar,
     MatFormFieldModule,
-    MatInput,
+    MatInputModule,
+    MatToolbarModule,
     MatIconModule,
-    MatCardModule
-
-    // provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    // provideStorage(() => getStorage()),
+    MatMenuModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+     // MatErrorModule,
+    // AppCheckModule,
+    // provideFirebaseApp(() => initializeApp(environment.firebaseConfig))
     // providerStorage(() => getStorage())
   ],
   providers: [
-    interceptorProvider
+    // {
+    // provide: HTTP_INTERCEPTORS
+    // useClass: interceptorProvider,
+    // multi: true
+    // },
+    AuthService,
+    UsersService
     // provideAnimationsAsync()
+
   ],
   bootstrap: [AppComponent]
 })
