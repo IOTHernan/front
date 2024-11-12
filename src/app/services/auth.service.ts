@@ -5,7 +5,6 @@ import {
   authState,
   createUserWithEmailAndPassword,
   updateProfile,
-  User,
   UserInfo,
   UserCredential,
 } from '@angular/fire/auth';
@@ -15,12 +14,9 @@ import { concatMap, from, Observable, of, switchMap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  // currentUser$ = authState(this.auth);
-  currentUser$: Observable<User | null>;
+  currentUser$ = authState(this.auth);
 
-  constructor(private auth: Auth) {
-    this.currentUser$ = authState(this.auth);
-  }
+  constructor(private auth: Auth) {}
 
   signUp(email: string, password: string): Observable<UserCredential> {
     return from(createUserWithEmailAndPassword(this.auth, email, password));

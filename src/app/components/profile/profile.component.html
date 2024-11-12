@@ -13,7 +13,7 @@
   </div>
   <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
 
-  <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+  <form class="margin-top" [formGroup]="profileForm"><!--  (ngSubmit)="saveProfile()" -->
     <div class="row">
       <mat-form-field>
         <input

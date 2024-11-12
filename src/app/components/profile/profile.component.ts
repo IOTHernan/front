@@ -6,11 +6,8 @@ import { switchMap, tap } from 'rxjs';
 import { ProfileUser } from './../../model/user';
 import { ImageUploadService } from './../../services/image-upload.service';
 import { UsersService } from './../../services/users.service';
-import { MatIconModule } from '@angular/material/icon';
-
 
 @UntilDestroy()
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -62,7 +59,7 @@ export class ProfileComponent implements OnInit {
       .subscribe();
   }
 
-  saveProfile() {
+  /* saveProfile() {
     const { uid, ...data } = this.profileForm.value;
 
     if (!uid) {
@@ -79,5 +76,10 @@ export class ProfileComponent implements OnInit {
         })
       )
       .subscribe();
-  }
+  } */
+
+  /* updateUser(user: ProfileUser): Observable<void> {
+  const ref = doc(this.firestore, 'users', user.uid);
+  return from(updateDoc(ref, { ...user }));
+} */
 }

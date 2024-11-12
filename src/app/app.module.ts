@@ -1,13 +1,14 @@
 // npm
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 
 // my
 import { BannerComponent } from './components/banner/banner.component';
@@ -49,9 +50,9 @@ import { EditHysComponent } from './components/hys/edit-hys/edit-hys.component';
 import { NewHysComponent } from './components/hys/new-hys/new-hys.component';
 
 
-// import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideStorage, getStorage } from '@angular/fire/storage';
-import { interceptorProvider } from './services/interceptor-service';
+// import { interceptorProvider } from './services/interceptor-service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { MyFormComponent } from './components/my-form/my-form.component';
@@ -62,6 +63,7 @@ import { AuthService } from './services/auth.service';
 /* const materialModules = [  MatDialogModule, MatToolbarModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatMenuModule
 ];
  */
+// import { HotToastModule } from '@ngneat/hot-toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -111,13 +113,13 @@ import { MasterComponent } from './components/master/master.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule.forRoot([]),
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     HttpClientModule,
     FormsModule,
-    // materialModules,
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
@@ -129,7 +131,7 @@ import { MasterComponent } from './components/master/master.component';
     MatIconModule,
     MatMenuModule,
     MatDialogModule,
-    BrowserAnimationsModule,
+    // HotToastModule.forRoot()
      // MatErrorModule,
     // AppCheckModule,
     // provideFirebaseApp(() => initializeApp(environment.firebaseConfig))
@@ -141,8 +143,8 @@ import { MasterComponent } from './components/master/master.component';
     // useClass: interceptorProvider,
     // multi: true
     // },
-    AuthService,
-    UsersService
+    // AuthService,
+    // UsersService
     // provideAnimationsAsync()
 
   ],
