@@ -6,7 +6,7 @@ import { TokenService } from './../../../app/services/token.service';
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.css']
+  styleUrls: ['./banner.component.scss']
 })
 export class BannerComponent implements OnInit {
 //   persona: persona = null
@@ -19,11 +19,17 @@ export class BannerComponent implements OnInit {
   isLogged = false;
 
   ngOnInit(): void {
+    console.log('BannerComponent...');
+
     this.cargarPersona();
     if (this.tokenService.getToken()) {
       this.isLogged = true;
+      console.log("isLogged = true");
+
     } else {
       this.isLogged = false;
+      console.log("isLogged = false");
+
     }
   }
 

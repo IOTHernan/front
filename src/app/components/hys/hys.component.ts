@@ -5,7 +5,7 @@ import { TokenService } from './../../services/token.service';
 @Component({
 	selector: 'app-hys',
 	templateUrl: './hys.component.html',
-	styleUrls: ['./hys.component.css']
+	styleUrls: ['./hys.component.scss']
 })
 export class HysComponent implements OnInit {
 	skill: Hys[] = [];

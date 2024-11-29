@@ -7,6 +7,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 // import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { ProfileComponent } from './components/profile/profile.component';
 // import { BannerComponent } from './components/banner/banner.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 // const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 // const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent, },/*  ...canActivate(redirectLoggedInToHome) */
   { path: 'home', component: HomeComponent },/* , ...canActivate(redirectUnauthorizedToLogin)  */
   { path: 'profile', component: ProfileComponent },/* , ...canActivate(redirectUnauthorizedToLogin)  */
+  { path: 'portfolio', component: PortfolioComponent },/* , ...canActivate(redirectUnauthorizedToLogin)  */
   { path: '**', redirectTo: 'PageNotFoundComponent' }
 ];
 

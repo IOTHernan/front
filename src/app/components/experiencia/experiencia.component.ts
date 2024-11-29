@@ -7,7 +7,7 @@ import { TokenService } from '../../services/token.service';
 @Component({
 	selector: 'app-experiencia',
 	templateUrl: './experiencia.component.html',
-	styleUrls: ['./experiencia.component.css']
+	styleUrls: ['./experiencia.component.scss']
 })
 export class ExperienciaComponent implements OnInit {
 	delete(arg0: any) {

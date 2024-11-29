@@ -8,7 +8,7 @@ import { ref, list, getDownloadURL } from '@angular/fire/storage';
 @Component({
   selector: 'app-new-project',
   templateUrl: './new-project.component.html',
-  styleUrls: ['./new-project.component.css'],
+  styleUrls: ['./new-project.component.scss'],
 })
 export class NewProjectComponent implements OnInit {
   nombreP: string = '';
@@ -72,15 +72,15 @@ export class NewProjectComponent implements OnInit {
         )
       );
   }
- */ 
+ */
 async getImagen() {
     try {
       const imgsRef = ref(this.imgService.storage, `imagen`);
       const name = 'proyecto_' + this.nombreP;
-  
+
       const response = await list(imgsRef);
       const foundItem = response.items.find((x) => x.name === name);
-  
+
       if (foundItem) {
         this.img = await getDownloadURL(foundItem);
       } else {
@@ -92,5 +92,5 @@ async getImagen() {
       // Aquí puedes manejar el error de la forma que consideres apropiada
     }
   }
-  
+
 }

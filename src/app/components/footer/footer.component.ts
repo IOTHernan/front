@@ -9,7 +9,7 @@ import { MiDialogComponent } from '../mi-dialog-component/mi-dialog-component';
 @Component({
 	selector: 'app-footer',
 	templateUrl: './footer.component.html',
-	styleUrls: ['./footer.component.css']
+	styleUrls: ['./footer.component.scss']
 })
 
 export class FooterComponent implements OnInit {
@@ -18,7 +18,7 @@ export class FooterComponent implements OnInit {
 
 	ngOnInit(): void {
 		console.log('DEBUG: FOOTER');
-		
+
 	}
 
 /* 	abrirDialog(): void {

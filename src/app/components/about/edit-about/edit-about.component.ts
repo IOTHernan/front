@@ -8,7 +8,7 @@ import { ref, list, getDownloadURL } from '@angular/fire/storage';
 @Component({
   selector: 'app-edit-about',
   templateUrl: './edit-about.component.html',
-  styleUrls: ['./edit-about.component.css'],
+  styleUrls: ['./edit-about.component.scss'],
 })
 export class EditAboutComponent implements OnInit {
 //   persona: persona = null;

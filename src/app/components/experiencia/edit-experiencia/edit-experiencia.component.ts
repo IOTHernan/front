@@ -8,7 +8,7 @@ import { Storage, ref, list, getDownloadURL } from '@angular/fire/storage';
 @Component({
 	selector: 'app-edit-experiencia',
 	templateUrl: './edit-experiencia.component.html',
-	styleUrls: ['./edit-experiencia.component.css'],
+	styleUrls: ['./edit-experiencia.component.scss'],
 })
 export class EditExperienciaComponent implements OnInit {
 	url: string = '';

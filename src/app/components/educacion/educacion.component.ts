@@ -6,7 +6,7 @@ import { TokenService } from './../../services/token.service';
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
-  styleUrls: ['./educacion.component.css'],
+  styleUrls: ['./educacion.component.scss'],
 })
 export class EducacionComponent implements OnInit {
   educacion: Educacion[] = [];

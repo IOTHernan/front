@@ -1,0 +1,110 @@
+/* Estilos generales */
+.container {
+  flex-direction: column;
+  margin-top: 3px;
+  width: 97%;
+  height: auto;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #cccccc27;
+	border-radius: 10px;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
+		-4px -4px 8px rgba(255, 255, 255, 0.6);
+	background-color: #f9f9f955;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  padding: 1%;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px; // Espacio entre el título y el botón
+  border: 2px solid #34e265ad;
+  border-radius: 5px;
+}
+
+.records {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px; // Espacio entre registros
+}
+
+.record {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 3px;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid #000; // Línea separadora entre registros
+  border-radius: 5px;
+
+  .buttons {
+    display: flex;
+    border: 2px solid #d11111;
+    border-radius: 5px;
+    width: 100%;
+    gap: 10px;
+    justify-content: flex-end;
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 16px;
+
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.details {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  gap: 5px; // Espacio entre imagen y detalles
+  align-items: center;
+  border: 2px solid #34e265ad;
+  border-radius: 5px;
+
+  .image {
+    width: 25%;
+    border: 2px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .info {
+    width: 75%;
+    margin: 2px 2px 2px 2px;
+    border: 2px solid #000;
+    border-radius: 5px;
+  }
+}
+// Ejemplo general para iconos y botones
+.icono, .boton {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  // Nivel base de sombra
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px); // Efecto de "subir" ligeramente el icono o botón
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); // Mayor sombra en hover
+    color: #1976d2; // Cambia el color del icono o botón
+  }
+
+  &:active {
+    transform: translateY(1px); // Efecto al "clickear", simulando presión
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}

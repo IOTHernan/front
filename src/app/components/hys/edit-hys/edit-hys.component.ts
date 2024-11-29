@@ -9,7 +9,7 @@ import { ImageService } from './../../../../app/services/image.service';
 @Component({
   selector: 'app-edit-hys',
   templateUrl: './edit-hys.component.html',
-  styleUrls: ['./edit-hys.component.css'],
+  styleUrls: ['./edit-hys.component.scss'],
 })
 export class EditHysComponent implements OnInit {
   skill: Hys | null = null; // Cambiado de array a un solo objeto

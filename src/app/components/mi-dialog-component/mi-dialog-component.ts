@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
 	selector: 'app-mi-dialog',
 	templateUrl: './../mi-dialog-component/mi-dialog-component.html',
-	styleUrls: ['./../mi-dialog-component/mi-dialog-component.css']
+	styleUrls: ['./../mi-dialog-component/mi-dialog-component.scss']
 })
 export class MiDialogComponent implements OnInit {
 

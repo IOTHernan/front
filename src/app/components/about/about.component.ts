@@ -6,7 +6,7 @@ import { PersonaService } from './../../services/persona.service';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css'],
+  styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
 //   persona: persona = null
@@ -37,5 +37,5 @@ persona: persona = new persona;
       }
     );
   }
-  
+
 }

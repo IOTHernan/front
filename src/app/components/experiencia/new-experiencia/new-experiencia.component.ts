@@ -8,7 +8,7 @@ import { ref, list, getDownloadURL } from '@angular/fire/storage';
 @Component({
 	selector: 'app-new-experiencia',
 	templateUrl: './new-experiencia.component.html',
-	styleUrls: ['./new-experiencia.component.css'],
+	styleUrls: ['./new-experiencia.component.scss'],
 })
 export class NewExperienciaComponent implements OnInit {
 	nombreE = '';

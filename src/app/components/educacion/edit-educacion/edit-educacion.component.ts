@@ -8,7 +8,7 @@ import { Storage, ref, list, getDownloadURL } from '@angular/fire/storage';
 @Component({
   selector: 'app-edit-educacion',
   templateUrl: './edit-educacion.component.html',
-  styleUrls: ['./edit-educacion.component.css'],
+  styleUrls: ['./edit-educacion.component.scss'],
 })
 export class EditEducacionComponent implements OnInit {
   educ: Educacion = new Educacion();
