@@ -15,7 +15,7 @@ export class HysComponent implements OnInit {
 		private skillS: HysService,
 		private tokenService: TokenService
 	) { }
-	isLogged = true;
+	isLogged = false;
 
 	ngOnInit(): void {
 		console.log('HysComponent');
@@ -38,6 +38,12 @@ export class HysComponent implements OnInit {
 		console.log('item');
 		console.log(item);
 	}
+
+/* private deleteTask(task: Task): void {
+	if (confirm('Are you sure you want to delete this item?')) {
+		this.taskService.delete(task.id).subscribe(() => this.refresh$.next(''));
+	}
+} */
 	delete(id: number): void {
 		if (id != undefined) {
 			console.error('ID no válido:', id);

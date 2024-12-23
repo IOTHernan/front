@@ -8,12 +8,17 @@ import { UsersService } from './../../services/users.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  user$ = this.usersService.currentUserProfile$;
+  user$ = this.usersService.user$;
+  isLoggedIn$ = this.usersService.isLoggedIn$;
+    constructor(private authService: AuthService, private usersService: UsersService) {
+      this.user$ = this.usersService.user$;
+      this.isLoggedIn$ = this.usersService.isLoggedIn$;
+}
 
-  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
     console.log('HomeComponent ngOnInit');
     console.log('users:', this.user$);
+    console.log('isLoggedIn:', this.isLoggedIn$);
   }
 }

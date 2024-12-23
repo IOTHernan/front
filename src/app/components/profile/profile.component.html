@@ -4,14 +4,14 @@
 >
   <h1>Update Profile</h1>
   <div class="profile-image">
-    <img width="30" height="30" class="margin-top mat-elevation-z1"
-      [src]="user.photoURL ?? '/assets/images/image-placeholder.png'" alt="Profile image..."
-    />
-    <button mat-mini-fab (click)="inputField.click()">
+    <!-- <img width="30" height="30" class="margin-top mat-elevation-z1" -->
+      <!-- [src]="user.photoURL ?? '/assets/images/image-placeholder.png'" alt="Profile image..." -->
+    <!-- /> -->
+    <!-- <button mat-mini-fab (click)="inputField.click()"> -->
       <mat-icon>edit</mat-icon>
-    </button>
+    <!-- </button> -->
   </div>
-  <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
+  <!-- <input #inputField hidden type="file" (change)="uploadFile($event, user)" /> -->
 
   <form class="margin-top" [formGroup]="profileForm"><!--  (ngSubmit)="saveProfile()" -->
     <div class="row">

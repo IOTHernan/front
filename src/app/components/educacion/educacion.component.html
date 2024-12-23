@@ -1,19 +1,20 @@
+<div class="compo">
 <div class="container" mat-elevation-z5>
 	<div class="header">
-		<h1>Educación</h1>
-		<button type="button" *ngIf="isLogged" class="icono-añadir" routerLink="/new-educacion"
-			title="Agregar Educacion">
+		<h1 class="titulo">Educación</h1>
+		<button mat-raised-button *ngIf="isLogged" class="icono-añadir" routerLink="/new-educacion"
+			matTooltip="Agregar Educacion" matTooltipClass="custom-tooltip" matTooltipPosition="right"><!-- type="button"  -->
 			Agregar Educacion
 		</button>
 	</div>
 	<div *ngFor="let Educacion of educacion; let i = index " [attr.data-index]="i" (click)="selectItem(Educacion);"
 		class="records">
 		<div class="record">
-			<div class="buttons"><!-- *ngIf="isLogged" -->
-				<button class="icono-editar" routerLink="/edit-educacion/{{ Educacion.id }}" title="Editar">
+			<div class="buttons" *ngIf="isLogged"><!--  -->
+				<button mat-raised-button class="icono-editar" routerLink="/edit-educacion/{{ Educacion.id }}" matTooltip="Editar" matTooltipClass="custom-tooltip"  matTooltipPosition="right">
 					<span class="icon">✏️</span>
 				</button>
-				<button class="icono-borrar" (click)="delete(Educacion.id)" title="Borrar">
+				<button mat-raised-button class="icono-borrar" (click)="onDelete(i,$event)" matTooltip="Borrar" matTooltipClass="custom-tooltip"  matTooltipPosition="right">
 					<span class="icon">🗑️</span>
 				</button>
 			</div>
@@ -30,4 +31,5 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>

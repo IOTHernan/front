@@ -11,6 +11,7 @@ import { firstValueFrom } from 'rxjs';
   styleUrls: ['./new-educacion.component.css'],
 })
 export class NewEducacionComponent implements OnInit {
+  id: number = 0;
   nombreE: string = '';
   descripcionE: string = '';
   titulo: string = '';
@@ -30,7 +31,7 @@ export class NewEducacionComponent implements OnInit {
   }
 
   async onCreate(): Promise<void> {
-    const exp = new Educacion(this.nombreE, this.descripcionE, this.titulo, this.periodo, this.img);
+    const exp = new Educacion(this.id, this.nombreE, this.descripcionE, this.titulo, this.periodo, this.img);
     try {
       await firstValueFrom(this.sEducacion.save(exp));
       alert('Educación añadida');

@@ -17,7 +17,7 @@ export class ProyectosComponent implements OnInit {
 		private sToken: TokenService
 	) {	}
 
-	isLogged = true;
+	isLogged = false;
 
 	ngOnInit(): void {
 		console.log("Proyectos component");

@@ -25,13 +25,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 // import { AngularFireModule } from '@angular/fire/compat';
 // import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 // import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-
 import { HotToastModule } from '@ngneat/hot-toast';
-// import { HotToastModule } from '@ngxpert/hot-toast'; // Actualiza esta línea
-// import { provideHotToast } from '@ngxpert/hot-toast';
-// import { ToastrModule } from 'ngx-toastr';  // Importa el módulo de Toastr
-
-
 import { LandingComponent } from './components/landing/landing.component';
 import { ProfileComponent } from './components/profile/profile.component';
 // import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -43,10 +37,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { NgCircleProgressModule } from 'ng-circle-progress';
+
+
+
+
 
 // import { RouterModule } from '@angular/router';
-// import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 // my
@@ -59,10 +57,11 @@ import { HysComponent } from './components/hys/hys.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 // import { MiDialogComponent } from './components/mi-dialog-component/mi-dialog-component';
 import { FooterComponent } from './components/footer/footer.component';
+import { UsersService } from './services/users.service';
 // fire
 // import { MatDialogModule } from '@angular/material/dialog';
 // import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-// import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './components/register/register.component';
 // import { AppCheckModule } from '@angular/fire/app-check';
 
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
@@ -79,11 +78,11 @@ import { NewProjectComponent } from './components/proyectos/new-project/new-proj
 import { EditHysComponent } from './components/hys/edit-hys/edit-hys.component';
 import { NewHysComponent } from './components/hys/new-hys/new-hys.component';
 
+
 // import { interceptorProvider } from './services/interceptor-service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MyFormComponent } from './components/my-form/my-form.component';
-// import { AuthService } from './services/auth.service';
-// import { UsersService } from './services/users.service';
+import { AuthService } from './services/auth.service';
 
 import { MasterComponent } from './components/master/master.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
@@ -127,6 +126,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
   ],
   imports: [
+
     BrowserModule, // Ok
     BrowserAnimationsModule, // Ok
     AppRoutingModule, // Ok
@@ -141,26 +141,32 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     MatButtonModule, // ok
     MatFormFieldModule, // ok
     MatInputModule, // ok
-    MatTableModule, // ok
-    MatIconModule, // ok
-    MatMenuModule, // ok
-    MatDialogModule, // ok
-    MatTooltipModule, // ok
-
+    MatTableModule,
+    MatIconModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatTooltipModule,
 
     // Firebase configuration
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+
+    HotToastModule.forRoot(),
+    // MatErrorModule,
     // AppCheckModule,
-    HotToastModule.forRoot()
-
   ],
-
   providers: [
-    /* AuthService,
-    UsersService */
+    // {
+    // provide: HTTP_INTERCEPTORS
+    // useClass: interceptorProvider,
+    // multi: true
+    // },
+    AuthService,
+    UsersService
+    // provideAnimationsAsync()
+
   ],
   bootstrap: [AppComponent]
 })

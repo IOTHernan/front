@@ -25,18 +25,16 @@ export class BannerComponent implements OnInit {
     if (this.tokenService.getToken()) {
       this.isLogged = true;
       console.log("isLogged = true");
-
     } else {
       this.isLogged = false;
       console.log("isLogged = false");
-
     }
   }
 
   cargarPersona() {
     this.personaService.detail(1).subscribe((data) => {
       this.persona = data;
+      console.log(this.persona);
     });
   }
-
 }

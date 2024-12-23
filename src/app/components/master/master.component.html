@@ -1,7 +1,9 @@
+<!-- <div class="compo"> -->
 <mat-toolbar color="primary" class="navbar" mat-elevation-z5>
 	<div class="container justify-content-center align-items-center">
 		<a href="https://argentinaprograma.inti.gov.ar" target="_blank" rel="noopener" mat-button
-			class="full-width-link" title="Argentina Programa...">
+			class="full-width-link" matTooltip="Argentina Programa..." matTooltipClass="custom-tooltip"
+			matTooltipPosition="right">
 			<img src="./../../../assets/media/logoArgProg.png" alt="AP" class="icon">
 		</a>
 	</div>
@@ -10,43 +12,47 @@
 	</div>
 	<div class="container justify-content-center align-items-center">
 		<div class="container justify-content-center align-items-center shadow">
-			<a mat-button class="full-width-link" href="https://github.com/HCanestraro" target="_blank" rel="noopener"
-				title="Github...">
+			<a mat-raised-button class="full-width-link" href="https://github.com/HCanestraro" target="_blank"
+				rel="noopener" matTooltip="Github..." matTooltipClass="custom-tooltip" matTooltipPosition="right">
 				<img src="./../../../assets/media/chegithub.png" alt="Github" class="icon">
 			</a>
-			<a mat-button class="full-width-link" href="https://facebook.com/hernancanestraro1976" target="_blank" rel="noopener" title="Facebook...">
+			<a mat-raised-button class="full-width-link" href="https://facebook.com/hernancanestraro1976"
+				target="_blank" rel="noopener" matTooltip="Facebook..." matTooltipClass="custom-tooltip"
+				matTooltipPosition="right">
 				<img src="./../../../assets/media/chefacebook.jpg" alt="Facebook" class="icon">
 			</a>
-			<a mat-button class="full-width-link"  href="https://ar.linkedin.com/in/hernan-canestraro-44448435" target="_blank" rel="noopener"
-				title="Linkedin...">
+			<a mat-button class="full-width-link" href="https://ar.linkedin.com/in/hernan-canestraro-44448435"
+				target="_blank" rel="noopener" matTooltip="Linkedin..." matTooltipClass="custom-tooltip"
+				matTooltipPosition="right">
 				<img src="./../../../assets/media/chelinkedin.png" alt="Linkedin" class="icon">
 			</a>
-			<a mat-button class="full-width-link"  href="https://instagram.com/@canestraro-che" target="_blank" rel="noopener"
-				title="Instagram...">
+			<a mat-button class="full-width-link" href="https://instagram.com/@canestraro-che" target="_blank"
+				rel="noopener" matTooltip="Instagram..." matTooltipClass="custom-tooltip" matTooltipPosition="right">
 				<img src="./../../../assets/media/cheinstagram.png" alt="Instagram..." class="icon">
 			</a>
-			<a mat-button class="full-width-link"  href="https://www.twitter.com/@canestraro-che" target="_blank" rel="noopener"
-				title="X - Twitter...">
+			<a mat-button class="full-width-link" href="https://www.twitter.com/@canestraro-che" target="_blank"
+				rel="noopener" matTooltip="X - Twitter..." matTooltipClass="custom-tooltip" matTooltipPosition="right">
 				<img src="./../../../assets/media/chetwitter.png" alt="X - Twitter" class="icon">
 			</a>
-			<a mat-button class="full-width-link"  href="https://www.youtube.com/@HCanestraro" target="_blank" rel="noopener" title="YouTube...">
+			<a mat-button class="full-width-link" href="https://www.youtube.com/@HCanestraro" target="_blank"
+				rel="noopener" matTooltip="YouTube..." matTooltipClass="custom-tooltip" matTooltipPosition="right">
 				<img src="./../../../assets/media/cheyoutube.png" alt="YouTube" class="icon">
 			</a>
-			<a mat-button class="full-width-link"  href="https://sites.google.com/view/HCanestraro" target="_blank" title="Go to Google Sites..."
-				rel="noopener" title="Sites Google...">
+			<a mat-button class="full-width-link" href="https://sites.google.com/view/HCanestraro" target="_blank"
+				title="Go to Google Sites..." rel="noopener" matTooltip="Sites Google..."
+				matTooltipClass="custom-tooltip" matTooltipPosition="right">
 				<img src="./../../../assets/media/chegooglesites.jpeg" alt="Sites Google" class="icon">
 			</a>
 		</div>
 	</div>
-	<!-- <ng-container *ngIf="user$ | async as user; else loginButton"> -->
-	<button mat-button [matMenuTriggerFor]="userMenu">
-		<img width="30" height="30" class="profile-image-toolbar" src='./../assets/media/chedata1foto.png'
-			alt="foto" /><!-- [src]="user.photoURL ?? -->
-		<!-- {{ user.displayName }} -->
-		<!-- {{ user.displayName }} -->
-		<mat-icon>expand_more</mat-icon>
-	</button>
-	<!-- </ng-container> -->
+	<ng-container *ngIf="user$ | async as user; else loginButton">
+		<button mat-button [matMenuTriggerFor]="userMenu">
+			<img width="30" height="30" class="profile-image-toolbar" src='./../assets/media/chedata1foto.png'
+				alt="{{ user.displayName }}" /><!-- [src]="user.photoURL ?? -->
+			<!-- {{ user.displayName }} -->
+			<mat-icon>expand_more</mat-icon>
+		</button>
+	</ng-container>
 	<ng-template #loginButton>
 		<button mat-button routerLink="login">
 			<mat-icon>login</mat-icon>
@@ -54,7 +60,7 @@
 		</button>
 	</ng-template>
 </mat-toolbar>
-
+<!-- </div> -->
 <div class="content">
 	<router-outlet></router-outlet>
 </div>

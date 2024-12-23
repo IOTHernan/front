@@ -2,6 +2,7 @@ import { Educacion } from './../../model/educacion';
 import { Component, OnInit } from '@angular/core';
 import { EducacionService } from './../../services/educacion.service';
 import { TokenService } from './../../services/token.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-educacion',
@@ -10,13 +11,14 @@ import { TokenService } from './../../services/token.service';
 })
 export class EducacionComponent implements OnInit {
   educacion: Educacion[] = [];
+  i!: number;
 
   constructor(
     private sEducacion: EducacionService,
     private sToken: TokenService
   ) { }
 
-  isLogged = true;
+  isLogged = false;
 
   ngOnInit(): void {
     console.log('CargaEducacion');
@@ -27,7 +29,7 @@ export class EducacionComponent implements OnInit {
     } else {
       console.log("token false");
       alert('no logueado');
-      this.isLogged = false;
+      this.isLogged = true;
     }
   }
 
@@ -54,4 +56,35 @@ export class EducacionComponent implements OnInit {
       );
     }
   }
+
+onDelete(i: number, event: Event) {
+			console.log("ondelete",i);
+			this.i = i;
+			// this.modoEdicion = false;
+			event.preventDefault;
+			Swal.fire({
+				title: `¿ELIMINAR EDUCACIÓN ${(this.educacion[i].titulo).toUpperCase()}?`,
+				text: "No podrá revertir los cambios.",
+				icon: 'warning',
+				confirmButtonColor: '#d33',
+				confirmButtonText: 'Si, Eliminar.',
+				showCancelButton: true,
+				cancelButtonText: 'Cancelar',
+				cancelButtonColor: '#00b5ff'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					this.sEducacion.delete(i).subscribe(data => {
+						console.log("Borrando registro", data);
+						this.cargarEducacion();
+					});
+					Swal.fire({
+						title: 'ITEM ELIMINADO',
+						icon: 'success',
+						showConfirmButton: false,
+						timer: 1000
+					})
+				}
+			})
+		}
+
 }

@@ -3,6 +3,7 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from './../../services/auth.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("login component");
+    alert('Login');
 
   }
 
@@ -36,21 +38,26 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
+    console.log('submit:', this.loginForm.value);
+
     const { email, password } = this.loginForm.value;
 
     if (!this.loginForm.valid || !email || !password) {
       return;
     }
 
-    this.authService
-      .login(email, password).pipe(this.toast.observe({
+    const toastRef = this.toast.observe({
           success: 'Logged in successfully',
           loading: 'Logging in...',
           error: ({ message }) => `There was an error: ${message} `,
-        })
-      )
-      .subscribe(() => {
+        });
+
+    const l = this.authService.login(email, password);
+    console.log(l);
+
+    // this.authService.login(email, password).pipe(finalize(() => toastRef.close())).subscribe({
+    // ).subscribe(() => {
         this.router.navigate(['/home']);
-      });
+      // });
   }
 }

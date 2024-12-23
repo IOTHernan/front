@@ -9,15 +9,13 @@ const TOKEN_KEY: string = "auth";
 })
 
 export class AutenticacionService {
-
-	/* 	urlLogin = "https://argentina-programa-portafolio.herokuapp.com/auth/login";
-		urlNuevo = "https://argentina-programa-portafolio.herokuapp.com/auth/nuevo";
+		urlLogin = "http://localhost:8080/";
+		urlNuevo = "http://localhost:8080/";
 		usuario: BehaviorSubject<any>;
-	
-	 */
+
 	constructor(private http: HttpClient) {
 		console.log("El servicio de autenticación está corriendo.");
-		//		this.usuario = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('token') || '{}'));
+		this.usuario = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('token') || '{}'));
 	}
 
 	/* login(credenciales: any): Observable<any> {
@@ -28,7 +26,7 @@ export class AutenticacionService {
 	   this.usuario.next(data);
 	   return data;
 	 }))
-	
+
 } */
 
 	/* register(credenciales: any): Observable<any> {
@@ -48,9 +46,9 @@ export class AutenticacionService {
 		sessionStorage.removeItem('token');
 		console.log("Token removido, desde archivo autentication service", sessionStorage.getItem('token'));
 	}
+
 	iniciarSesion(): void {
 		console.log('[CHE-AutenticacionService]');
-
 		window.sessionStorage.setItem(TOKEN_KEY, "solecita");
 	}
 
@@ -61,5 +59,4 @@ export class AutenticacionService {
 	getToken() {
 		return sessionStorage.getItem(TOKEN_KEY);
 	}
-
 }

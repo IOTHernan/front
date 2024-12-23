@@ -19,7 +19,7 @@ export class UsersService {
 
   }
 
-  /* get currentUserProfile$(): Observable<Users | null> {
+  get currentUserProfile$(): Observable<Users | null> {
     return this.authService.currentUser$.pipe(
       switchMap((user) => {
         if (!user?.uid) {
@@ -30,7 +30,7 @@ export class UsersService {
         return docData(ref) as Observable<Users>;
       })
     );
-  }  */
+  }
   addUser(user: Users): Promise<void> {
     const id = this.firestore.createId();
     return this.usersColeccion.doc(id).set({

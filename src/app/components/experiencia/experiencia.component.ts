@@ -37,7 +37,7 @@ export class ExperienciaComponent implements OnInit {
 			// imagen: new FormControl(['', [Validators.required, Validators.minLength(2)]])
 		})
 	}
-	isLogged = true;
+	isLogged = false;
 
 	ngOnInit(): void {
 		console.log("EXPERIENCIA component");

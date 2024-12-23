@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { AuthService } from './../../services/auth.service';
-// import { UsersService } from './../../services/users.service';
+import { AuthService } from './../../services/auth.service';
+import { UsersService } from './../../services/users.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 @Component({
   selector: 'app-master',
@@ -9,22 +9,25 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   templateUrl: './master.component.html',
   styleUrl: './master.component.scss'
 })
-export class MasterComponent {
-  // user$ = this.usersService.currentUserProfile$;
+export class MasterComponent implements OnInit {
+  // user$ = this.usersService.user$;
+  user$ = this.usersService.currentUserProfile$;
+  isLoggedIn$ = this.usersService.isLoggedIn$;
 
   constructor(
-    // private authService: AuthService,
-    // public usersService: UsersService,
+    private authService: AuthService,
+    public usersService: UsersService,
     private router: Router
   ) {}
 
    ngOnInit() {
-    console.log('MasterComponent...');
+    console.log('MasterComponent...', this.user$, this.isLoggedIn$);
    }
 
    logout() {
-    // this.authService.logout().subscribe(() => {
+    this.authService.logout();
+    this.usersService.user$.subscribe((user) => {
       this.router.navigate(['/']);
-    // });
+    });
   }
 }

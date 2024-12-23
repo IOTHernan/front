@@ -9,38 +9,35 @@ import {
   updateDoc,
 } from '@angular/fire/firestore';
 import { filter, from, map, Observable, of, switchMap } from 'rxjs';
-import { ProfileUser } from './../model/user';
+import { ProfileUser } from '../model/user';
 import { AuthService } from './auth.service';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  private usersColeccion!: AngularFirestoreCollection<ProfileUser>;
-  private users!: Observable<ProfileUser[]>;
-  currentUser$ = "";
-  constructor(private afs: AngularFirestore, private authService: AuthService) {}
+  constructor(private firestore: Firestore, private authService: AuthService) {}
 
-  get currentUserProfile$(): Observable<ProfileUser | null | undefined> {
+  get currentUserProfile$(): Observable<ProfileUser | null> {
     return this.authService.currentUser$.pipe(
       switchMap((user) => {
         if (!user?.uid) {
           return of(null);
         }
-        const userRef: AngularFirestoreDocument<ProfileUser> = this.afs.doc(`users/${user?.uid}`);
-        return userRef.valueChanges();
+
+        const ref = doc(this.firestore, 'users', user?.uid);
+        return docData(ref) as Observable<ProfileUser>;
       })
     );
   }
 
   addUser(user: ProfileUser): Observable<void> {
-    const userRef: AngularFirestoreDocument<ProfileUser> = this.afs.doc(`users/${user.uid}`);
-    return from(userRef.set(user));
+    const ref = doc(this.firestore, 'users', user.uid);
+    return from(setDoc(ref, user));
   }
 
   updateUser(user: ProfileUser): Observable<void> {
-    const userRef: AngularFirestoreDocument<ProfileUser> = this.afs.doc(`users/${user.uid}`);
-    return from(userRef.update({ ...user }));
+    const ref = doc(this.firestore, 'users', user.uid);
+    return from(updateDoc(ref, { ...user }));
   }
 }

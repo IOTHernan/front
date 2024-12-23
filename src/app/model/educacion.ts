@@ -6,8 +6,9 @@ export class Educacion {
 	periodo: string;
 	img: string;
 
-	constructor(nombreE: string = '', descripcionE: string = '', titulo: string = '',
+	constructor(id: number = 0, nombreE: string = '', descripcionE: string = '', titulo: string = '',
 		periodo: string = '', img: string = '') {
+    this.id = id;
 		this.nombreE = nombreE;
 		this.descripcionE = descripcionE;
 		this.titulo = titulo;

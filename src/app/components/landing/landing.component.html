@@ -1,10 +1,13 @@
-<div class="landing">
-	<h4 class="welcome">Bienvenido a la pagina de lanzamiento...</h4>
-	<div class="landing">
-		<p>Has click en Login para loguearte en el sistema...</p>
-		<p>o</p>
-		<button mat-raised-button color="primary" routerLink="/sign-up" title="Nuevo usuario...">!Nuevo
-			Usuario!</button>
-      <button mat-raised-button color="secondary" routerLink="/portfolio" title="Portfolio...">!Ver portfolio!</button>
-	</div>
-</div>
+<!-- <div class="compo"> -->
+  <div class="landing">
+    <h2 class="welcome">Bienvenido a la pagina de lanzamiento...</h2>
+    <div class="landing">
+      <h4>Has click en Login para loguearte en el sistema...</h4>
+      <button mat-raised-button routerLink="/login" matTooltip="/Login" matTooltipClass="custom-tooltip" matTooltipPosition="right">!Login!</button>
+      <p>o</p>
+      <button mat-raised-button color="primary" routerLink="/sign-up" matTooltip="Nuevo usuario..." matTooltipClass="custom-tooltip" matTooltipPosition="right">!Nuevo
+        Usuario!</button>
+      <a mat-raised-button color="secondary" routerLink="/portfolio" matTooltip="Ver portfolio..." matTooltipClass="custom-tooltip" matTooltipPosition="right">!Ver portfolio!</a>
+    </div>
+  </div>
+<!-- </div> -->

@@ -1,34 +1,35 @@
-<div class="container">
-  <div class="header">
-    <h2>Experiencia Laboral</h2>
-    <button type="button" class="icono-añadir" routerLink="/new-experiencia" title="Agregar Experiencia">
-      <!--  *ngIf="isLogged" -->
-      Agregar Experiencia
-    </button>
-  </div>
-  <div *ngFor="let Experiencia of experiencia; let i = index" [attr.data-index]="i" click="selectItem(Experiencia);"
-    class="records">
-    <div class="records">
-      <!-- <div> *ngIf="isLogged" -->
-      <div class="buttons">
-        <button class="icono-editar" routerLink="/edit-experiencia/{{ Experiencia.id }}" title="Editar">
-          <i class="bi bi-pencil"></i>
-        </button>
-        <button class="icono-borrar" (click)="delete(id)" title="Borrar">
-          <i class="bi bi-trash3"></i>
-        </button>
-</div>
-      </div>
-      <div class="contenido">
-        <div class="imagen">
-          <img class="img-fluid logo" src="{{ Experiencia.img }}" alt="img-exp-{{ Experiencia.id }}" />
+<div class="compo">
+  <div class="container" mat-elevation-z5>
+    <div class="header">
+      <h1 class="titulo">Experiencia Laboral</h1>
+      <button mat-raised-button class="icono-añadir" routerLink="/new-experiencia" matTooltip="Agregar Experiencia" matTooltipClass="custom-tooltip" matTooltipPosition="right">
+        <!--  *ngIf="isLogged" -->
+        Agregar Experiencia
+      </button>
+    </div>
+    <div *ngFor="let Experiencia of experiencia; let i = index" [attr.data-index]="i" (click)="selectItem(Experiencia);"
+      class="records">
+      <div class="record">
+        <div class="buttons"><!-- <div> *ngIf="isLogged" -->
+          <button class="icono-editar" routerLink="/edit-experiencia/{{ Experiencia.id }}" matTooltip="Editar" matTooltipClass="custom-tooltip" matTooltipPosition="right">
+            <span class="icon">✏️</span>
+          </button>
+          <button class="icono-borrar" (click)="delete(id)" matTooltip="Borrar" matTooltipClass="custom-tooltip" matTooltipPosition="right">
+            <span class="icon">🗑️</span>
+          </button>
         </div>
-        <div class="informacion">
-          <h2>Empresa: {{ Experiencia.nombreE }}</h2>
-          <h3>Puesto: {{ Experiencia.puesto }}</h3>
-          <h5>Periodo: {{ Experiencia.periodo }}</h5>
-          <p>Actividades: {{ Experiencia.descripcionE }}</p>
+        <div class="details">
+          <div class="image">
+            <img src="{{ Experiencia.img }}" alt="img-exp-{{ Experiencia.id }}" />
+          </div>
+          <div class="info">
+            <h2>🏭  Empresa: {{ Experiencia.nombreE }}</h2>
+            <h3>Puesto: {{ Experiencia.puesto }}</h3>
+            <h5>📅  Periodo: {{ Experiencia.periodo }}</h5>
+            <p>Actividades: {{ Experiencia.descripcionE }}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

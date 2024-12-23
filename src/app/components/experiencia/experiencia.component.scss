@@ -1,4 +1,11 @@
 /* Estilos generales */
+.compo {
+  width: 100%;
+  margin: 2rem 0rem 2rem 0rem;
+  padding: 2rem 2rem 2rem 2rem;
+  background-color: chartreuse;
+}
+
 .container {
   flex-direction: column;
   margin-top: 3px;
@@ -6,11 +13,11 @@
   height: auto;
   margin: 0 auto;
   padding: 20px;
-  border: 2px solid #cccccc27;
-	border-radius: 10px;
-	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
-		-4px -4px 8px rgba(255, 255, 255, 0.6);
-	background-color: #f9f9f955;
+  border: 2px solid #0f020227;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
+    -4px -4px 8px rgba(255, 255, 255, 0.6);
+  background-color: rgb(203 220 225 / 91%);
 }
 
 .header {
@@ -22,6 +29,13 @@
   gap: 20px; // Espacio entre el título y el botón
   border: 2px solid #34e265ad;
   border-radius: 5px;
+
+  titulo {
+    display: flex;
+    padding: 3px 3px 3px 3px;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .records {
@@ -73,14 +87,20 @@
   border-radius: 5px;
 
   .image {
-    width: 25%;
+    width: 22rem;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid #000;
     border-radius: 5px;
     overflow: hidden;
-;
+    margin-left: 3px;
+
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: fill;
     }
   }
 
@@ -91,10 +111,53 @@
     border-radius: 5px;
   }
 }
+
+.icono-anadir {
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  margin: 2px 2px 2px 2px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin-right: 3vw;
+}
+
+.icono-editar,
+.icono-borrar {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:before {
+  box-shadow: 3px 3px 8px rgba(40, 40, 40, 0.3);
+  transform: translateY(+2px);
+  }
+
+  &:after {
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  }
+
+  &:hover {
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  }
+}
+
 // Ejemplo general para iconos y botones
-.icono, .boton {
+.icono,
+.boton {
   transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  // Nivel base de sombra
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // Nivel base de sombra
   cursor: pointer;
 
   &:hover {

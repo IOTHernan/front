@@ -15,7 +15,7 @@ import { UsersService } from './../../services/users.service';
 })
 export class ProfileComponent implements OnInit {
   user$ = this.usersService.currentUserProfile$;
-
+//  user$ = this.usersService.currentUserValue();
   profileForm = this.fb.group({
     uid: [''],
     displayName: [''],
@@ -43,20 +43,21 @@ export class ProfileComponent implements OnInit {
   uploadFile(event: any, { uid }: ProfileUser) {
     this.imageUploadService
       .uploadImage(event.target.files[0], `images/profile/${uid}`)
-      .pipe(
-        this.toast.observe({
-          loading: 'Uploading profile image...',
-          success: 'Image uploaded successfully',
-          error: 'There was an error in uploading the image',
-        }),
-        switchMap((photoURL) =>
-          this.usersService.updateUser({
-            uid,
-            photoURL,
-          })
-        )
-      )
-      .subscribe();
+      // .pipe(
+        // this.toast.observe({
+          // loading: 'Uploading profile image...',
+          // success: 'Image uploaded successfully',
+          // error: 'There was an error in uploading the image',
+        // }),
+        // switchMap((photoURL) =>
+          /* this.usersService.updateUser({ */
+            // this.usersService.currentUserValue();
+            // uid,
+            // photoURL,
+          // })
+        // )
+      // )
+      // .subscribe();
   }
 
   /* saveProfile() {

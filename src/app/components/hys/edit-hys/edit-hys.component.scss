@@ -85,8 +85,8 @@ flex-direction: column;
 
 .imagen img {
   width: 100%;
-  height: auto;
   height: -webkit-fill-available;
+  height: auto;
   margin-top: 20px;
   -webkit-filter: drop-shadow(5px 5px 5px #222);
   filter: drop-shadow(5px 5px 5px #222);
